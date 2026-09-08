@@ -1,0 +1,45 @@
+# ==============================================================================
+# netlify.toml — configuración de despliegue
+#
+# Sitio estático sin paso de build: Netlify publica la carpeta ./public tal cual.
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+# ==============================================================================
+
+[build]
+  publish = "public"
+
+# Para previsualizar en local con `netlify dev`
+[dev]
+  publish = "public"
+  framework = "#static"
+
+
+# ------------------------------------------------------------------------------
+# Cabeceras de seguridad, aplicadas a todas las rutas.
+#
+# La CSP permite recursos propios más Google Fonts. Si añades scripts,
+# tipografías, analítica o iframes externos, hay que ampliarla aquí o el
+# navegador los bloqueará sin avisar (mira la consola del navegador).
+# ------------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; upgrade-insecure-requests"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+
+
+# ------------------------------------------------------------------------------
+# Caché de los estáticos. Una hora: los archivos no llevan hash en el nombre,
+# así que una caché agresiva dejaría el CSS viejo servido tras un despliegue.
+# ------------------------------------------------------------------------------
+[[headers]]
+  for = "/assets/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seguridad — Selvadentro</title>
+<meta name="description" content="Base del sitio del proyecto Seguridad, publicada como sitio estático en Netlify.">
+<meta name="theme-color" content="#080c09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seguridad — Selvadentro">
+<meta property="og:description" content="Base del sitio del proyecto Seguridad, publicada como sitio estático en Netlify.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Archivo:wght@400..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="grid-lines" aria-hidden="true"></div>
+
+<header class="topbar">
+  <span class="topbar__mark">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16 4 27 8v8.4c0 6-4.6 10-11 12.1C9.6 26.4 5 22.4 5 16.4V8l11-4Z"
+            fill="none" stroke="#c9a667" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M16 10.6c4.6 3.1 5 8.2 0 12.2-5-4-4.6-9.1 0-12.2Z" fill="#57a877" opacity=".85"/>
+      <path d="M16 11.4v11.8" stroke="#080c09" stroke-width="1.1" stroke-linecap="round"/>
+    </svg>
+    Seguridad
+  </span>
+  <span class="topbar__repo">selvadentromarketing-vibes/seguridad</span>
+</header>
+
+<main id="contenido">
+
+  <section class="hero">
+    <div class="rail" aria-hidden="true"><span>Tulum · Quintana Roo</span></div>
+
+    <div class="hero__body">
+      <p class="eyebrow reveal d1">Base del sitio · publicado en Netlify</p>
+      <h1 class="reveal d2">Seguridad<span class="stop">.</span></h1>
+      <p class="lead reveal d3">
+        Este es el punto de partida del sitio. Si estás leyendo esto en tu dominio,
+        el repositorio se está publicando correctamente y ya puedes reemplazar el
+        contenido por el definitivo.
+      </p>
+      <p class="status reveal d4"><span class="dot" aria-hidden="true"></span> Despliegue activo</p>
+    </div>
+
+    <svg class="frond" viewBox="0 0 320 640" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+        <path d="M150 615C152 470 168 300 196 26"/>
+        <path d="M196 26C200 18 208 16 214 20"/>
+        <path d="M154 520C102 513 55 497 38 448"/>
+        <path d="M154 520C206 513 253 497 270 448"/>
+        <path d="M159 465C109 459 66 443 49 397"/>
+        <path d="M159 465C209 459 252 443 269 397"/>
+        <path d="M164 410C119 404 79 390 64 348"/>
+        <path d="M164 410C209 404 249 390 264 348"/>
+        <path d="M169 352C129 347 92 334 79 296"/>
+        <path d="M169 352C209 347 246 334 259 296"/>
+        <path d="M175 292C140 287 109 276 97 244"/>
+        <path d="M175 292C210 287 241 276 253 244"/>
+        <path d="M181 230C152 226 127 217 117 190"/>
+        <path d="M181 230C210 226 235 217 245 190"/>
+        <path d="M187 165C165 162 146 155 139 135"/>
+        <path d="M187 165C209 162 228 155 235 135"/>
+        <path d="M192 100C178 98 166 93 160 80"/>
+        <path d="M192 100C206 98 218 93 224 80"/>
+      </g>
+    </svg>
+  </section>
+
+  <section class="sec reveal d5">
+    <div class="sec__head">
+      <span class="sec__num">01</span>
+      <h2 class="sec__title">Siguientes pasos</h2>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <span class="step__n">Paso 01</span>
+        <h3>Reemplazar el contenido</h3>
+        <p>
+          Todo el sitio vive en <code>public/</code>: edita <code>index.html</code>
+          y <code>assets/site.css</code>. No hay paso de build ni dependencias —
+          Netlify publica esa carpeta tal cual.
+        </p>
+      </article>
+
+      <article class="step">
+        <span class="step__n">Paso 02</span>
+        <h3>Conectar el dominio</h3>
+        <p>
+          En Netlify: <span class="ui">Site configuration → Domain management</span>. El
+          certificado TLS se emite y renueva automáticamente una vez que los
+          registros DNS apuntan al sitio.
+        </p>
+      </article>
+
+      <article class="step">
+        <span class="step__n">Paso 03</span>
+        <h3>Ajustar la política</h3>
+        <p>
+          Las cabeceras y la CSP se definen en <code>netlify.toml</code>. Si más
+          adelante añades scripts, tipografías o analítica externa, hay que
+          ampliar la política ahí o el navegador los bloqueará.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec reveal d6">
+    <div class="sec__head">
+      <span class="sec__num">02</span>
+      <h2 class="sec__title">Cabeceras activas</h2>
+    </div>
+    <p class="sec__note">
+      El despliegue sale con estas cabeceras puestas desde <code>netlify.toml</code>.
+      Puedes comprobarlas en vivo con <code>curl -sI https://tu-dominio</code>.
+    </p>
+
+    <dl class="hdrs">
+      <div class="hdr">
+        <dt>Content-Security-Policy</dt>
+        <dd>Restringe de dónde puede cargar el sitio: recursos propios, más Google Fonts para las tipografías.</dd>
+      </div>
+      <div class="hdr">
+        <dt>Strict-Transport-Security</dt>
+        <dd>Obliga a HTTPS durante un año, subdominios incluidos.</dd>
+      </div>
+      <div class="hdr">
+        <dt>X-Frame-Options: DENY</dt>
+        <dd>Impide que el sitio se incruste en un iframe ajeno (clickjacking).</dd>
+      </div>
+      <div class="hdr">
+        <dt>X-Content-Type-Options: nosniff</dt>
+        <dd>El navegador respeta el tipo MIME declarado en lugar de adivinarlo.</dd>
+      </div>
+      <div class="hdr">
+        <dt>Referrer-Policy</dt>
+        <dd>Al salir a otro dominio solo se envía el origen, nunca la ruta completa.</dd>
+      </div>
+      <div class="hdr">
+        <dt>Permissions-Policy</dt>
+        <dd>Niega cámara, micrófono, ubicación y otros permisos que el sitio no necesita.</dd>
+      </div>
+      <div class="hdr">
+        <dt>Cross-Origin-Opener-Policy</dt>
+        <dd>Aísla la ventana de otros orígenes que intenten abrirla o manipularla.</dd>
+      </div>
+    </dl>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>Sitio estático · sin build</span>
+  <span>Carpeta publicada: public/</span>
+  <span>Selvadentro · Tulum</span>
+</footer>
+
+</body>
+</html>

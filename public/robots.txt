@@ -1,0 +1,13 @@
+# seguridad — robots.txt
+
+User-agent: *
+Allow: /
+
+# Mientras el sitio siga en construcción y no quieras que se indexe,
+# comenta las dos líneas de arriba y descomenta estas dos:
+#
+# User-agent: *
+# Disallow: /
+#
+# Cuando el dominio definitivo esté conectado, añade el sitemap:
+# Sitemap: https://tu-dominio/sitemap.xml

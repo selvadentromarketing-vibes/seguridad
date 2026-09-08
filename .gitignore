@@ -1,0 +1,19 @@
+# sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# netlify (estado local de `netlify dev` / `netlify link`)
+.netlify/
+
+# entorno
+.env
+.env.*
+!.env.example
+
+# por si más adelante hay un paso de build
+node_modules/
+dist/
+npm-debug.log*
+yarn-error.log
+*.log
