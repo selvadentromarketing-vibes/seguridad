@@ -6,7 +6,7 @@ window.LP_CONFIG = {
   thanks: "¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.",
   thankYouUrl: "",                   // opcional: redirigir a una página de gracias
   videos: {
-    main: { src: "/video/essence-720.mp4", poster: "/video/essence-poster.jpg" }
+    main: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" }
     // t1: { src: "/video/testimonial-ricardo.mp4" }, t2: {...}, t3: {...}
   }
 };
