@@ -1,0 +1,32 @@
+# Landing Seguridad · Selvadentro Tulum
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+AddType video/mp4 .mp4
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # forzar https
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  <FilesMatch "config\.js$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

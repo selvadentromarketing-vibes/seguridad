@@ -1,45 +1,87 @@
 # ==============================================================================
-# netlify.toml — configuración de despliegue
+# netlify.toml — Landing Seguridad · Selvadentro Tulum
 #
-# Sitio estático sin paso de build: Netlify publica la carpeta ./public tal cual.
-# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+# Sitio estático sin paso de build: Netlify publica ./public tal cual.
+# Estructura: índice interno en /, una landing por variante A/B en
+# /seguridad*/, y assets, video y config.js compartidos en la raíz.
+#
+# `public/.htaccess` es de Apache y Netlify lo ignora; se conserva por si
+# el sitio se sube también a un hosting Apache. Todo lo que hacía está
+# traducido aquí abajo (HTTPS y gzip son automáticos en Netlify).
 # ==============================================================================
 
 [build]
   publish = "public"
 
-# Para previsualizar en local con `netlify dev`
 [dev]
   publish = "public"
   framework = "#static"
 
 
 # ------------------------------------------------------------------------------
-# Cabeceras de seguridad, aplicadas a todas las rutas.
+# Cabeceras de seguridad para todas las rutas.
 #
-# La CSP permite recursos propios más Google Fonts. Si añades scripts,
-# tipografías, analítica o iframes externos, hay que ampliarla aquí o el
-# navegador los bloqueará sin avisar (mira la consola del navegador).
+# Sobre la CSP: las landings llevan su CSS y su JS embebidos en el HTML
+# (un bloque <style>, un bloque <script> y ~250 atributos style=), así que
+# 'unsafe-inline' es obligatorio en script-src y style-src — sin eso las
+# páginas se quedan sin estilos y sin formulario. Aun así la política sigue
+# aportando: bloquea scripts de dominios ajenos y limita connect-src al
+# webhook del CRM, que es por donde salen los datos de los leads.
+#
+# connect-src incluye services.leadconnectorhq.com porque ahí hace POST el
+# formulario. Si cambias de CRM, hay que cambiarlo aquí también.
 # ------------------------------------------------------------------------------
 [[headers]]
   for = "/*"
 
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; upgrade-insecure-requests"
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; media-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://services.leadconnectorhq.com; upgrade-insecure-requests"
+    Strict-Transport-Security = "max-age=31536000"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()"
     Cross-Origin-Opener-Policy = "same-origin"
 
+# ------------------------------------------------------------------------------
+# CUANDO AÑADAS PÍXELES (Google Ads / GA4 / Meta)
+#
+# El JS de las landings ya llama a gtag, fbq y dataLayer si existen, pero la
+# CSP de arriba bloquea sus scripts. Al instalar el tag, sustituye la línea
+# Content-Security-Policy anterior por esta (es la misma más los dominios de
+# Google y Meta), y borra la que ya no uses:
+#
+# Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://www.google.com https://www.google.com.mx https://googleads.g.doubleclick.net https://*.google-analytics.com https://*.googletagmanager.com https://www.facebook.com; media-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://services.leadconnectorhq.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com; upgrade-insecure-requests"
+#
+# Si un píxel no reporta, abre la consola del navegador: la CSP dice
+# exactamente qué directiva bloqueó qué URL.
+# ------------------------------------------------------------------------------
+
 
 # ------------------------------------------------------------------------------
-# Caché de los estáticos. Una hora: los archivos no llevan hash en el nombre,
-# así que una caché agresiva dejaría el CSS viejo servido tras un despliegue.
+# Caché — equivalente a los Expires del .htaccess.
+# Fotos y video un año: son archivos grandes y no cambian.
+#
+# Ojo: si reemplazas una imagen conservando el mismo nombre, quien ya la
+# tenga en caché seguirá viendo la vieja. Para forzar la actualización,
+# súbela con otro nombre (p. ej. cenote-2.jpg) y cambia la referencia.
 # ------------------------------------------------------------------------------
 [[headers]]
   for = "/assets/*"
 
   [headers.values]
-    Cache-Control = "public, max-age=3600, must-revalidate"
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/video/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# config.js sin caché: es el archivo donde se edita el webhook, el número de
+# WhatsApp y los textos, y esos cambios tienen que verse al instante.
+[[headers]]
+  for = "/config.js"
+
+  [headers.values]
+    Cache-Control = "no-cache"
