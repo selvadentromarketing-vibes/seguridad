@@ -35,7 +35,7 @@
   for = "/*"
 
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; media-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://services.leadconnectorhq.com; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://www.google.com https://www.google.com.mx https://googleads.g.doubleclick.net https://*.google-analytics.com https://*.googletagmanager.com https://www.facebook.com https://*.clarity.ms; media-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://connect.facebook.net https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://services.leadconnectorhq.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com https://*.clarity.ms https://c.bing.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com; upgrade-insecure-requests"
     Strict-Transport-Security = "max-age=31536000"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
@@ -44,17 +44,12 @@
     Cross-Origin-Opener-Policy = "same-origin"
 
 # ------------------------------------------------------------------------------
-# CUANDO AÑADAS PÍXELES (Google Ads / GA4 / Meta)
+# La CSP de arriba ya permite Google Analytics 4, Google Ads, el píxel de Meta
+# y Microsoft Clarity. Los identificadores se pegan en public/config.js, no
+# aquí: cada herramienta se carga sola cuando su campo tiene valor.
 #
-# El JS de las landings ya llama a gtag, fbq y dataLayer si existen, pero la
-# CSP de arriba bloquea sus scripts. Al instalar el tag, sustituye la línea
-# Content-Security-Policy anterior por esta (es la misma más los dominios de
-# Google y Meta), y borra la que ya no uses:
-#
-# Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://www.google.com https://www.google.com.mx https://googleads.g.doubleclick.net https://*.google-analytics.com https://*.googletagmanager.com https://www.facebook.com; media-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://services.leadconnectorhq.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com; upgrade-insecure-requests"
-#
-# Si un píxel no reporta, abre la consola del navegador: la CSP dice
-# exactamente qué directiva bloqueó qué URL.
+# Si añades otra herramienta de medición, hay que sumar su dominio aquí o el
+# navegador la bloqueará sin avisar (el motivo sale en la consola).
 # ------------------------------------------------------------------------------
 
 
