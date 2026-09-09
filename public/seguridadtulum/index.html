@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-variant="7a" data-landing="seguridadtulum"><head>
+<html lang="es" data-lang="es" data-variant="7a" data-landing="seguridadtulum"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Selvadentro Tulum · Seguridad en Tulum</title>
@@ -10,6 +10,9 @@
 <meta property="og:image" content="/assets/aerea-dia.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://seguridad.selvadentrotulum.com/seguridadtulum/">
+<link rel="alternate" hreflang="es" href="https://seguridad.selvadentrotulum.com/seguridadtulum/">
+<link rel="alternate" hreflang="en" href="https://seguridad.selvadentrotulum.com/en/seguridadtulum/">
+<link rel="alternate" hreflang="x-default" href="https://seguridad.selvadentrotulum.com/seguridadtulum/">
 <link rel="icon" href="/assets/logo-selvadentro-negro.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -233,7 +236,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="position:relative">
 <img alt="Selva maya en Selvadentro" decoding="async" loading="lazy" src="/assets/f-selvaluz.jpg" style="position:absolute;left:0;top:0;width:100%;height:820px;object-fit:cover;object-position:50% 30%">
 <div style="position:absolute;left:0;top:0;right:0;height:820px;background:linear-gradient(180deg,rgba(20,24,15,.45) 0%,rgba(20,24,15,.2) 18%,rgba(20,24,15,.7) 48%,rgba(20,24,15,.95) 72%,#14180F 100%)"></div>
-<div style="position:relative;padding:20px 18px;display:flex;justify-content:space-between;font:400 10.5px Quicksand,sans-serif;color:rgba(247,244,236,.72)"><span>Selvadentro</span><span style="display:flex;gap:14px">ES · EN <span style="width:26px;height:26px;border-radius:50%;border:1px solid rgba(247,244,236,.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#F7F4EC">☰</span></span></div>
+<div style="position:relative;padding:20px 18px;display:flex;justify-content:space-between;font:400 10.5px Quicksand,sans-serif;color:rgba(247,244,236,.72)"><span>Selvadentro</span><span style="display:flex;gap:14px"><span><b>ES</b> · <a href="/en/seguridadtulum/" style="color:inherit;text-decoration:none">EN</a> </span><span style="width:26px;height:26px;border-radius:50%;border:1px solid rgba(247,244,236,.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:#F7F4EC">☰</span></span></div>
 <div style="position:relative;padding:10px 18px 0"><h1 style="margin: 0; font: 300 48px/1 Quicksand,sans-serif; letter-spacing: -.03em; color: #A3B26A; font-weight: 700">Quedan 8 lotes al precio de hoy</h1></div>
 <div style="position:relative;padding:20px 18px 0"><p style="margin:0 0 18px;font:400 15px/1.6 Quicksand,sans-serif;color:rgba(247,244,236,.86)">Lotes en la selva de Tulum, con título de propiedad privada y fideicomiso para extranjeros.</p>
 <div style="padding-top:16px;border-top:1px solid rgba(247,244,236,.2)"><div style="font:400 9.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.55);margin-bottom:5px">Lotes desde</div><div style="font:300 36px/1 Quicksand,sans-serif;color:rgba(247,244,236,.92);letter-spacing:-.03em">$68,200 <span style="font-size:15px;color:rgba(247,244,236,.6)">USD</span></div><div style="margin-top:7px;font:400 11px Quicksand,sans-serif;color:rgba(247,244,236,.62)">Enganche desde 20% · hasta 48 meses</div></div>
@@ -585,7 +588,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     var p = {
       first_name: parts.shift() || '', last_name: parts.join(' '), full_name: full.trim(),
       email: data.email || '', phone: normalizePhone(data.telefono),
-      source: 'landing-seguridad', landing_name: LANDING, landing_variant: VARIANT, landing_form: source,
+      source: 'landing-seguridad', landing_name: LANDING, landing_variant: VARIANT, landing_form: source, language: 'es',
       page_url: location.href, page_path: location.pathname, submitted_at: new Date().toISOString(),
       tags: ['landing-seguridad', 'landing-' + LANDING, 'variante-' + VARIANT]
     };

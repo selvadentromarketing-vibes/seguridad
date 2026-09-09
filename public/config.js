@@ -8,9 +8,18 @@ window.LP_CONFIG = {
   thanks: "¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.",
   thankYouUrl: "",                   // opcional: redirigir a una página de gracias
 
+  // Versiones en inglés de los dos textos que ve el visitante. Las páginas de
+  // /en/ leen estas y las de español las de arriba.
+  waMessageEn: "Hi, I saw the Selvadentro Tulum page and I would like prices and payment plans.",
+  thanksEn: "Done! We will send you the list of lots and the payment plan within minutes.",
+
   videos: {
-    main: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" }
-    // t1: { src: "/video/testimonial-ricardo.mp4" }, t2: {...}, t3: {...}
+    // OJO: este archivo lleva los subtítulos quemados EN INGLÉS (ya venían así en
+    // el material original). Por eso sirve tal cual para /en/, pero en las páginas
+    // en español el rótulo promete subtítulos en español y no coinciden. Cuando
+    // tengas el corte SLVD_Essence_SubESP, cámbialo solo en "main".
+    main:    { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" },
+    main_en: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" }
   },
 
   /* --- Medición -------------------------------------------------------------
