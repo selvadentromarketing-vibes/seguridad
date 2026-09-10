@@ -26,7 +26,15 @@ window.LP_CONFIG = {
     // pero no para las de /en/. Solo caben sin recorte en cajas verticales: hoy
     // la única es el panel de seguridadjuridica en escritorio (ratio 0.63).
     reel_descriptivo: { src: "/video/reel-descriptivo.mp4", poster: "/video/reel-descriptivo-poster.jpg" },
-    reel_background:  { src: "/video/reel-background.mp4",  poster: "/video/reel-background-poster.jpg" }
+    reel_background:  { src: "/video/reel-background.mp4",  poster: "/video/reel-background-poster.jpg" },
+
+    // REEL SELVA 1: vertical y SIN rótulos quemados, así que vale en español y en
+    // inglés. Va en el panel vertical de seguridadjuridica, el único con esa forma.
+    reel_selva: { src: "/video/reel-selva.mp4", poster: "/video/reel-selva-poster.jpg" },
+
+    // 4.SELVADENTRO SHORT: horizontal 1920x1080 con subtítulos en inglés. Ocupa
+    // las franjas secundarias de seguridadtulum, que antes repetían el Essence.
+    short: { src: "/video/short-1080.mp4", poster: "/video/short-poster.jpg" }
   },
 
   /* --- Medición -------------------------------------------------------------
