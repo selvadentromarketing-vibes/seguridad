@@ -41,6 +41,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 .lp-video-btn:hover{background:rgba(0,0,0,.05)}
 .lp-video-btn span{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .lp-video-btn svg{width:26px;height:26px;margin-left:4px;fill:#1C2717}
+[data-video].lp-playing .lp-video[data-encaje=contain]{object-fit:contain;top:0;height:100%}
 [data-video].lp-playing .lp-video-btn{display:none}
 /* WhatsApp flotante */
 .lp-fab{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(37,211,102,.2);transition:transform .2s}
@@ -128,10 +129,15 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 </div>
 </div>
 <div style="position:relative;padding:46px 30px 0;display:grid;grid-template-columns:1fr 400px;gap:26px;align-items:stretch">
-<div data-video="main" style="position:relative;height:340px;border-radius:2px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+<div style="display:flex;gap:14px;height:269px">
+<div data-video="reel_selva" style="position:relative;box-sizing:border-box;width:151px;flex:none;height:269px;border-radius:2px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:0 10px">
+<span style="width:54px;height:54px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:4px;border:8px solid transparent;border-left:13px solid #F7F4EC"></span></span>
+<span style="font:400 9.5px/1.7 Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.72);text-align:center">El equipo detrás<br>del proyecto<br><span style="letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)">1 min · entrevista</span></span>
+</div>
+<div data-video="main" style="position:relative;flex:1;min-width:0;height:269px;border-radius:2px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
 <span style="width:74px;height:74px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:5px;border:11px solid transparent;border-left:18px solid #F7F4EC"></span></span>
-<span style="font:400 10px Quicksand,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:rgba(247,244,236,.7)">Video · Orea y Sans</span>
-<span style="position:absolute;left:18px;top:16px;font:10px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:rgba(247,244,236,.42)">OREA Y SANS</span>
+<span style="font:400 10px Quicksand,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:rgba(247,244,236,.7)">El proyecto en video</span>
+</div>
 </div>
 <div data-lead-form="" style="background:rgba(20,24,15,.62);backdrop-filter:blur(8px);border:1px solid rgba(247,244,236,.22);border-radius:2px;padding:26px 26px 24px;display:flex;flex-direction:column">
 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px"><span style="font:300 24px Quicksand,sans-serif;color:#F7F4EC;letter-spacing:-.01em">Precios y plan de pagos</span><span style="font:400 9.5px Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#CF8543">Paso 1 de 2</span></div>
@@ -194,7 +200,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <p style="margin:0 0 22px;font:400 12px/1.8 Quicksand,sans-serif;color:rgba(247,244,236,.72)">Cada lote se integra al entorno existente en lugar de desmontarlo. La densidad baja mantiene el dosel, los senderos siguen el trazo natural y los cenotes quedan dentro de áreas protegidas del proyecto.</p>
 <div data-video="short" style="position:relative;height:180px;border:1px solid rgba(247,244,236,.22);border-radius:2px;display:flex;align-items:center;gap:16px;padding:0 22px">
 <span style="width:44px;height:44px;flex:none;border-radius:50%;border:1px solid rgba(247,244,236,.55);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:3px;border:7px solid transparent;border-left:11px solid #F7F4EC"></span></span>
-<span style="font:400 12px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.78)">Video · Orea y Sans<br><span style="color:rgba(247,244,236,.45)">1 min · subtítulos en español</span></span>
+<span style="font:400 12px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.78)">Selvadentro en video<br><span style="color:rgba(247,244,236,.45)">1 min · subtítulos en inglés</span></span>
 </div>
 </div>
 </div>
@@ -242,9 +248,13 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="padding-top:16px;border-top:1px solid rgba(247,244,236,.2)"><div style="font:400 9.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.55);margin-bottom:5px">Lotes desde</div><div style="font:300 36px/1 Quicksand,sans-serif;color:rgba(247,244,236,.92);letter-spacing:-.03em">$68,200 <span style="font-size:15px;color:rgba(247,244,236,.6)">USD</span></div><div style="margin-top:7px;font:400 11px Quicksand,sans-serif;color:rgba(247,244,236,.62)">Enganche desde 20% · hasta 48 meses</div></div>
 </div>
 <div style="position:relative;padding:24px 18px 0">
-<div data-video="main" style="position:relative;height:210px;border-radius:2px;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
+<div data-video="reel_selva" style="position:relative;box-sizing:border-box;width:320px;max-width:100%;margin:0 auto 14px;height:569px;border-radius:2px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
+<span style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:5px;border:10px solid transparent;border-left:16px solid #F7F4EC"></span></span>
+<span style="font:400 10.5px/1.7 Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.72);text-align:center">El equipo detrás<br>del proyecto<br><span style="letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)">1 min · entrevista</span></span>
+</div>
+<div data-video="main" style="position:relative;height:179px;border-radius:2px;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
 <span style="width:60px;height:60px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:4px;border:9px solid transparent;border-left:15px solid #F7F4EC"></span></span>
-<span style="font:400 9.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.7)">Video · Orea y Sans</span>
+<span style="font:400 9.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.7)">El proyecto en video</span>
 </div>
 </div>
 <div style="position:relative;padding:16px 18px 0">
@@ -282,7 +292,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <h2 style="margin:0 0 20px;font:300 38px/1.08 Quicksand,sans-serif;color:rgba(247,244,236,.9);letter-spacing:-.03em">La selva viene de origen</h2>
 <div style="height:230px;border-radius:2px;overflow:hidden;margin-bottom:18px"><img alt="Fauna endémica en Selvadentro" decoding="async" loading="lazy" src="/assets/f-ave.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block"></div>
 <p style="margin:0 0 16px;font:400 11.5px/1.8 Quicksand,sans-serif;color:rgba(247,244,236,.72)">Cada lote se integra al entorno existente en lugar de desmontarlo. La densidad baja mantiene el dosel y los cenotes quedan dentro de áreas protegidas del proyecto.</p>
-<div data-video="short" style="height:130px;border:1px solid rgba(247,244,236,.22);border-radius:2px;display:flex;align-items:center;gap:14px;padding:0 18px"><span style="width:40px;height:40px;flex:none;border-radius:50%;border:1px solid rgba(247,244,236,.55);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:3px;border:6px solid transparent;border-left:10px solid #F7F4EC"></span></span><span style="font:400 11px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.78)">Video · Orea y Sans<br><span style="color:rgba(247,244,236,.45)">1 min · subtítulos en español</span></span></div>
+<div data-video="short" style="position:relative;height:130px;border:1px solid rgba(247,244,236,.22);border-radius:2px;display:flex;align-items:center;gap:14px;padding:0 18px"><span style="width:40px;height:40px;flex:none;border-radius:50%;border:1px solid rgba(247,244,236,.55);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:3px;border:6px solid transparent;border-left:10px solid #F7F4EC"></span></span><span style="font:400 11px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.78)">Selvadentro en video<br><span style="color:rgba(247,244,236,.45)">1 min · subtítulos en inglés</span></span></div>
 </div>
 
 <div data-lead-form="" style="position:relative;padding:44px 18px 0">
@@ -681,6 +691,23 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     box.classList.add('lp-has-video');
     var v = document.createElement('video');
     v.className = 'lp-video'; v.src = src.src || src; v.playsInline = true; v.preload = 'metadata'; v.controls = false;
+    // Los cortes de la pelicula llevan barras negras quemadas en el archivo (5% arriba
+    // y 5% abajo). Con src.recorte se agranda el <video> justo lo necesario para que esas
+    // barras queden fuera de la caja: no hay que reexportar el video.
+    if (src.recorte) {
+      var fr = src.recorte, esc = 1 - 2 * fr;
+      v.style.height = (100 / esc) + '%';
+      v.style.top = (-100 * fr / esc) + '%';
+      v.style.bottom = 'auto';
+    }
+    // Si la caja y el video no tienen la misma forma, al reproducir se muestra el cuadro
+    // completo en vez de recortarlo: asi no se corta ni una cabeza ni un subtitulo.
+    v.addEventListener('loadedmetadata', function () {
+      if (!v.videoWidth) return;
+      var rv = v.videoWidth / (v.videoHeight * (1 - 2 * (src.recorte || 0)));
+      var rc = box.clientWidth / box.clientHeight;
+      if (Math.abs(rc - rv) / rv > 0.12) v.dataset.encaje = 'contain';
+    });
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
     btn.className = 'lp-video-btn'; btn.innerHTML = '<span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';

@@ -41,6 +41,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 .lp-video-btn:hover{background:rgba(0,0,0,.05)}
 .lp-video-btn span{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .lp-video-btn svg{width:26px;height:26px;margin-left:4px;fill:#1C2717}
+[data-video].lp-playing .lp-video[data-encaje=contain]{object-fit:contain;top:0;height:100%}
 [data-video].lp-playing .lp-video-btn{display:none}
 /* WhatsApp flotante */
 .lp-fab{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(37,211,102,.2);transition:transform .2s}
@@ -502,6 +503,23 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     box.classList.add('lp-has-video');
     var v = document.createElement('video');
     v.className = 'lp-video'; v.src = src.src || src; v.playsInline = true; v.preload = 'metadata'; v.controls = false;
+    // Los cortes de la pelicula llevan barras negras quemadas en el archivo (5% arriba
+    // y 5% abajo). Con src.recorte se agranda el <video> justo lo necesario para que esas
+    // barras queden fuera de la caja: no hay que reexportar el video.
+    if (src.recorte) {
+      var fr = src.recorte, esc = 1 - 2 * fr;
+      v.style.height = (100 / esc) + '%';
+      v.style.top = (-100 * fr / esc) + '%';
+      v.style.bottom = 'auto';
+    }
+    // Si la caja y el video no tienen la misma forma, al reproducir se muestra el cuadro
+    // completo en vez de recortarlo: asi no se corta ni una cabeza ni un subtitulo.
+    v.addEventListener('loadedmetadata', function () {
+      if (!v.videoWidth) return;
+      var rv = v.videoWidth / (v.videoHeight * (1 - 2 * (src.recorte || 0)));
+      var rc = box.clientWidth / box.clientHeight;
+      if (Math.abs(rc - rv) / rv > 0.12) v.dataset.encaje = 'contain';
+    });
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
     btn.className = 'lp-video-btn'; btn.innerHTML = '<span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';

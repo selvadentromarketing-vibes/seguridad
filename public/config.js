@@ -13,13 +13,16 @@ window.LP_CONFIG = {
   waMessageEn: "Hi, I saw the Selvadentro Tulum page and I would like prices and payment plans.",
   thanksEn: "Done! We will send you the list of lots and the payment plan within minutes.",
 
+  // "recorte" = fraccion de alto que ocupa la barra negra quemada en el archivo
+  // (essence y short son 1920x1080 con 54px de barra arriba y abajo: 54/1080 = 0.05).
+  // La pagina agranda el video lo justo para dejarlas fuera de la caja.
   videos: {
     // OJO: este archivo lleva los subtítulos quemados EN INGLÉS (ya venían así en
     // el material original). Por eso sirve tal cual para /en/, pero en las páginas
     // en español el rótulo promete subtítulos en español y no coinciden. Cuando
     // tengas el corte SLVD_Essence_SubESP, cámbialo solo en "main".
-    main:    { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" },
-    main_en: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" },
+    main:    { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg", recorte: 0.05 },
+    main_en: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg", recorte: 0.05 },
 
     // Reels verticales 9:16. Llevan rótulos quemados EN ESPAÑOL ("9 cenotes
     // naturales", "103 hectáreas"), así que sirven para las páginas en español
@@ -34,7 +37,7 @@ window.LP_CONFIG = {
 
     // 4.SELVADENTRO SHORT: horizontal 1920x1080 con subtítulos en inglés. Ocupa
     // las franjas secundarias de seguridadtulum, que antes repetían el Essence.
-    short: { src: "/video/short-1080.mp4", poster: "/video/short-poster.jpg" }
+    short: { src: "/video/short-1080.mp4", poster: "/video/short-poster.jpg", recorte: 0.05 }
   },
 
   /* --- Medición -------------------------------------------------------------
