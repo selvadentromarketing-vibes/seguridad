@@ -268,12 +268,22 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
   var DESKTOP_W = 1182, MOBILE_W = 392;
 
   /* ---------- Escalado: el diseño es de ancho fijo, se ajusta al viewport ---------- */
+  // Ancho realmente disponible: el del contenedor de la página. En una página
+  // completa coincide con la ventana; si el bloque va pegado dentro de otra
+  // página (una columna, un iframe), es el de ese hueco, no el de la ventana.
+  function anchoDisponible() {
+    var wrap = document.querySelector('.lp-wrap');
+    var w = wrap ? wrap.getBoundingClientRect().width : 0;
+    return (w > 100) ? w : document.documentElement.clientWidth;
+  }
   function fit() {
-    var vw = document.documentElement.clientWidth;
+    var vw = anchoDisponible();
     var isMobile = vw < 768;
     var card = document.querySelector(isMobile ? '.lp-mobile' : '.lp-desktop');
     var other = document.querySelector(isMobile ? '.lp-desktop' : '.lp-mobile');
     if (!card) return;
+    // la capa se decide por el ancho disponible, no por la media query de la ventana
+    card.style.display = 'block'; if (other) other.style.display = 'none';
     var base = isMobile ? MOBILE_W : DESKTOP_W;
     var z = vw / base;
     if (!isMobile && z > 1.35) z = 1.35;            // no agrandar de más en pantallas enormes
@@ -288,6 +298,8 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     if (other) { other.style.zoom = ''; }
   }
   window.addEventListener('resize', fit);
+  // si el hueco cambia de tamaño sin que cambie la ventana (maquetadores, iframes)
+  if (window.ResizeObserver) { var wrapEl = document.querySelector('.lp-wrap'); if (wrapEl) new ResizeObserver(fit).observe(wrapEl); }
   window.addEventListener('orientationchange', fit);
 
   /* ---------- UTMs y contexto ---------- */
@@ -587,7 +599,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     var a = ev.target.closest('a[href="#form"]');
     if (!a) return;
     ev.preventDefault();
-    var visible = document.querySelector(document.documentElement.clientWidth < 768 ? '.lp-mobile' : '.lp-desktop');
+    var visible = document.querySelector(anchoDisponible() < 768 ? '.lp-mobile' : '.lp-desktop');
     var f = visible && visible.querySelector('[data-lead-form]');
     if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' }); else openModal('open');
   });
