@@ -1,0 +1,34 @@
+VERSIÓN "PARA PEGAR" DE LAS LANDINGS
+=====================================
+
+Cada archivo de esta carpeta es una landing completa que funciona SUELTA, sin
+carpeta de fotos ni de videos al lado: todo apunta a un CDN público (jsDelivr,
+sirviendo los archivos del repositorio de GitHub) y el CSS y las fuentes van
+dentro del propio archivo.
+
+Cómo usarla
+-----------
+A) Subida a un hosting (GoDaddy, cPanel, lo que sea): sube el archivo tal cual
+   como index.html de ese dominio. Listo.
+
+B) Pegada en un bloque "HTML" de un maquetador: copia desde
+   <!-- EMPIEZA EL BLOQUE PARA PEGAR --> hasta <!-- TERMINA EL BLOQUE PARA PEGAR -->
+   y pégalo. El bloque debe ocupar TODO el ancho de la página (no una columna) y
+   el maquetador tiene que permitir <script>: los videos, el formulario y el
+   encuadre dependen del JavaScript. Sin script, no hay página.
+
+Qué pasa con cada cosa
+----------------------
+- Fotos y videos: vienen del CDN, no hace falta subir nada más.
+- Formulario: manda al CRM directamente (webhook en la config, dentro del archivo).
+- Enlace ES · EN: apunta a https://seguridad.selvadentrotulum.com/... (el dominio
+  final). Hasta que ese dominio esté publicado, dará error.
+- La película "Essence" va en 720p en esta versión (el CDN no sirve archivos de
+  más de 20 MB). En Netlify va en 1080p.
+
+Cuando el sitio esté en Netlify
+-------------------------------
+Ya no hace falta esta versión. Si aun así quieres seguir usándola, cambia en cada
+archivo el prefijo del CDN por el dominio:
+  buscar:   https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@da7a9a9b4d8ff1bceda27092165dc2b9528856b5/public
+  poner:    https://seguridad.selvadentrotulum.com
