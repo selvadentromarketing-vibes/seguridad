@@ -1,0 +1,47 @@
+FRAGMENTOS PARA GOHIGHLEVEL (elemento "Custom HTML/JavaScript")
+===============================================================
+
+Cada archivo *.embed.html es UNA landing completa convertida en fragmento:
+un solo <div id="sd-landing"> con su <style> al principio y su <script> al
+final. No lleva <html>, <head> ni <body>: se pega tal cual en el elemento
+Custom HTML/JavaScript del builder (o en cualquier bloque HTML de otro CMS).
+
+  landing-3a.embed.html            = seguridadselva (variante 3a), el que pediste
+  seguridad<nombre>.embed.html     las 7 en español
+  en-seguridad<nombre>.embed.html  las 7 en inglés
+
+Qué cumple
+----------
+- Todo el CSS va prefijado con #sd-landing y trae un reset local: no depende
+  del reset del builder ni de sus estilos de etiqueta (p, h1, input, button,
+  img, a...). !important solo en lo que los builders suelen pisar: width,
+  max-width, padding, font-family, color, background (y box-sizing, porque
+  un *{box-sizing:border-box} global rompería el diseño).
+- Fuentes por @import de Google Fonts dentro del <style>, con fallback.
+- Variables CSS definidas en #sd-landing, no en :root.
+- Fotos, videos y posters con URL absoluta https:// al CDN (listado al final
+  de cada archivo). La película Essence va en 720p (el CDN limita a 20 MB).
+- Un solo <script> al final: espera a DOMContentLoaded (o arranca al momento
+  si el builder inserta el bloque con la página ya cargada). Sin librerías.
+- Formulario: envía por fetch al webhook de LeadConnector/GHL que ya está en
+  la config, con first_name, last_name, email, phone, source, utm_*, etc.
+  Si prefieres el formulario nativo de GHL, sustituye el bloque
+  <div data-lead-form ...>...</div> por el iframe del embed de tu formulario.
+- Al final del <style>: #sd-landing ocupa 100vw (margin-left: calc(50% - 50vw))
+  y se ocultan cabecera y pie del builder si existen. Quita esas líneas si no
+  las quieres.
+
+Cómo pegarlo
+------------
+1. Abre el archivo, selecciona TODO (desde <!-- ... --> hasta el último -->)
+   y pégalo en el elemento Custom HTML/JavaScript.
+2. El elemento debe ir en una sección/columna a todo el ancho, sin otros
+   elementos en la misma fila.
+3. El builder tiene que ejecutar <script>. Sin JavaScript no hay videos, ni
+   formulario, ni encuadre.
+
+Cuando el sitio esté en Netlify
+-------------------------------
+Los assets pueden servirse desde tu dominio cambiando el prefijo del CDN
+(está en el listado al final de cada archivo) por
+https://seguridad.selvadentrotulum.com

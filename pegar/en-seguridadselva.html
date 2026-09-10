@@ -14,7 +14,78 @@
 <link rel="alternate" hreflang="en" href="https://seguridad.selvadentrotulum.com/en/seguridadselva/">
 <link rel="alternate" hreflang="x-default" href="https://seguridad.selvadentrotulum.com/seguridadselva/">
 <link rel="icon" href="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@da7a9a9b4d8ff1bceda27092165dc2b9528856b5/public/assets/logo-selvadentro-negro.png">
-<script>
+</head>
+<body>
+<!-- ===== EMPIEZA EL BLOQUE PARA PEGAR ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=Poppins:wght@400;500;600&amp;family=Lora:ital,wght@0,500;0,600;1,500;1,600&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--lp-bg:#14180F}
+html,body{margin:0;padding:0}
+body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.lp-wrap{position:relative;width:100%;overflow:hidden}
+.lp-card{position:relative;margin:0 auto;transform-origin:top left}
+.lp-desktop{display:block}
+.lp-mobile{display:none}
+@media (max-width:767px){.lp-desktop{display:none}.lp-mobile{display:block}}
+.lp-in::placeholder{color:var(--ph,inherit);opacity:1}
+.lp-in:focus{border-color:#CF8543 !important}
+.lp-in.lp-err{border-color:#e0674a !important}
+[data-cta],[data-chip],[data-wa]{-webkit-tap-highlight-color:transparent}
+[data-cta]:active,[data-chip]:active{transform:translateY(1px)}
+/* video incrustado en placeholders */
+[data-video]{cursor:pointer}
+[data-video].lp-has-video>*:not(.lp-video):not(.lp-video-btn){opacity:0;pointer-events:none;transition:opacity .3s}
+[data-video].lp-playing>*:not(.lp-video):not(.lp-video-btn){display:none}
+.lp-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:#000}
+.lp-video-btn{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.18);transition:background .25s}
+.lp-video-btn:hover{background:rgba(0,0,0,.05)}
+.lp-video-btn span{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.lp-video-btn svg{width:26px;height:26px;margin-left:4px;fill:#1C2717}
+[data-video].lp-playing .lp-video[data-encaje=contain]{object-fit:contain;top:0;height:100%}
+[data-video].lp-playing .lp-video-btn{display:none}
+/* WhatsApp flotante */
+.lp-fab{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(37,211,102,.2);transition:transform .2s}
+.lp-fab:hover{transform:scale(1.06)}
+.lp-fab svg{width:32px;height:32px;fill:#fff}
+@media (max-width:767px){.lp-fab{display:none}}
+/* Modal de lead */
+.lp-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,12,6,.72);backdrop-filter:blur(6px)}
+.lp-modal.on{display:flex}
+.lp-modal-box{width:100%;max-width:440px;background:#1C2717;color:#F3EFE4;border:1px solid rgba(243,239,228,.14);border-radius:6px;padding:30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.5);font-family:Quicksand,sans-serif;position:relative}
+.lp-modal-x{position:absolute;top:10px;right:12px;background:none;border:0;color:rgba(243,239,228,.6);font-size:22px;cursor:pointer;line-height:1}
+.lp-modal-k{font:600 10px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#CF8543;margin-bottom:8px}
+.lp-modal h3{margin:0 0 6px;font:500 24px/1.2 Quicksand,sans-serif}
+.lp-modal p{margin:0 0 18px;font:400 13px/1.6 Quicksand,sans-serif;color:rgba(243,239,228,.7)}
+.lp-modal label{display:block;font:600 9.5px Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(243,239,228,.55);margin:14px 0 6px}
+.lp-modal input{display:block;width:100%;box-sizing:border-box;background:transparent;border:0;border-bottom:1px solid rgba(243,239,228,.3);color:#F3EFE4;font:400 15px Quicksand,sans-serif;padding:6px 0 10px;outline:none}
+.lp-modal input:focus{border-color:#CF8543}
+.lp-modal input.lp-err{border-color:#e0674a}
+.lp-modal .lp-btn{margin-top:22px;width:100%;min-height:50px;border:0;border-radius:999px;background:#CF8543;color:#FFFDF8;font:700 14.5px Quicksand,sans-serif;cursor:pointer}
+.lp-modal .lp-btn:hover{background:#B8743A}
+.lp-modal .lp-alt{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;font:600 12.5px Quicksand,sans-serif;color:#7FD39A;text-decoration:none}
+.lp-modal .lp-fine{margin:14px 0 0;text-align:center;font:400 10.5px/1.6 Quicksand,sans-serif;color:rgba(243,239,228,.5)}
+/* Estado enviado dentro de formularios inline */
+[data-lead-form].lp-sent{position:relative}
+[data-lead-form].lp-sent>*{visibility:hidden}
+[data-lead-form].lp-sent::after{content:attr(data-thanks);visibility:visible;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font:500 18px/1.4 Quicksand,sans-serif;color:inherit;white-space:pre-line}
+[data-cta].lp-busy{opacity:.6;pointer-events:none}
+.lp-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:120;background:#1C2717;color:#F3EFE4;border:1px solid rgba(243,239,228,.2);padding:12px 18px;border-radius:6px;font:500 13px Quicksand,sans-serif;display:none}
+.lp-toast.on{display:block}
+
+.hv1:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv2:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv3:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv4:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv5:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv6:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv7:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv8:hover{border-color:#CF8543;transform:translateY(-1px)}
+.hv9:hover{border-color:#CF8543;transform:translateY(-1px)}
+.lp-wrap{margin:0;padding:0;background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+</style>
+<script data-lp-config>
 /* ============================================================================
    Configuración compartida de los landings — editar aquí, no en cada página
    ============================================================================ */
@@ -190,77 +261,6 @@ window.LP_CONFIG = {
   });
 })();
 </script>
-</head>
-<body>
-<!-- ===== EMPIEZA EL BLOQUE PARA PEGAR (todo hasta <!-- ===== TERMINA EL BLOQUE PARA PEGAR ===== -->
-</body>) ===== -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=Poppins:wght@400;500;600&amp;family=Lora:ital,wght@0,500;0,600;1,500;1,600&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
-:root{--lp-bg:#14180F}
-html,body{margin:0;padding:0}
-body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.lp-wrap{position:relative;width:100%;overflow:hidden}
-.lp-card{position:relative;margin:0 auto;transform-origin:top left}
-.lp-desktop{display:block}
-.lp-mobile{display:none}
-@media (max-width:767px){.lp-desktop{display:none}.lp-mobile{display:block}}
-.lp-in::placeholder{color:var(--ph,inherit);opacity:1}
-.lp-in:focus{border-color:#CF8543 !important}
-.lp-in.lp-err{border-color:#e0674a !important}
-[data-cta],[data-chip],[data-wa]{-webkit-tap-highlight-color:transparent}
-[data-cta]:active,[data-chip]:active{transform:translateY(1px)}
-/* video incrustado en placeholders */
-[data-video]{cursor:pointer}
-[data-video].lp-has-video>*:not(.lp-video):not(.lp-video-btn){opacity:0;pointer-events:none;transition:opacity .3s}
-[data-video].lp-playing>*:not(.lp-video):not(.lp-video-btn){display:none}
-.lp-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:#000}
-.lp-video-btn{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.18);transition:background .25s}
-.lp-video-btn:hover{background:rgba(0,0,0,.05)}
-.lp-video-btn span{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.lp-video-btn svg{width:26px;height:26px;margin-left:4px;fill:#1C2717}
-[data-video].lp-playing .lp-video[data-encaje=contain]{object-fit:contain;top:0;height:100%}
-[data-video].lp-playing .lp-video-btn{display:none}
-/* WhatsApp flotante */
-.lp-fab{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(37,211,102,.2);transition:transform .2s}
-.lp-fab:hover{transform:scale(1.06)}
-.lp-fab svg{width:32px;height:32px;fill:#fff}
-@media (max-width:767px){.lp-fab{display:none}}
-/* Modal de lead */
-.lp-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,12,6,.72);backdrop-filter:blur(6px)}
-.lp-modal.on{display:flex}
-.lp-modal-box{width:100%;max-width:440px;background:#1C2717;color:#F3EFE4;border:1px solid rgba(243,239,228,.14);border-radius:6px;padding:30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.5);font-family:Quicksand,sans-serif;position:relative}
-.lp-modal-x{position:absolute;top:10px;right:12px;background:none;border:0;color:rgba(243,239,228,.6);font-size:22px;cursor:pointer;line-height:1}
-.lp-modal-k{font:600 10px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#CF8543;margin-bottom:8px}
-.lp-modal h3{margin:0 0 6px;font:500 24px/1.2 Quicksand,sans-serif}
-.lp-modal p{margin:0 0 18px;font:400 13px/1.6 Quicksand,sans-serif;color:rgba(243,239,228,.7)}
-.lp-modal label{display:block;font:600 9.5px Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(243,239,228,.55);margin:14px 0 6px}
-.lp-modal input{display:block;width:100%;box-sizing:border-box;background:transparent;border:0;border-bottom:1px solid rgba(243,239,228,.3);color:#F3EFE4;font:400 15px Quicksand,sans-serif;padding:6px 0 10px;outline:none}
-.lp-modal input:focus{border-color:#CF8543}
-.lp-modal input.lp-err{border-color:#e0674a}
-.lp-modal .lp-btn{margin-top:22px;width:100%;min-height:50px;border:0;border-radius:999px;background:#CF8543;color:#FFFDF8;font:700 14.5px Quicksand,sans-serif;cursor:pointer}
-.lp-modal .lp-btn:hover{background:#B8743A}
-.lp-modal .lp-alt{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;font:600 12.5px Quicksand,sans-serif;color:#7FD39A;text-decoration:none}
-.lp-modal .lp-fine{margin:14px 0 0;text-align:center;font:400 10.5px/1.6 Quicksand,sans-serif;color:rgba(243,239,228,.5)}
-/* Estado enviado dentro de formularios inline */
-[data-lead-form].lp-sent{position:relative}
-[data-lead-form].lp-sent>*{visibility:hidden}
-[data-lead-form].lp-sent::after{content:attr(data-thanks);visibility:visible;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font:500 18px/1.4 Quicksand,sans-serif;color:inherit;white-space:pre-line}
-[data-cta].lp-busy{opacity:.6;pointer-events:none}
-.lp-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:120;background:#1C2717;color:#F3EFE4;border:1px solid rgba(243,239,228,.2);padding:12px 18px;border-radius:6px;font:500 13px Quicksand,sans-serif;display:none}
-.lp-toast.on{display:block}
-
-.hv1:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv2:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv3:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv4:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv5:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv6:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv7:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv8:hover{border-color:#CF8543;transform:translateY(-1px)}
-.hv9:hover{border-color:#CF8543;transform:translateY(-1px)}
-</style>
 
 <div class="lp-wrap">
 <div class="lp-card lp-desktop" style="width:1182px">
@@ -790,4 +790,5 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 </script>
 
 
+<!-- ===== TERMINA EL BLOQUE PARA PEGAR ===== -->
 </body></html>
