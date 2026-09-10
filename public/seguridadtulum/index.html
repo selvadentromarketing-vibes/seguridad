@@ -115,6 +115,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="position:absolute;left:0;top:0;right:0;height:1180px;background:linear-gradient(180deg,rgba(20,24,15,.42) 0%,rgba(20,24,15,.2) 22%,rgba(20,24,15,.62) 52%,rgba(20,24,15,.93) 78%,#14180F 100%)"></div>
 <div style="position:relative;padding:26px 30px;display:flex;justify-content:space-between;font:400 11px/1.9 Quicksand,sans-serif;color:rgba(247,244,236,.72)">
 <span>Selvadentro</span>
+<span style="letter-spacing:.16em;font-weight:600"><b style="color:#F7F4EC">ES</b> · <a href="/en/seguridadtulum/" style="color:inherit;text-decoration:none">EN</a></span>
 <span style="text-align:right">Contacto<br>Master plan<br>Galería</span>
 </div>
 <div style="position:relative;padding:14px 30px 0">
@@ -698,7 +699,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       if (!v.videoWidth) return;
       var rv = v.videoWidth / (v.videoHeight * (1 - 2 * (src.recorte || 0)));
       var rc = box.clientWidth / box.clientHeight;
-      if (Math.abs(rc - rv) / rv > 0.12) v.dataset.encaje = 'contain';
+      if (Math.abs(rc - rv) / rv > 0.08) v.dataset.encaje = 'contain';
     });
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');

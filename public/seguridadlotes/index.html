@@ -673,7 +673,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       if (!v.videoWidth) return;
       var rv = v.videoWidth / (v.videoHeight * (1 - 2 * (src.recorte || 0)));
       var rc = box.clientWidth / box.clientHeight;
-      if (Math.abs(rc - rv) / rv > 0.12) v.dataset.encaje = 'contain';
+      if (Math.abs(rc - rv) / rv > 0.08) v.dataset.encaje = 'contain';
     });
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
