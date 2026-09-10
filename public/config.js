@@ -10,8 +10,8 @@ window.LP_CONFIG = {
 
   // Versiones en inglés de los dos textos que ve el visitante. Las páginas de
   // /en/ leen estas y las de español las de arriba.
-  waMessageEn: "Hi, I saw the Selvadentro Tulum page and I would like prices and payment plans.",
-  thanksEn: "Done! We will send you the list of lots and the payment plan within minutes.",
+  waMessageEn: "Hello, I have seen the Selvadentro Tulum page and would like to receive prices and payment plans.",
+  thanksEn: "Thank you. The list of lots and the payment plan will reach you within minutes.",
 
   // "recorte" = fraccion de alto que ocupa la barra negra quemada en el archivo
   // (essence y short son 1920x1080 con 54px de barra arriba y abajo: 54/1080 = 0.05).
