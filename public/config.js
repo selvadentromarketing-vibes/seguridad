@@ -19,7 +19,14 @@ window.LP_CONFIG = {
     // en español el rótulo promete subtítulos en español y no coinciden. Cuando
     // tengas el corte SLVD_Essence_SubESP, cámbialo solo en "main".
     main:    { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" },
-    main_en: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" }
+    main_en: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg" },
+
+    // Reels verticales 9:16. Llevan rótulos quemados EN ESPAÑOL ("9 cenotes
+    // naturales", "103 hectáreas"), así que sirven para las páginas en español
+    // pero no para las de /en/. Solo caben sin recorte en cajas verticales: hoy
+    // la única es el panel de seguridadjuridica en escritorio (ratio 0.63).
+    reel_descriptivo: { src: "/video/reel-descriptivo.mp4", poster: "/video/reel-descriptivo-poster.jpg" },
+    reel_background:  { src: "/video/reel-background.mp4",  poster: "/video/reel-background-poster.jpg" }
   },
 
   /* --- Medición -------------------------------------------------------------
