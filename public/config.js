@@ -61,6 +61,9 @@ window.LP_CONFIG = {
      googleAds  "AW-XXXXXXXXX" y la etiqueta de la conversión de lead, para
                 que Google Ads sepa qué clic acabó en formulario enviado.
   ------------------------------------------------------------------------- */
+  // Chat de LeadConnector. Vacío = no se carga.
+  chatWidgetId: "6aa84e0ef095905710c94ea1",
+
   analytics: {
     ga4: "G-7F35BWLHTZ",
     clarity: "xfbmy7v603",
@@ -134,6 +137,16 @@ window.LP_CONFIG = {
     })(window, doc, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', A.metaPixel);
     fbq('track', 'PageView');
+  }
+
+  /* ---------- Chat de LeadConnector ---------- */
+  var idChat = (window.LP_CONFIG || {}).chatWidgetId;
+  if (idChat) {
+    var w = doc.createElement('script');
+    w.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    w.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    w.setAttribute('data-widget-id', idChat);
+    (doc.head || doc.documentElement).appendChild(w);
   }
 
   /* ---------- Permanencia y profundidad de scroll ----------
