@@ -458,7 +458,9 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     aplicarIdioma(document);
     [].forEach.call(document.querySelectorAll('.lp-lang'), function (b) {
       var activo = b.getAttribute('data-lang') === LANG;
-      b.setAttribute('style', (activo ? b.getAttribute('data-on') : b.getAttribute('data-off')) + ';cursor:pointer');
+      // se conserva el estilo que ya tuviera (el fragmento del CRM lo lleva blindado)
+      var base = recuerda(b, 'base', b.getAttribute('style') || '');
+      b.setAttribute('style', base + ';' + (activo ? b.getAttribute('data-on') : b.getAttribute('data-off')) + ';cursor:pointer');
       b.setAttribute('aria-pressed', String(activo));
     });
     try { if (recordar) localStorage.setItem('lp_lang', LANG); } catch (e) {}
