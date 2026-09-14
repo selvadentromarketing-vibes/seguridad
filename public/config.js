@@ -5,8 +5,11 @@ window.LP_CONFIG = {
   // A dónde va el lead. Se envía a TODOS los de la lista, así que un mismo envío
   // puede disparar dos flujos distintos del CRM. Quitar una línea = dejar de enviarle.
   webhooks: [
-    "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/e146f5d9-1bd4-456f-99be-cb869fafad5f",
-    "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/f6b47137-a78e-4db7-aefa-f287e33266d2"
+    // En uso. Si algún día hay que mandar el mismo lead a dos flujos, se añade otra línea.
+    "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/20cd10a3-274e-4988-adbe-1d7424b28c4e"
+    // Fuera de uso, se dejan por si hay que volver a ellos:
+    // "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/e146f5d9-1bd4-456f-99be-cb869fafad5f"
+    // "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/f6b47137-a78e-4db7-aefa-f287e33266d2"
   ],
   waNumber: "529994890828",          // WhatsApp de ventas, sin + ni espacios
   waMessage: "Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.",
