@@ -10,7 +10,7 @@
 <meta property="og:image" content="/assets/aerea-dia.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://seguridad.selvadentrotulum.com/seguridadcenotes/">
-<link rel="icon" href="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/assets/logo-selvadentro-negro.png">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/assets/logo-selvadentro-negro.png">
 </head>
 <body>
 <!-- ===== EMPIEZA EL BLOQUE PARA PEGAR ===== -->
@@ -79,7 +79,13 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
    Configuración compartida de los landings — editar aquí, no en cada página
    ============================================================================ */
 window.LP_CONFIG = {
-  webhook: "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/f6b47137-a78e-4db7-aefa-f287e33266d2",
+  // A dónde va el lead. Se envía a TODOS los de la lista, así que un mismo envío
+  // puede disparar dos flujos distintos del CRM. Quitar una línea = dejar de enviarle.
+  webhooks: [
+    // En uso. Si algún día hay que mandar el mismo lead a dos flujos, se añade otra línea.
+    "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/20cd10a3-274e-4988-adbe-1d7424b28c4e"
+    // Fuera de uso, se dejan por si hay que volver a ellos:
+  ],
   waNumber: "529994890828",          // WhatsApp de ventas, sin + ni espacios
   waMessage: "Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.",
   thanks: "¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.",
@@ -98,23 +104,23 @@ window.LP_CONFIG = {
     // el material original). Por eso sirve tal cual para /en/, pero en las páginas
     // en español el rótulo promete subtítulos en español y no coinciden. Cuando
     // tengas el corte SLVD_Essence_SubESP, cámbialo solo en "main".
-    main:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/essence-poster.jpg", recorte: 0.05 },
-    main_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/essence-poster.jpg", recorte: 0.05 },
+    main:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/essence-poster.jpg", recorte: 0.05 },
+    main_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/essence-poster.jpg", recorte: 0.05 },
 
     // Reels verticales 9:16. Llevan rótulos quemados EN ESPAÑOL ("9 cenotes
     // naturales", "103 hectáreas"), así que sirven para las páginas en español
     // pero no para las de /en/. Solo caben sin recorte en cajas verticales: hoy
     // la única es el panel de seguridadjuridica en escritorio (ratio 0.63).
-    reel_descriptivo: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/reel-descriptivo.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/reel-descriptivo-poster.jpg" },
-    reel_background:  { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/reel-background.mp4",  poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/reel-background-poster.jpg" },
+    reel_descriptivo: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/reel-descriptivo.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/reel-descriptivo-poster.jpg" },
+    reel_background:  { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/reel-background.mp4",  poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/reel-background-poster.jpg" },
 
     // REEL SELVA 1: vertical y SIN rótulos quemados, así que vale en español y en
     // inglés. Va en el panel vertical de seguridadjuridica, el único con esa forma.
-    reel_selva: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/reel-selva.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/reel-selva-poster.jpg" },
+    reel_selva: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/reel-selva.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/reel-selva-poster.jpg" },
 
     // 4.SELVADENTRO SHORT: horizontal 1920x1080 con subtítulos en inglés. Ocupa
     // las franjas secundarias de seguridadtulum, que antes repetían el Essence.
-    short: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/short-1080.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/video/short-poster.jpg", recorte: 0.05 }
+    short: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/short-1080.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/video/short-poster.jpg", recorte: 0.05 }
   },
 
   /* --- Medición -------------------------------------------------------------
@@ -131,9 +137,9 @@ window.LP_CONFIG = {
                 que Google Ads sepa qué clic acabó en formulario enviado.
   ------------------------------------------------------------------------- */
   analytics: {
-    ga4: "",
-    clarity: "",
-    metaPixel: "",
+    ga4: "G-7F35BWLHTZ",
+    clarity: "xfbmy7v603",
+    metaPixel: "680727997874671",
     googleAds: "",
     googleAdsLabel: ""
   }
@@ -254,7 +260,7 @@ window.LP_CONFIG = {
 <div class="lp-wrap">
 <div class="lp-card lp-desktop" style="width:1182px">
 <div style="padding:20px 34px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(28,39,23,.12)">
-<img alt="Selvadentro · tierra de cenotes" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/assets/logo-selvadentro-negro.png" style="width:118px;height:auto;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Selvadentro · land of cenotes&quot;}">
+<img alt="Selvadentro · tierra de cenotes" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/assets/logo-selvadentro-negro.png" style="width:118px;height:auto;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Selvadentro · land of cenotes&quot;}">
 <div style="display:flex;gap:26px;font:700 10.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#5A6550">
 <span style="color:#F7F4EC;border-bottom:1px solid #CF8543;padding-bottom:3px" data-i18n="{&quot;0&quot;:&quot;Security&quot;}">Seguridad</span><span data-i18n="{&quot;0&quot;:&quot;The project&quot;}">El proyecto</span><span data-i18n="{&quot;0&quot;:&quot;Amenities&quot;}">Amenidades</span><span>Master plan</span><span data-i18n="{&quot;0&quot;:&quot;Contact&quot;}">Contacto</span>
 </div>
@@ -277,7 +283,7 @@ window.LP_CONFIG = {
 </div>
 </div>
 <div data-video="short" style="position:relative;margin-top:26px;height:360px;border-radius:4px;overflow:hidden;background:#0B0F08">
-<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/assets/f-cueva.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
+<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/assets/f-cueva.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,8,.28) 0%,rgba(11,15,8,.12) 34%,rgba(11,15,8,.78) 100%)"></div>
 <div style="position:absolute;left:0;right:0;top:44%;display:flex;flex-direction:column;align-items:center;gap:12px">
 <span style="width:74px;height:74px;border-radius:50%;background:rgba(247,244,236,.16);border:1.5px solid rgba(247,244,236,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:5px;border:11px solid transparent;border-left:18px solid #F7F4EC"></span></span>
@@ -318,7 +324,7 @@ window.LP_CONFIG = {
 </div>
 </div>
 <div data-video="main" data-video-en="main_en" style="position:relative;border-radius:4px;overflow:hidden;min-height:440px">
-<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;position:absolute;inset:0" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
+<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;position:absolute;inset:0" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
 <div style="position:absolute;inset:0;background:linear-gradient(200deg,transparent,rgba(11,15,8,.55))"></div>
 <div style="position:absolute;left:24px;right:24px;bottom:22px">
 <div style="font:700 9.5px Quicksand,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:rgba(247,244,236,.75);margin-bottom:8px" data-i18n="{&quot;0&quot;:&quot;The project on video&quot;}">El proyecto en video</div>
@@ -361,7 +367,7 @@ window.LP_CONFIG = {
 </div>
 <div style="padding:44px 34px 34px">
 <div style="position:relative;border-radius:4px;overflow:hidden;height:300px">
-<img alt="Vista aérea de Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/assets/aerea-dia.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 52%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Aerial view of Selvadentro Tulum&quot;}">
+<img alt="Vista aérea de Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/assets/aerea-dia.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 52%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Aerial view of Selvadentro Tulum&quot;}">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,8,.3),rgba(11,15,8,.88))"></div>
 <div style="position:absolute;left:0;right:0;bottom:34px;text-align:center">
 <div style="font:700 10px Quicksand,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#CF8543;margin-bottom:14px" data-i18n="{&quot;0&quot;:&quot;Current phase&quot;}">Fase actual</div>
@@ -377,7 +383,7 @@ window.LP_CONFIG = {
 </div>
 <div class="lp-card lp-mobile" style="width:392px">
 <div style="padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(28,39,23,.12)">
-<img alt="Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/assets/logo-selvadentro-negro.png" style="width:104px;height:auto;display:block">
+<img alt="Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/assets/logo-selvadentro-negro.png" style="width:104px;height:auto;display:block">
 <div style="display:flex;gap:7px;align-items:center">
 <span style="padding:7px 11px;border-radius:999px;border:1px solid rgba(28,39,23,.2);font:700 10.5px Quicksand,sans-serif;letter-spacing:.08em;color:#5A6550"><span class="lp-lang" data-lang="es" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:#F7F4EC" style="color:#F7F4EC;cursor:pointer">ES</span> · <span class="lp-lang" data-lang="en" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:#F7F4EC" style="color:#F7F4EC;cursor:pointer">EN</span></span>
 <span style="width:36px;height:36px;border-radius:50%;background:#1C2717;display:flex;align-items:center;justify-content:center;font:700 13px Quicksand,sans-serif;color:#F7F4EC">☰</span>
@@ -390,7 +396,7 @@ window.LP_CONFIG = {
 </div>
 <div style="padding:0 18px">
 <div style="position:relative;border-radius:4px;overflow:hidden;height:280px">
-<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@a5ea94fb318af339f8e562f92b2bea0e57525edc/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block">
+<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@6a9a7eebba18ad16ee5d658efc49096c9c936ad3/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,15,8,.8))"></div>
 <div style="position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end">
 <span style="font:700 9.5px/1.6 Quicksand,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#F7F4EC" data-i18n="{&quot;0&quot;:&quot;Phase 03&quot;}">Fase 03<br><span style="color:rgba(247,244,236,.7)">Tulum</span></span>
@@ -580,7 +586,13 @@ window.LP_CONFIG = {
       if (!kv) return; var p = kv.split('='); o[decodeURIComponent(p[0])] = decodeURIComponent((p[1] || '').replace(/\+/g, ' '));
     }); return o;
   }
-  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid', 'ttclid'];
+  // Parámetros de campaña que se guardan y viajan con el lead. Los hsa_* y el
+  // gclid los pone la plantilla de seguimiento de Google Ads; gbraid y wbraid
+  // llegan cuando el clic viene de iOS sin cookies, y msclkid desde Microsoft.
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id',
+    'gclid', 'gbraid', 'wbraid', 'gad_source', 'fbclid', 'ttclid', 'li_fat_id', 'msclkid',
+    'hsa_acc', 'hsa_cam', 'hsa_grp', 'hsa_ad', 'hsa_src', 'hsa_tgt', 'hsa_kw', 'hsa_mt',
+    'hsa_net', 'hsa_ver'];
   function ctx() {
     var q = qs(), c = {};
     try { c = JSON.parse(sessionStorage.getItem('lp_ctx') || '{}'); } catch (e) {}
@@ -754,12 +766,17 @@ window.LP_CONFIG = {
     return p;
   }
   function send(p) {
-    if (!CFG.webhook) {
-      console.warn('[lp] LP_CONFIG.webhook no configurado; lead:', p);
+    // admite un webhook suelto o una lista; el lead se manda a todos
+    var destinos = [].concat(CFG.webhooks || [], CFG.webhook || []).filter(Boolean);
+    if (!destinos.length) {
+      console.warn('[lp] sin webhook configurado; lead:', p);
       return Promise.resolve({ demo: true });
     }
-    return fetch(CFG.webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p) })
-      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r; });
+    var cuerpo = JSON.stringify(p);
+    return Promise.all(destinos.map(function (url) {
+      return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: cuerpo })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status + ' en ' + url.slice(-12)); return r; });
+    }));
   }
   function toast(msg) {
     var t = document.querySelector('.lp-toast'); if (!t) return;
