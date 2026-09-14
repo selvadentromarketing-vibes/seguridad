@@ -402,7 +402,13 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       if (!kv) return; var p = kv.split('='); o[decodeURIComponent(p[0])] = decodeURIComponent((p[1] || '').replace(/\+/g, ' '));
     }); return o;
   }
-  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid', 'ttclid'];
+  // Parámetros de campaña que se guardan y viajan con el lead. Los hsa_* y el
+  // gclid los pone la plantilla de seguimiento de Google Ads; gbraid y wbraid
+  // llegan cuando el clic viene de iOS sin cookies, y msclkid desde Microsoft.
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id',
+    'gclid', 'gbraid', 'wbraid', 'gad_source', 'fbclid', 'ttclid', 'li_fat_id', 'msclkid',
+    'hsa_acc', 'hsa_cam', 'hsa_grp', 'hsa_ad', 'hsa_src', 'hsa_tgt', 'hsa_kw', 'hsa_mt',
+    'hsa_net', 'hsa_ver'];
   function ctx() {
     var q = qs(), c = {};
     try { c = JSON.parse(sessionStorage.getItem('lp_ctx') || '{}'); } catch (e) {}
@@ -576,12 +582,17 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     return p;
   }
   function send(p) {
-    if (!CFG.webhook) {
-      console.warn('[lp] LP_CONFIG.webhook no configurado; lead:', p);
+    // admite un webhook suelto o una lista; el lead se manda a todos
+    var destinos = [].concat(CFG.webhooks || [], CFG.webhook || []).filter(Boolean);
+    if (!destinos.length) {
+      console.warn('[lp] sin webhook configurado; lead:', p);
       return Promise.resolve({ demo: true });
     }
-    return fetch(CFG.webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p) })
-      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r; });
+    var cuerpo = JSON.stringify(p);
+    return Promise.all(destinos.map(function (url) {
+      return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: cuerpo })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status + ' en ' + url.slice(-12)); return r; });
+    }));
   }
   function toast(msg) {
     var t = document.querySelector('.lp-toast'); if (!t) return;

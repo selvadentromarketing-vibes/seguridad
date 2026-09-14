@@ -2,7 +2,12 @@
    Configuración compartida de los landings — editar aquí, no en cada página
    ============================================================================ */
 window.LP_CONFIG = {
-  webhook: "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/f6b47137-a78e-4db7-aefa-f287e33266d2",
+  // A dónde va el lead. Se envía a TODOS los de la lista, así que un mismo envío
+  // puede disparar dos flujos distintos del CRM. Quitar una línea = dejar de enviarle.
+  webhooks: [
+    "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/e146f5d9-1bd4-456f-99be-cb869fafad5f",
+    "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/f6b47137-a78e-4db7-aefa-f287e33266d2"
+  ],
   waNumber: "529994890828",          // WhatsApp de ventas, sin + ni espacios
   waMessage: "Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.",
   thanks: "¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.",
@@ -54,9 +59,9 @@ window.LP_CONFIG = {
                 que Google Ads sepa qué clic acabó en formulario enviado.
   ------------------------------------------------------------------------- */
   analytics: {
-    ga4: "",
-    clarity: "",
-    metaPixel: "",
+    ga4: "G-7F35BWLHTZ",
+    clarity: "xfbmy7v603",
+    metaPixel: "680727997874671",
     googleAds: "",
     googleAdsLabel: ""
   }
