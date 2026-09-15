@@ -29,8 +29,12 @@ window.LP_CONFIG = {
     // el material original). Por eso sirve tal cual para /en/, pero en las páginas
     // en español el rótulo promete subtítulos en español y no coinciden. Cuando
     // tengas el corte SLVD_Essence_SubESP, cámbialo solo en "main".
-    main:    { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg", recorte: 0.05 },
-    main_en: { src: "/video/essence-1080.mp4", poster: "/video/essence-poster.jpg", recorte: 0.05 },
+    // Essence. Igual que el Short: el único archivo lleva los subtítulos quemados
+    // en inglés, así que la versión española se saca recortando esa franja
+    // (crop=1920:860:0:60). Por eso "main" ya no necesita "recorte": el corte se
+    // llevó también las barras negras.
+    main:    { src: "/video/essence-es-1280.mp4", poster: "/video/essence-es-poster.jpg" },
+    main_en: { src: "/video/essence-1080.mp4",    poster: "/video/essence-poster.jpg", recorte: 0.05 },
 
     // Reels verticales 9:16. Llevan rótulos quemados EN ESPAÑOL ("9 cenotes
     // naturales", "103 hectáreas"), así que sirven para las páginas en español
