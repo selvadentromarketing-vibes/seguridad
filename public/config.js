@@ -52,13 +52,15 @@ window.LP_CONFIG = {
     reel_selva: { src: "/video/reel-selva.mp4", poster: "/video/reel-selva-poster.jpg" },
     // reel_selva_en: { src: "/video/reel-selva-en.mp4", poster: "/video/reel-selva-poster.jpg" },
 
-    // 4.SELVADENTRO SHORT: horizontal 1920x1080. El archivo de hoy lleva los
-    // subtítulos quemados EN INGLÉS, así que sirve para /en/ pero en las páginas
-    // en español se leen en inglés. En Drive están los dos cortes buenos
-    // (SLVD_Short_SubESP y SLVD_Short_SubENG): al subirlos, "short" pasa a apuntar
-    // al español y se descomenta "short_en", que las cajas ya piden.
-    short: { src: "/video/short-1080.mp4", poster: "/video/short-poster.jpg", recorte: 0.05 }
-    // , short_en: { src: "/video/short-en-1080.mp4", poster: "/video/short-poster.jpg", recorte: 0.05 }
+    // 4.SELVADENTRO SHORT. El único archivo que hay lleva los subtítulos quemados
+    // EN INGLÉS, y el corte en español de Drive sigue restringido. Como los
+    // subtítulos ocupan una franja fija al pie del cuadro, la versión española se
+    // hace recortando esa franja (crop=1920:860:0:60 sobre el original): queda el
+    // mismo video, hablado en español, sin subtítulos. Por eso "short" ya no
+    // necesita "recorte": las barras negras se fueron en el mismo corte.
+    // Si algún día llega SLVD_Short_SubESP, se cambia el src de "short" y ya.
+    short:    { src: "/video/short-es-1280.mp4", poster: "/video/short-es-poster.jpg" },
+    short_en: { src: "/video/short-1080.mp4",    poster: "/video/short-poster.jpg", recorte: 0.05 }
   },
 
   /* --- Medición -------------------------------------------------------------
