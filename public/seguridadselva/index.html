@@ -144,7 +144,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 </div>
 </div>
 <div style="padding:56px 40px 0;display:flex;justify-content:center">
-<div data-video="reel_background" data-video-en="reel_selva" style="position:relative;box-sizing:border-box;width:320px;max-width:100%;height:569px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
+<div data-video="reel_background" data-video-en="reel_background_en" style="position:relative;box-sizing:border-box;width:320px;max-width:100%;height:569px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
 <span style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:7px;border:14px solid transparent;border-left:22px solid #F7F4EC"></span></span>
 <span style="font:400 10.5px/1.8 Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.72);text-align:center" data-i18n="{&quot;0&quot;:&quot;The project told&quot;,&quot;2&quot;:&quot;by its team&quot;}">El proyecto contado<br>por su equipo<br><span style="letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)" data-i18n-h="1 min · interview&lt;br&gt;Spanish audio">25 s · entrevista</span></span>
 </div>
@@ -239,7 +239,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <p style="margin:0;font:500 12.5px/1.75 Quicksand,sans-serif;color:#5A6550"><br></p>
 </div>
 <div style="padding:30px 18px 0;display:flex;justify-content:center">
-<div data-video="reel_background" data-video-en="reel_selva" style="position:relative;box-sizing:border-box;width:300px;max-width:100%;height:533px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
+<div data-video="reel_background" data-video-en="reel_background_en" style="position:relative;box-sizing:border-box;width:300px;max-width:100%;height:533px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
 <span style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:7px;border:14px solid transparent;border-left:22px solid #F7F4EC"></span></span>
 <span style="font:400 10.5px/1.8 Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.72);text-align:center" data-i18n="{&quot;0&quot;:&quot;The project told&quot;,&quot;2&quot;:&quot;by its team&quot;}">El proyecto contado<br>por su equipo<br><span style="letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)" data-i18n-h="1 min · interview&lt;br&gt;Spanish audio">25 s · entrevista</span></span>
 </div>
@@ -432,6 +432,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       var src = (CFG.videos || {})[clave], v = box.querySelector('video.lp-video');
       if (!src || !v) return;
       var url = src.src || src;
+      if (src.encaje) v.dataset.encaje = src.encaje; else delete v.dataset.encaje;
       if (v.getAttribute('src') !== url) { v.pause(); v.setAttribute('src', url); if (src.poster) v.poster = src.poster; v.load(); }
     });
   }
@@ -799,6 +800,12 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       var rc = box.clientWidth / box.clientHeight;
       if (Math.abs(rc - rv) / rv > 0.08) v.dataset.encaje = 'contain';
     });
+    // El encuadre puede venir dicho en la configuración. Si no, más abajo se
+    // deduce al cargar los metadatos; pero cuando ya se sabe que el video y la
+    // caja no tienen la misma forma, mejor fijarlo aquí y no esperar: si la
+    // deducción no llegara a correr, un video horizontal en una caja vertical
+    // se recortaría por los lados y se perderían los subtítulos.
+    if (src.encaje) v.dataset.encaje = src.encaje;
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
     btn.className = 'lp-video-btn'; btn.innerHTML = '<span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';

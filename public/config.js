@@ -39,6 +39,12 @@ window.LP_CONFIG = {
     reel_descriptivo: { src: "/video/reel-descriptivo.mp4", poster: "/video/reel-descriptivo-poster.jpg" },
     reel_background:  { src: "/video/reel-background.mp4",  poster: "/video/reel-background-poster.jpg" },
 
+    // SLVD_Background con subtítulos en inglés, la película entera (2:47) y
+    // horizontal. Va en las cajas verticales de las páginas /en/: como no tiene
+    // la misma forma que la caja, el reproductor la muestra completa con franjas
+    // en vez de recortarla, y así no se pierde ningún subtítulo.
+    reel_background_en: { src: "/video/background-en-720.mp4", poster: "/video/background-en-poster.jpg", encaje: "contain" },
+
     // REEL SELVA 1: la entrevista al equipo, vertical 9:16. Está HABLADA EN ESPAÑOL
     // y no lleva subtítulos de ningún tipo, así que en las páginas en inglés no se
     // entiende. Las cajas ya piden "reel_selva_en"; en cuanto edición entregue el

@@ -327,6 +327,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       var src = (CFG.videos || {})[clave], v = box.querySelector('video.lp-video');
       if (!src || !v) return;
       var url = src.src || src;
+      if (src.encaje) v.dataset.encaje = src.encaje; else delete v.dataset.encaje;
       if (v.getAttribute('src') !== url) { v.pause(); v.setAttribute('src', url); if (src.poster) v.poster = src.poster; v.load(); }
     });
   }
@@ -694,6 +695,12 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       var rc = box.clientWidth / box.clientHeight;
       if (Math.abs(rc - rv) / rv > 0.08) v.dataset.encaje = 'contain';
     });
+    // El encuadre puede venir dicho en la configuración. Si no, más abajo se
+    // deduce al cargar los metadatos; pero cuando ya se sabe que el video y la
+    // caja no tienen la misma forma, mejor fijarlo aquí y no esperar: si la
+    // deducción no llegara a correr, un video horizontal en una caja vertical
+    // se recortaría por los lados y se perderían los subtítulos.
+    if (src.encaje) v.dataset.encaje = src.encaje;
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
     btn.className = 'lp-video-btn'; btn.innerHTML = '<span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';

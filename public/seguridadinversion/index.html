@@ -156,7 +156,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 </div>
 </div>
 <div style="padding:0 48px 52px;display:flex;justify-content:center">
-<div data-video="reel_descriptivo" data-video-en="reel_selva" style="position:relative;box-sizing:border-box;width:320px;max-width:100%;height:569px;border-radius:22px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
+<div data-video="reel_descriptivo" data-video-en="reel_background_en" style="position:relative;box-sizing:border-box;width:320px;max-width:100%;height:569px;border-radius:22px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
 <span style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:7px;border:14px solid transparent;border-left:22px solid #F7F4EC"></span></span>
 <span style="font:400 10.5px/1.8 Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.72);text-align:center" data-i18n-h="The team behind&lt;br&gt;the project&lt;br&gt;&lt;span style=&quot;letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)&quot;&gt;1 min · interview&lt;br&gt;Spanish audio&lt;/span&gt;">El proyecto en video<br><span style="letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)">recorrido por el master plan · 30 s</span></span>
 </div>
@@ -217,7 +217,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 </div>
 </div>
 <div style="padding:0 14px 20px;display:flex;justify-content:center">
-<div data-video="reel_descriptivo" data-video-en="reel_selva" style="position:relative;box-sizing:border-box;width:300px;max-width:100%;height:533px;border-radius:18px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
+<div data-video="reel_descriptivo" data-video-en="reel_background_en" style="position:relative;box-sizing:border-box;width:300px;max-width:100%;height:533px;border-radius:18px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
 <span style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:7px;border:14px solid transparent;border-left:22px solid #F7F4EC"></span></span>
 <span style="font:400 10.5px/1.8 Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.72);text-align:center" data-i18n-h="The team behind&lt;br&gt;the project&lt;br&gt;&lt;span style=&quot;letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)&quot;&gt;1 min · interview&lt;br&gt;Spanish audio&lt;/span&gt;">El proyecto en video<br><span style="letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)">master plan · 30 s</span></span>
 </div>
@@ -317,6 +317,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       var src = (CFG.videos || {})[clave], v = box.querySelector('video.lp-video');
       if (!src || !v) return;
       var url = src.src || src;
+      if (src.encaje) v.dataset.encaje = src.encaje; else delete v.dataset.encaje;
       if (v.getAttribute('src') !== url) { v.pause(); v.setAttribute('src', url); if (src.poster) v.poster = src.poster; v.load(); }
     });
   }
@@ -684,6 +685,12 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       var rc = box.clientWidth / box.clientHeight;
       if (Math.abs(rc - rv) / rv > 0.08) v.dataset.encaje = 'contain';
     });
+    // El encuadre puede venir dicho en la configuración. Si no, más abajo se
+    // deduce al cargar los metadatos; pero cuando ya se sabe que el video y la
+    // caja no tienen la misma forma, mejor fijarlo aquí y no esperar: si la
+    // deducción no llegara a correr, un video horizontal en una caja vertical
+    // se recortaría por los lados y se perderían los subtítulos.
+    if (src.encaje) v.dataset.encaje = src.encaje;
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
     btn.className = 'lp-video-btn'; btn.innerHTML = '<span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
