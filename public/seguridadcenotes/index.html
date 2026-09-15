@@ -105,7 +105,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="position:absolute;left:28px;bottom:24px;font:700 11px/1.6 Quicksand,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#F7F4EC" data-i18n="{&quot;0&quot;:&quot;Land of cenotes&quot;}">Tierra de cenotes<br><span style="color:rgba(247,244,236,.7)" data-i18n="{&quot;0&quot;:&quot;Phase 03 · Tulum, Quintana Roo&quot;}">Fase 03 · Tulum, Quintana Roo</span></div>
 <div style="position:absolute;right:28px;bottom:24px;text-align:right">
 <div style="font:700 9.5px Quicksand,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,244,236,.72);margin-bottom:4px" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</div>
-<div style="font:600 32px/1 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 &lt;span style=&quot;font:600 13px Quicksand,sans-serif;color:rgba(247,244,236,.7)&quot;&gt;USD&lt;/span&gt;">$68,200 <span style="font:600 13px Quicksand,sans-serif;color:rgba(247,244,236,.7)">USD</span><span style="display:block;margin-top:5px;font:600 13.4px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$1,364,000 MXN</span></div>
+<div style="font:600 32px/1 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 &lt;span style=&quot;font:600 13px Quicksand,sans-serif;color:rgba(247,244,236,.7)&quot;&gt;USD&lt;/span&gt;">$1,364,000 <span style="font:600 15.4px Quicksand,sans-serif;color:rgba(247,244,236,.58)">MXN</span><span style="display:block;margin-top:5px;font:600 13.4px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$68,200 USD</span></div>
 </div>
 </div>
 </div>
@@ -213,7 +213,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,15,8,.8))"></div>
 <div style="position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end">
 <span style="font:700 9.5px/1.6 Quicksand,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#F7F4EC" data-i18n="{&quot;0&quot;:&quot;Phase 03&quot;}">Fase 03<br><span style="color:rgba(247,244,236,.7)">Tulum</span></span>
-<span style="text-align:right"><span style="display:block;font:700 8.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.72)" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</span><span style="display:block;font:600 24px/1.2 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 USD">$68,200 USD<span style="display:block;margin-top:5px;font:600 11.0px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$1,364,000 MXN</span></span></span>
+<span style="text-align:right"><span style="display:block;font:700 8.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.72)" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</span><span style="display:block;font:600 24px/1.2 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 USD">$1,364,000 <span style="font:600 12.6px Quicksand,sans-serif;color:rgba(247,244,236,.58)">MXN</span><span style="display:block;margin-top:5px;font:600 11.0px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$68,200 USD</span></span></span>
 </div>
 </div>
 </div>
@@ -434,7 +434,15 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
   var TIPO_CAMBIO = 20;
   var state = { price: 68200, down: 20, term: 24, horizon: 2029 };
   var disp = null, raf = null;
-  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  // La moneda la manda el idioma de la página: la lista en español es en pesos.
+  function factorMoneda() { return LANG === 'en' ? 1 : TIPO_CAMBIO; }
+  function siglaMoneda()  { return LANG === 'en' ? 'USD' : 'MXN'; }
+  function money(n) { return '$' + Math.round(n * factorMoneda()).toLocaleString('en-US'); }
+  // versión corta para las barras, donde no cabe la cifra entera
+  function moneyCorto(n) {
+    var v = n * factorMoneda();
+    return LANG === 'en' ? '$' + Math.round(v / 1000) + 'k' : '$' + (v / 1e6).toFixed(1) + 'M';
+  }
   function calcValue(s) { return (s.price / 167) * PPM2[s.horizon]; }
   function vals() {
     var s = state, BASE = 167, ppm2 = PPM2[s.horizon], years = s.horizon - 2026;
@@ -448,7 +456,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       bars.push({
         year: y === 0 ? t('hoy') : String(yr),
         h: (16 + (v - s.price) / (value - s.price || 1) * 68) + '%',
-        label: '$' + Math.round(v / 1000) + 'k',
+        label: moneyCorto(v),
         dim: y === years ? '#CF8543' : 'rgba(247,244,236,.22)',
         txt: y === years ? '#CF8543' : 'rgba(247,244,236,.55)',
         ldim: y === years ? '#CF8543' : 'rgba(28,39,23,.18)',
@@ -457,17 +465,22 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
     }
     var out = {
       priceLabel: money(s.price),
-      // en inglés el precio va solo en dólares
-      priceMxn: LANG === 'en' ? '' : '<span style="display:block;text-align:right;margin-top:2px;'
+      // debajo, la misma cifra en la otra moneda, como referencia
+      priceMxn: '<span style="display:block;text-align:right;margin-top:2px;'
         + 'font:600 10.5px/1.3 Quicksand,sans-serif;letter-spacing:.01em;opacity:.6">'
-        + money(s.price * TIPO_CAMBIO) + ' MXN</span>',
+        + (LANG === 'en'
+             ? '$' + Math.round(s.price * TIPO_CAMBIO).toLocaleString('en-US') + ' MXN'
+             : '$' + Math.round(s.price).toLocaleString('en-US') + ' USD')
+        + '</span>',
       downLabel: s.down + '%', downAmt: money(downAmt),
       termLabel: s.term + t(' meses'), monthlyLabel: s.down >= 100 ? t('pago único') : money(monthly),
-      yearsLabel: s.horizon, growthLabel: '$' + ppm2 + ' USD/m²',
+      yearsLabel: s.horizon,
+      growthLabel: '$' + Math.round(ppm2 * factorMoneda()).toLocaleString('en-US') + ' ' + siglaMoneda() + '/m²',
       valueLabel: money(disp != null ? disp : value), gainLabel: money(gain),
       roiLabel: Math.round(gain / s.price * 100) + '%', annualLabel: (annual * 100).toFixed(1) + '%',
       multLabel: (value / s.price).toFixed(2) + 'x', bars: bars,
-      m2Label: Math.round(m2).toLocaleString('en-US') + ' m²', ppm2Label: '$' + ppm2 + ' USD/m²'
+      m2Label: Math.round(m2).toLocaleString('en-US') + ' m²',
+      ppm2Label: '$' + Math.round(ppm2 * factorMoneda()).toLocaleString('en-US') + ' ' + siglaMoneda() + '/m²'
     };
     Object.keys(CHIPS).forEach(function (k) {
       var kv = CHIPS[k], on = s[kv[0]] === kv[1], light = k.charAt(0) === 'l';
@@ -498,7 +511,11 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
   });
   function paint() {
     var v = vals();
-    calcs.forEach(function (c) { c.el.innerHTML = render(c.tpl, v); });
+    calcs.forEach(function (c) {
+      c.el.innerHTML = render(c.tpl, v);
+      // el HTML recién puesto viene de la plantilla, en español: hay que traducirlo
+      if (LANG === 'en') aplicarIdioma(c.el);
+    });
   }
   function setState(k, val) {
     var from = disp != null ? disp : calcValue(state);
