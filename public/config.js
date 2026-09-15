@@ -39,13 +39,20 @@ window.LP_CONFIG = {
     reel_descriptivo: { src: "/video/reel-descriptivo.mp4", poster: "/video/reel-descriptivo-poster.jpg" },
     reel_background:  { src: "/video/reel-background.mp4",  poster: "/video/reel-background-poster.jpg" },
 
-    // REEL SELVA 1: vertical y SIN rótulos quemados, así que vale en español y en
-    // inglés. Va en el panel vertical de seguridadjuridica, el único con esa forma.
+    // REEL SELVA 1: la entrevista al equipo, vertical 9:16. Está HABLADA EN ESPAÑOL
+    // y no lleva subtítulos de ningún tipo, así que en las páginas en inglés no se
+    // entiende. Las cajas ya piden "reel_selva_en"; en cuanto edición entregue el
+    // corte con subtítulos en inglés, se sube a /video/ y se descomenta la línea.
     reel_selva: { src: "/video/reel-selva.mp4", poster: "/video/reel-selva-poster.jpg" },
+    // reel_selva_en: { src: "/video/reel-selva-en.mp4", poster: "/video/reel-selva-poster.jpg" },
 
-    // 4.SELVADENTRO SHORT: horizontal 1920x1080 con subtítulos en inglés. Ocupa
-    // las franjas secundarias de seguridadtulum, que antes repetían el Essence.
+    // 4.SELVADENTRO SHORT: horizontal 1920x1080. El archivo de hoy lleva los
+    // subtítulos quemados EN INGLÉS, así que sirve para /en/ pero en las páginas
+    // en español se leen en inglés. En Drive están los dos cortes buenos
+    // (SLVD_Short_SubESP y SLVD_Short_SubENG): al subirlos, "short" pasa a apuntar
+    // al español y se descomenta "short_en", que las cajas ya piden.
     short: { src: "/video/short-1080.mp4", poster: "/video/short-poster.jpg", recorte: 0.05 }
+    // , short_en: { src: "/video/short-en-1080.mp4", poster: "/video/short-poster.jpg", recorte: 0.05 }
   },
 
   /* --- Medición -------------------------------------------------------------
