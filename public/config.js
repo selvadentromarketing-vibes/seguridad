@@ -68,6 +68,14 @@ window.LP_CONFIG = {
      googleAds  "AW-XXXXXXXXX" y la etiqueta de la conversión de lead, para
                 que Google Ads sepa qué clic acabó en formulario enviado.
   ------------------------------------------------------------------------- */
+  /* ---------- El precio ----------
+     El precio de entrada (68,200 USD = 1,364,000 MXN, a 20 pesos por dólar) NO
+     vive aquí: está escrito en el HTML de cada landing, porque cada diseño lo
+     coloca a su manera. Para cambiarlo hay que buscar "68,200" y "1,364,000" en
+     public/seguridad*/index.html. En la calculadora sí se calcula: el tipo de
+     cambio es la constante TIPO_CAMBIO del motor, dentro de esas mismas páginas.
+     Los pesos solo se muestran en las páginas en español.                     */
+
   // Chat de LeadConnector. Vacío = no se carga.
   // Fuera de uso: su burbuja se confundía con el botón de WhatsApp.
   // Para volver a encenderlo, pega aquí el id: "6aa84e0ef095905710c94ea1"
