@@ -10,7 +10,7 @@
 <meta property="og:image" content="/assets/aerea-dia.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://seguridad.selvadentrotulum.com/seguridadjuridica/">
-<link rel="icon" href="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/logo-selvadentro-negro.png">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/logo-selvadentro-negro.png">
 <script>window.LP_LANG_FIJO='es';</script>
 </head>
 <body>
@@ -105,30 +105,42 @@ window.LP_CONFIG = {
     // el material original). Por eso sirve tal cual para /en/, pero en las páginas
     // en español el rótulo promete subtítulos en español y no coinciden. Cuando
     // tengas el corte SLVD_Essence_SubESP, cámbialo solo en "main".
-    main:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-poster.jpg", recorte: 0.05 },
-    main_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-poster.jpg", recorte: 0.05 },
+    // Essence. Igual que el Short: el único archivo lleva los subtítulos quemados
+    // en inglés, así que la versión española se saca recortando esa franja
+    // (crop=1920:860:0:60). Por eso "main" ya no necesita "recorte": el corte se
+    // llevó también las barras negras.
+    main:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-es-1280.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-es-poster.jpg" },
+    main_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-720.mp4",    poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-poster.jpg", recorte: 0.05 },
 
     // Reels verticales 9:16. Llevan rótulos quemados EN ESPAÑOL ("9 cenotes
     // naturales", "103 hectáreas"), así que sirven para las páginas en español
     // pero no para las de /en/. Solo caben sin recorte en cajas verticales: hoy
     // la única es el panel de seguridadjuridica en escritorio (ratio 0.63).
-    reel_descriptivo: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-descriptivo.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-descriptivo-poster.jpg" },
-    reel_background:  { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-background.mp4",  poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-background-poster.jpg" },
+    reel_descriptivo: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-descriptivo.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-descriptivo-poster.jpg" },
+    reel_background:  { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-background.mp4",  poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-background-poster.jpg" },
+
+    // SLVD_Background con subtítulos en inglés, la película entera (2:47) y
+    // horizontal. Va en las cajas verticales de las páginas /en/: como no tiene
+    // la misma forma que la caja, el reproductor la muestra completa con franjas
+    // en vez de recortarla, y así no se pierde ningún subtítulo.
+    reel_background_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/background-en-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/background-en-poster.jpg", encaje: "contain" },
 
     // REEL SELVA 1: la entrevista al equipo, vertical 9:16. Está HABLADA EN ESPAÑOL
     // y no lleva subtítulos de ningún tipo, así que en las páginas en inglés no se
     // entiende. Las cajas ya piden "reel_selva_en"; en cuanto edición entregue el
     // corte con subtítulos en inglés, se sube a /video/ y se descomenta la línea.
-    reel_selva: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva-poster.jpg" },
-    // reel_selva_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva-en.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva-poster.jpg" },
+    reel_selva: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva-poster.jpg" },
+    // reel_selva_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva-en.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva-poster.jpg" },
 
-    // 4.SELVADENTRO SHORT: horizontal 1920x1080. El archivo de hoy lleva los
-    // subtítulos quemados EN INGLÉS, así que sirve para /en/ pero en las páginas
-    // en español se leen en inglés. En Drive están los dos cortes buenos
-    // (SLVD_Short_SubESP y SLVD_Short_SubENG): al subirlos, "short" pasa a apuntar
-    // al español y se descomenta "short_en", que las cajas ya piden.
-    short: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-1080.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-poster.jpg", recorte: 0.05 }
-    // , short_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-en-1080.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-poster.jpg", recorte: 0.05 }
+    // 4.SELVADENTRO SHORT. El único archivo que hay lleva los subtítulos quemados
+    // EN INGLÉS, y el corte en español de Drive sigue restringido. Como los
+    // subtítulos ocupan una franja fija al pie del cuadro, la versión española se
+    // hace recortando esa franja (crop=1920:860:0:60 sobre el original): queda el
+    // mismo video, hablado en español, sin subtítulos. Por eso "short" ya no
+    // necesita "recorte": las barras negras se fueron en el mismo corte.
+    // Si algún día llega SLVD_Short_SubESP, se cambia el src de "short" y ya.
+    short:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-es-1280.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-es-poster.jpg" },
+    short_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-1080.mp4",    poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-poster.jpg", recorte: 0.05 }
   },
 
   /* --- Medición -------------------------------------------------------------
@@ -293,7 +305,7 @@ window.LP_CONFIG = {
 <div style="position:absolute;right:24px;top:20px;z-index:20;display:flex;align-items:center;gap:7px;background:rgba(20,24,15,.55);backdrop-filter:blur(6px);border:1px solid rgba(247,244,236,.28);border-radius:999px;padding:6px 13px;font:600 11.5px Quicksand,sans-serif;letter-spacing:.14em;color:rgba(247,244,236,.72)"><span class="lp-lang" data-lang="es" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:inherit" style="color:#F7F4EC;cursor:pointer">ES</span> · <span class="lp-lang" data-lang="en" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:inherit" style="color:inherit;cursor:pointer">EN</span></div>
 <div style="display:grid;grid-template-columns:1.05fr .95fr;min-height:760px">
 <div style="padding:38px 52px 44px;display:flex;flex-direction:column">
-<img alt="Selvadentro · tierra de cenotes" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/logo-selvadentro-negro.png" style="width:200px;height:auto;display:block;margin-bottom:56px" data-i18n-a="{&quot;alt&quot;:&quot;Selvadentro · land of cenotes&quot;}">
+<img alt="Selvadentro · tierra de cenotes" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/logo-selvadentro-negro.png" style="width:200px;height:auto;display:block;margin-bottom:56px" data-i18n-a="{&quot;alt&quot;:&quot;Selvadentro · land of cenotes&quot;}">
 <div style="display:flex;gap:10px;align-items:center;margin-bottom:22px">
 <span style="font:700 10.5px Quicksand,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8A7A4A" data-i18n="{&quot;0&quot;:&quot;Dossier&quot;}">Expediente</span>
 <span style="flex:1;height:1px;background:rgba(28,39,23,.18)"></span>
@@ -309,7 +321,7 @@ window.LP_CONFIG = {
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:34px 0 26px">
 <div>
 <div style="font:700 10.5px Quicksand,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#21777B;margin-bottom:6px" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</div>
-<div style="font:600 46px/1 Lora,Georgia,serif;color:#FBF9F3;letter-spacing:-.015em" data-i18n-h="$68,200 &lt;span style=&quot;font:600 18px Quicksand,sans-serif;color:#7C8570&quot;&gt;USD&lt;/span&gt;">$68,200 <span style="font:600 18px Quicksand,sans-serif;color:#7C8570">USD</span><span style="display:block;margin-top:5px;font:600 16.0px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$1,364,000 MXN</span></div>
+<div style="font:600 46px/1 Lora,Georgia,serif;color:#FBF9F3;letter-spacing:-.015em" data-i18n-h="$68,200 &lt;span style=&quot;font:600 18px Quicksand,sans-serif;color:#7C8570&quot;&gt;USD&lt;/span&gt;">$1,364,000 <span style="font:600 18.4px Quicksand,sans-serif;color:rgba(247,244,236,.58)">MXN</span><span style="display:block;margin-top:6px;font:600 16.0px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$68,200 USD</span></div>
 </div>
 <div style="text-align:right;font:500 13px/1.5 Quicksand,sans-serif;color:#7C8570" data-i18n="{&quot;0&quot;:&quot;From 20% down&quot;,&quot;2&quot;:&quot;Direct terms of up to 48 months&quot;}">Enganche desde 20%<br>Plazo directo hasta 48 meses</div>
 </div>
@@ -321,8 +333,8 @@ window.LP_CONFIG = {
 </div>
 </div>
 </div>
-<div data-video="reel_selva" data-video-en="reel_selva_en" style="position:relative;overflow:hidden">
-<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/cenote.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 45%">
+<div data-video="reel_selva" data-video-en="reel_background_en" style="position:relative;overflow:hidden">
+<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/cenote.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 45%">
 <div style="position:absolute;inset:0;background:linear-gradient(200deg,rgba(13,19,9,.15),rgba(13,19,9,.72))"></div>
 <div style="position:absolute;left:30px;right:30px;bottom:30px;background:rgba(13,19,9,.62);border:1px solid rgba(243,239,228,.22);border-radius:4px;padding:20px 22px">
 <div style="font:700 10.5px Quicksand,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#5CC3C7;margin-bottom:10px" data-i18n="{&quot;0&quot;:&quot;The project on video&quot;}">Video · Orea y Sans</div>
@@ -353,19 +365,19 @@ window.LP_CONFIG = {
 <div style="padding:52px 52px 0">
 <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px"><span style="flex:none;font:400 9.5px Quicksand,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#CF8543" data-i18n="{&quot;0&quot;:&quot;The land today&quot;}">El terreno hoy</span><span style="flex:1;height:1px;background:rgba(247,244,236,.16)"></span></div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
-<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Acceso principal de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/1-acceso-principal--mtj2n2wp-5vp4.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Main entrance at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Main entrance, completed&quot;}">Acceso principal terminado</figcaption></figure>
-<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Polígono del terreno visto desde el aire" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/f-poligono.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;The property boundary seen from the air&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;103 hectares · 9 natural cenotes&quot;}">103 hectáreas · 9 cenotes naturales</figcaption></figure>
-<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Accesos y distancias desde el terreno" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/f-accesos.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Access roads and distances from the land&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;45 min to the Riviera Maya · 90 min to Cancún Airport&quot;}">45 min a Riviera Maya · 90 min al aeropuerto</figcaption></figure>
-<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cenote abierto en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/img20260712173955-mtj2ryqb-kfct.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Open cenote at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;One of the cenotes on the property&quot;}">Uno de los cenotes del terreno</figcaption></figure>
-<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cueva con agua dulce en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/img_1138-mtj23d1z-fjbt.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cave with fresh water at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Cave and fresh water&quot;}">Cueva y agua dulce</figcaption></figure>
-<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Claro de selva en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/f-claro.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Jungle clearing at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Jungle clearing within the property&quot;}">Claro de selva en el interior</figcaption></figure>
+<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Acceso principal de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/1-acceso-principal--mtj2n2wp-5vp4.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Main entrance at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Main entrance, completed&quot;}">Acceso principal terminado</figcaption></figure>
+<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Polígono del terreno visto desde el aire" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/f-poligono.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;The property boundary seen from the air&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;103 hectares · 9 natural cenotes&quot;}">103 hectáreas · 9 cenotes naturales</figcaption></figure>
+<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Accesos y distancias desde el terreno" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/f-accesos.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Access roads and distances from the land&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;45 min to the Riviera Maya · 90 min to Cancún Airport&quot;}">45 min a Riviera Maya · 90 min al aeropuerto</figcaption></figure>
+<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cenote abierto en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/img20260712173955-mtj2ryqb-kfct.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Open cenote at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;One of the cenotes on the property&quot;}">Uno de los cenotes del terreno</figcaption></figure>
+<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cueva con agua dulce en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/img_1138-mtj23d1z-fjbt.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cave with fresh water at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Cave and fresh water&quot;}">Cueva y agua dulce</figcaption></figure>
+<figure style="margin:0;position:relative;height:216px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Claro de selva en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/f-claro.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Jungle clearing at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:16px;right:16px;bottom:14px;font:500 12.5px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Jungle clearing within the property&quot;}">Claro de selva en el interior</figcaption></figure>
 </div>
 </div>
 <div style="background:#131B10;padding:18px 52px;display:flex;justify-content:space-between;font:500 12px Quicksand,sans-serif;color:rgba(243,239,228,.45)"><span>© 2026 Selvadentro Tulum</span><span>+52 999 489 0828 · info@selvadentrotulum.com</span></div>
 </div>
 <div class="lp-card lp-mobile" style="width:392px">
 <div style="position:relative;height:600px;overflow:hidden">
-<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/aerea-dia.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 42%">
+<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/aerea-dia.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 42%">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,19,9,.6) 0%,rgba(13,19,9,.15) 30%,rgba(13,19,9,.96) 82%)"></div>
 <div style="position:relative;display:flex;justify-content:space-between;align-items:center;padding:20px"><span class="lp-lang" data-lang="es" role="button" tabindex="0" data-on="color:#F3EFE4" data-off="color:#F3EFE4" style="color:#F3EFE4;cursor:pointer">ES</span> · <span class="lp-lang" data-lang="en" role="button" tabindex="0" data-on="color:#F3EFE4" data-off="color:#F3EFE4" style="color:#F3EFE4;cursor:pointer">EN</span></div>
 <div style="position:absolute;left:20px;right:20px;bottom:26px">
@@ -373,7 +385,7 @@ window.LP_CONFIG = {
 <h1 style="margin:0 0 16px;font:600 46px/1 Lora,Georgia,serif;color:#FBF9F3;letter-spacing:-.02em" data-i18n="{&quot;0&quot;:&quot;Full legal &quot;}">Certeza jurídica <span style="font-style:italic;color:#EBE2CE" data-i18n="{&quot;0&quot;:&quot;certainty&quot;}">completa</span></h1>
 <div style="padding-top:14px;border-top:1px solid rgba(243,239,228,.22)">
 <div style="font:700 10px Quicksand,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#5CC3C7;margin-bottom:4px" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</div>
-<div style="font:600 32px/1 Lora,Georgia,serif;color:#FBF9F3" data-i18n-h="$68,200 &lt;span style=&quot;font:600 14px Quicksand,sans-serif;color:rgba(243,239,228,.6)&quot;&gt;USD&lt;/span&gt;">$68,200 <span style="font:600 14px Quicksand,sans-serif;color:rgba(243,239,228,.6)">USD</span><span style="display:block;margin-top:5px;font:600 13.4px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$1,364,000 MXN</span></div>
+<div style="font:600 32px/1 Lora,Georgia,serif;color:#FBF9F3" data-i18n-h="$68,200 &lt;span style=&quot;font:600 14px Quicksand,sans-serif;color:rgba(243,239,228,.6)&quot;&gt;USD&lt;/span&gt;">$1,364,000 <span style="font:600 15.4px Quicksand,sans-serif;color:rgba(247,244,236,.58)">MXN</span><span style="display:block;margin-top:5px;font:600 13.4px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$68,200 USD</span></div>
 </div>
 </div>
 </div>
@@ -383,7 +395,7 @@ window.LP_CONFIG = {
 <p style="margin:10px 0 0;text-align:center;font:500 11.5px Quicksand,sans-serif;color:rgba(243,239,228,.6)" data-i18n="{&quot;0&quot;:&quot;Step 1 of 2 · 30 seconds · No obligation&quot;}">Paso 1 de 2 · 30 seg · Sin compromiso</p>
 </div>
 <div style="padding:26px 20px 0;display:flex;justify-content:center">
-<div data-video="reel_selva" data-video-en="reel_selva_en" style="position:relative;box-sizing:border-box;width:300px;max-width:100%;height:533px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
+<div data-video="reel_selva" data-video-en="reel_background_en" style="position:relative;box-sizing:border-box;width:300px;max-width:100%;height:533px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.22);background:rgba(20,24,15,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 18px">
 <span style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(247,244,236,.6);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:7px;border:14px solid transparent;border-left:22px solid #F7F4EC"></span></span>
 <span style="font:400 10.5px/1.8 Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.72);text-align:center" data-i18n="{&quot;0&quot;:&quot;The team behind&quot;,&quot;2&quot;:&quot;the project&quot;}">El equipo detrás<br>del proyecto<br><span style="letter-spacing:.1em;text-transform:none;color:rgba(247,244,236,.45)" data-i18n-h="1 min · interview&lt;br&gt;Spanish audio">1 min · entrevista</span></span>
 </div>
@@ -399,7 +411,7 @@ window.LP_CONFIG = {
 <a data-wa="" href="#wa" rel="noopener" style="min-height:48px;border-radius:4px;border:1.5px solid #26331F;display:flex;align-items:center;justify-content:center;gap:9px;font:700 14.5px Quicksand,sans-serif;color:#26331F;text-decoration:none;cursor:pointer" target="_blank" data-i18n="{&quot;1&quot;:&quot;Inquire via WhatsApp&quot;}"><svg aria-hidden="true" height="24" style="flex:none" viewBox="0 0 32 32" width="24"><path d="M16.03 3.2c-7.06 0-12.79 5.73-12.79 12.79 0 2.26.59 4.46 1.71 6.41L3.2 28.8l6.6-1.73a12.74 12.74 0 0 0 6.23 1.59h.01c7.05 0 12.79-5.74 12.79-12.79 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.62Zm0 23.13h-.01c-1.94 0-3.85-.52-5.51-1.51l-.4-.23-4.09 1.07 1.1-4-.26-.41a10.6 10.6 0 0 1-1.63-5.66c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.5 1.11 7.51 3.12a10.55 10.55 0 0 1 3.11 7.52c0 5.86-4.77 10.63-10.46 10.63Zm5.83-7.96c-.32-.16-1.97-.97-2.27-1.08-.31-.11-.53-.17-.75.16-.22.32-.86 1.08-1.06 1.3-.2.22-.39.24-.71.08-.32-.16-1.36-.5-2.59-1.6-.96-.86-1.6-1.92-1.79-2.24-.19-.32-.02-.5.14-.66.15-.15.32-.39.48-.58.16-.19.22-.33.32-.55.11-.22.05-.41-.03-.58-.08-.16-.71-1.79-.98-2.44-.25-.62-.51-.54-.7-.55h-.64c-.22 0-.58.08-.88.41-.3.32-1.15 1.12-1.15 2.74s1.18 3.18 1.34 3.4c.16.22 2.31 3.6 5.63 4.92.79.32 1.4.51 1.88.65.79.25 1.51.22 2.08.13.63-.09 2.16-.88 2.47-1.73.31-.86.31-1.59.22-1.74-.09-.16-.3-.24-.62-.4Z" fill="#1FA855"></path></svg>Preguntar por WhatsApp</a>
 </div>
 <div style="position:relative;padding:40px 20px;text-align:center;overflow:hidden;background:#131B10">
-<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/cenote-azul.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%">
+<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/cenote-azul.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,27,16,.86),rgba(13,19,9,.96))"></div>
 <div style="position:relative">
 <h2 style="margin:0 0 10px;font:600 30px/1.08 Lora,Georgia,serif;color:#FBF9F3" data-i18n="{&quot;0&quot;:&quot;Only &quot;,&quot;2&quot;:&quot; remain at today's price&quot;}">Quedan <span style="font-style:italic" data-i18n="{&quot;0&quot;:&quot;8 lots&quot;}">8 lotes</span> al precio de hoy</h2>
@@ -410,12 +422,12 @@ window.LP_CONFIG = {
 <div style="padding:28px 20px 0">
 <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px"><span style="flex:none;font:400 9px Quicksand,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#CF8543" data-i18n="{&quot;0&quot;:&quot;The land today&quot;}">El terreno hoy</span><span style="flex:1;height:1px;background:rgba(247,244,236,.16)"></span></div>
 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
-<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Acceso principal de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/1-acceso-principal--mtj2n2wp-5vp4.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Main entrance at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Main entrance, completed&quot;}">Acceso principal terminado</figcaption></figure>
-<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Polígono del terreno visto desde el aire" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/f-poligono.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;The property boundary seen from the air&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;103 hectares · 9 natural cenotes&quot;}">103 hectáreas · 9 cenotes naturales</figcaption></figure>
-<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Accesos y distancias desde el terreno" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/f-accesos.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Access roads and distances from the land&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;45 min to the Riviera Maya · 90 min to Cancún Airport&quot;}">45 min a Riviera Maya · 90 min al aeropuerto</figcaption></figure>
-<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cenote abierto en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/img20260712173955-mtj2ryqb-kfct.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Open cenote at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;One of the cenotes on the property&quot;}">Uno de los cenotes del terreno</figcaption></figure>
-<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cueva con agua dulce en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/img_1138-mtj23d1z-fjbt.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cave with fresh water at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Cave and fresh water&quot;}">Cueva y agua dulce</figcaption></figure>
-<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Claro de selva en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/f-claro.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Jungle clearing at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Jungle clearing within the property&quot;}">Claro de selva en el interior</figcaption></figure>
+<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Acceso principal de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/1-acceso-principal--mtj2n2wp-5vp4.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Main entrance at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Main entrance, completed&quot;}">Acceso principal terminado</figcaption></figure>
+<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Polígono del terreno visto desde el aire" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/f-poligono.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;The property boundary seen from the air&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;103 hectares · 9 natural cenotes&quot;}">103 hectáreas · 9 cenotes naturales</figcaption></figure>
+<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Accesos y distancias desde el terreno" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/f-accesos.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Access roads and distances from the land&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;45 min to the Riviera Maya · 90 min to Cancún Airport&quot;}">45 min a Riviera Maya · 90 min al aeropuerto</figcaption></figure>
+<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cenote abierto en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/img20260712173955-mtj2ryqb-kfct.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Open cenote at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;One of the cenotes on the property&quot;}">Uno de los cenotes del terreno</figcaption></figure>
+<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Cueva con agua dulce en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/img_1138-mtj23d1z-fjbt.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cave with fresh water at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Cave and fresh water&quot;}">Cueva y agua dulce</figcaption></figure>
+<figure style="margin:0;position:relative;height:116px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.12)"><img alt="Claro de selva en Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/f-claro.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Jungle clearing at Selvadentro&quot;}"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(11,15,8,.86) 100%)"></div><figcaption style="position:absolute;left:11px;right:11px;bottom:9px;font:500 10px/1.45 Quicksand,sans-serif;color:#F7F4EC;text-shadow:0 1px 10px rgba(11,15,8,.9)" data-i18n="{&quot;0&quot;:&quot;Jungle clearing within the property&quot;}">Claro de selva en el interior</figcaption></figure>
 </div>
 </div>
 <div style="position:sticky;bottom:0;background:rgba(13,19,9,.96);border-top:1px solid rgba(243,239,228,.14);padding:10px 14px;display:flex;gap:10px">
@@ -505,6 +517,7 @@ window.LP_CONFIG = {
       var src = (CFG.videos || {})[clave], v = box.querySelector('video.lp-video');
       if (!src || !v) return;
       var url = src.src || src;
+      if (src.encaje) v.dataset.encaje = src.encaje; else delete v.dataset.encaje;
       if (v.getAttribute('src') !== url) { v.pause(); v.setAttribute('src', url); if (src.poster) v.poster = src.poster; v.load(); }
     });
   }
@@ -611,7 +624,15 @@ window.LP_CONFIG = {
   var TIPO_CAMBIO = 20;
   var state = { price: 68200, down: 20, term: 24, horizon: 2029 };
   var disp = null, raf = null;
-  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  // La moneda la manda el idioma de la página: la lista en español es en pesos.
+  function factorMoneda() { return LANG === 'en' ? 1 : TIPO_CAMBIO; }
+  function siglaMoneda()  { return LANG === 'en' ? 'USD' : 'MXN'; }
+  function money(n) { return '$' + Math.round(n * factorMoneda()).toLocaleString('en-US'); }
+  // versión corta para las barras, donde no cabe la cifra entera
+  function moneyCorto(n) {
+    var v = n * factorMoneda();
+    return LANG === 'en' ? '$' + Math.round(v / 1000) + 'k' : '$' + (v / 1e6).toFixed(1) + 'M';
+  }
   function calcValue(s) { return (s.price / 167) * PPM2[s.horizon]; }
   function vals() {
     var s = state, BASE = 167, ppm2 = PPM2[s.horizon], years = s.horizon - 2026;
@@ -625,7 +646,7 @@ window.LP_CONFIG = {
       bars.push({
         year: y === 0 ? t('hoy') : String(yr),
         h: (16 + (v - s.price) / (value - s.price || 1) * 68) + '%',
-        label: '$' + Math.round(v / 1000) + 'k',
+        label: moneyCorto(v),
         dim: y === years ? '#CF8543' : 'rgba(247,244,236,.22)',
         txt: y === years ? '#CF8543' : 'rgba(247,244,236,.55)',
         ldim: y === years ? '#CF8543' : 'rgba(28,39,23,.18)',
@@ -634,17 +655,22 @@ window.LP_CONFIG = {
     }
     var out = {
       priceLabel: money(s.price),
-      // en inglés el precio va solo en dólares
-      priceMxn: LANG === 'en' ? '' : '<span style="display:block;text-align:right;margin-top:2px;'
+      // debajo, la misma cifra en la otra moneda, como referencia
+      priceMxn: '<span style="display:block;text-align:right;margin-top:2px;'
         + 'font:600 10.5px/1.3 Quicksand,sans-serif;letter-spacing:.01em;opacity:.6">'
-        + money(s.price * TIPO_CAMBIO) + ' MXN</span>',
+        + (LANG === 'en'
+             ? '$' + Math.round(s.price * TIPO_CAMBIO).toLocaleString('en-US') + ' MXN'
+             : '$' + Math.round(s.price).toLocaleString('en-US') + ' USD')
+        + '</span>',
       downLabel: s.down + '%', downAmt: money(downAmt),
       termLabel: s.term + t(' meses'), monthlyLabel: s.down >= 100 ? t('pago único') : money(monthly),
-      yearsLabel: s.horizon, growthLabel: '$' + ppm2 + ' USD/m²',
+      yearsLabel: s.horizon,
+      growthLabel: '$' + Math.round(ppm2 * factorMoneda()).toLocaleString('en-US') + ' ' + siglaMoneda() + '/m²',
       valueLabel: money(disp != null ? disp : value), gainLabel: money(gain),
       roiLabel: Math.round(gain / s.price * 100) + '%', annualLabel: (annual * 100).toFixed(1) + '%',
       multLabel: (value / s.price).toFixed(2) + 'x', bars: bars,
-      m2Label: Math.round(m2).toLocaleString('en-US') + ' m²', ppm2Label: '$' + ppm2 + ' USD/m²'
+      m2Label: Math.round(m2).toLocaleString('en-US') + ' m²',
+      ppm2Label: '$' + Math.round(ppm2 * factorMoneda()).toLocaleString('en-US') + ' ' + siglaMoneda() + '/m²'
     };
     Object.keys(CHIPS).forEach(function (k) {
       var kv = CHIPS[k], on = s[kv[0]] === kv[1], light = k.charAt(0) === 'l';
@@ -675,7 +701,11 @@ window.LP_CONFIG = {
   });
   function paint() {
     var v = vals();
-    calcs.forEach(function (c) { c.el.innerHTML = render(c.tpl, v); });
+    calcs.forEach(function (c) {
+      c.el.innerHTML = render(c.tpl, v);
+      // el HTML recién puesto viene de la plantilla, en español: hay que traducirlo
+      if (LANG === 'en') aplicarIdioma(c.el);
+    });
   }
   function setState(k, val) {
     var from = disp != null ? disp : calcValue(state);
@@ -872,6 +902,12 @@ window.LP_CONFIG = {
       var rc = box.clientWidth / box.clientHeight;
       if (Math.abs(rc - rv) / rv > 0.08) v.dataset.encaje = 'contain';
     });
+    // El encuadre puede venir dicho en la configuración. Si no, más abajo se
+    // deduce al cargar los metadatos; pero cuando ya se sabe que el video y la
+    // caja no tienen la misma forma, mejor fijarlo aquí y no esperar: si la
+    // deducción no llegara a correr, un video horizontal en una caja vertical
+    // se recortaría por los lados y se perderían los subtítulos.
+    if (src.encaje) v.dataset.encaje = src.encaje;
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
     btn.className = 'lp-video-btn'; btn.innerHTML = '<span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';

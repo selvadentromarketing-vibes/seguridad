@@ -10,7 +10,7 @@
 <meta property="og:image" content="/assets/aerea-dia.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://seguridad.selvadentrotulum.com/seguridadcenotes/">
-<link rel="icon" href="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/logo-selvadentro-negro.png">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/logo-selvadentro-negro.png">
 <script>window.LP_LANG_FIJO='en';</script>
 </head>
 <body>
@@ -104,30 +104,42 @@ window.LP_CONFIG = {
     // el material original). Por eso sirve tal cual para /en/, pero en las páginas
     // en español el rótulo promete subtítulos en español y no coinciden. Cuando
     // tengas el corte SLVD_Essence_SubESP, cámbialo solo en "main".
-    main:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-poster.jpg", recorte: 0.05 },
-    main_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/essence-poster.jpg", recorte: 0.05 },
+    // Essence. Igual que el Short: el único archivo lleva los subtítulos quemados
+    // en inglés, así que la versión española se saca recortando esa franja
+    // (crop=1920:860:0:60). Por eso "main" ya no necesita "recorte": el corte se
+    // llevó también las barras negras.
+    main:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-es-1280.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-es-poster.jpg" },
+    main_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-720.mp4",    poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/essence-poster.jpg", recorte: 0.05 },
 
     // Reels verticales 9:16. Llevan rótulos quemados EN ESPAÑOL ("9 cenotes
     // naturales", "103 hectáreas"), así que sirven para las páginas en español
     // pero no para las de /en/. Solo caben sin recorte en cajas verticales: hoy
     // la única es el panel de seguridadjuridica en escritorio (ratio 0.63).
-    reel_descriptivo: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-descriptivo.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-descriptivo-poster.jpg" },
-    reel_background:  { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-background.mp4",  poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-background-poster.jpg" },
+    reel_descriptivo: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-descriptivo.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-descriptivo-poster.jpg" },
+    reel_background:  { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-background.mp4",  poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-background-poster.jpg" },
+
+    // SLVD_Background con subtítulos en inglés, la película entera (2:47) y
+    // horizontal. Va en las cajas verticales de las páginas /en/: como no tiene
+    // la misma forma que la caja, el reproductor la muestra completa con franjas
+    // en vez de recortarla, y así no se pierde ningún subtítulo.
+    reel_background_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/background-en-720.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/background-en-poster.jpg", encaje: "contain" },
 
     // REEL SELVA 1: la entrevista al equipo, vertical 9:16. Está HABLADA EN ESPAÑOL
     // y no lleva subtítulos de ningún tipo, así que en las páginas en inglés no se
     // entiende. Las cajas ya piden "reel_selva_en"; en cuanto edición entregue el
     // corte con subtítulos en inglés, se sube a /video/ y se descomenta la línea.
-    reel_selva: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva-poster.jpg" },
-    // reel_selva_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva-en.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/reel-selva-poster.jpg" },
+    reel_selva: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva-poster.jpg" },
+    // reel_selva_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva-en.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/reel-selva-poster.jpg" },
 
-    // 4.SELVADENTRO SHORT: horizontal 1920x1080. El archivo de hoy lleva los
-    // subtítulos quemados EN INGLÉS, así que sirve para /en/ pero en las páginas
-    // en español se leen en inglés. En Drive están los dos cortes buenos
-    // (SLVD_Short_SubESP y SLVD_Short_SubENG): al subirlos, "short" pasa a apuntar
-    // al español y se descomenta "short_en", que las cajas ya piden.
-    short: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-1080.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-poster.jpg", recorte: 0.05 }
-    // , short_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-en-1080.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/video/short-poster.jpg", recorte: 0.05 }
+    // 4.SELVADENTRO SHORT. El único archivo que hay lleva los subtítulos quemados
+    // EN INGLÉS, y el corte en español de Drive sigue restringido. Como los
+    // subtítulos ocupan una franja fija al pie del cuadro, la versión española se
+    // hace recortando esa franja (crop=1920:860:0:60 sobre el original): queda el
+    // mismo video, hablado en español, sin subtítulos. Por eso "short" ya no
+    // necesita "recorte": las barras negras se fueron en el mismo corte.
+    // Si algún día llega SLVD_Short_SubESP, se cambia el src de "short" y ya.
+    short:    { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-es-1280.mp4", poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-es-poster.jpg" },
+    short_en: { src: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-1080.mp4",    poster: "https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/video/short-poster.jpg", recorte: 0.05 }
   },
 
   /* --- Medición -------------------------------------------------------------
@@ -290,7 +302,7 @@ window.LP_CONFIG = {
 <div class="lp-wrap">
 <div class="lp-card lp-desktop" style="width:1182px">
 <div style="padding:20px 34px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(28,39,23,.12)">
-<img alt="Selvadentro · tierra de cenotes" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/logo-selvadentro-blanco.png" style="width:118px;height:auto;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Selvadentro · land of cenotes&quot;}">
+<img alt="Selvadentro · tierra de cenotes" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/logo-selvadentro-blanco.png" style="width:118px;height:auto;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Selvadentro · land of cenotes&quot;}">
 
 <div style="display:flex;gap:8px;align-items:center">
 <span style="padding:8px 13px;border-radius:999px;border:1px solid rgba(28,39,23,.2);font:700 11px Quicksand,sans-serif;letter-spacing:.1em;color:#5A6550"><span class="lp-lang" data-lang="es" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:#F7F4EC" style="color:#F7F4EC;cursor:pointer">ES</span> · <span class="lp-lang" data-lang="en" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:#F7F4EC" style="color:#F7F4EC;cursor:pointer">EN</span></span>
@@ -311,7 +323,7 @@ window.LP_CONFIG = {
 </div>
 </div>
 <div data-video="short" data-video-en="short_en" style="position:relative;margin-top:26px;height:360px;border-radius:4px;overflow:hidden;background:#0B0F08">
-<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/f-cueva.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
+<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/f-cueva.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,8,.28) 0%,rgba(11,15,8,.12) 34%,rgba(11,15,8,.78) 100%)"></div>
 <div style="position:absolute;left:0;right:0;top:44%;display:flex;flex-direction:column;align-items:center;gap:12px">
 <span style="width:74px;height:74px;border-radius:50%;background:rgba(247,244,236,.16);border:1.5px solid rgba(247,244,236,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;margin-left:5px;border:11px solid transparent;border-left:18px solid #F7F4EC"></span></span>
@@ -320,7 +332,7 @@ window.LP_CONFIG = {
 <div style="position:absolute;left:28px;bottom:24px;font:700 11px/1.6 Quicksand,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#F7F4EC" data-i18n="{&quot;0&quot;:&quot;Land of cenotes&quot;}">Tierra de cenotes<br><span style="color:rgba(247,244,236,.7)" data-i18n="{&quot;0&quot;:&quot;Phase 03 · Tulum, Quintana Roo&quot;}">Fase 03 · Tulum, Quintana Roo</span></div>
 <div style="position:absolute;right:28px;bottom:24px;text-align:right">
 <div style="font:700 9.5px Quicksand,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,244,236,.72);margin-bottom:4px" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</div>
-<div style="font:600 32px/1 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 &lt;span style=&quot;font:600 13px Quicksand,sans-serif;color:rgba(247,244,236,.7)&quot;&gt;USD&lt;/span&gt;">$68,200 <span style="font:600 13px Quicksand,sans-serif;color:rgba(247,244,236,.7)">USD</span><span style="display:block;margin-top:5px;font:600 13.4px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$1,364,000 MXN</span></div>
+<div style="font:600 32px/1 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 &lt;span style=&quot;font:600 13px Quicksand,sans-serif;color:rgba(247,244,236,.7)&quot;&gt;USD&lt;/span&gt;">$1,364,000 <span style="font:600 15.4px Quicksand,sans-serif;color:rgba(247,244,236,.58)">MXN</span><span style="display:block;margin-top:5px;font:600 13.4px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$68,200 USD</span></div>
 </div>
 </div>
 </div>
@@ -352,7 +364,7 @@ window.LP_CONFIG = {
 </div>
 </div>
 <div data-video="main" data-video-en="main_en" style="position:relative;border-radius:4px;overflow:hidden;min-height:440px">
-<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;position:absolute;inset:0" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
+<img alt="Cenote de Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;position:absolute;inset:0" data-i18n-a="{&quot;alt&quot;:&quot;Cenote at Selvadentro&quot;}">
 <div style="position:absolute;inset:0;background:linear-gradient(200deg,transparent,rgba(11,15,8,.55))"></div>
 <div style="position:absolute;left:24px;right:24px;bottom:22px">
 <div style="font:700 9.5px Quicksand,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:rgba(247,244,236,.75);margin-bottom:8px" data-i18n="{&quot;0&quot;:&quot;The project on video&quot;}">El proyecto en video</div>
@@ -395,7 +407,7 @@ window.LP_CONFIG = {
 </div>
 <div style="padding:44px 34px 34px">
 <div style="position:relative;border-radius:4px;overflow:hidden;height:300px">
-<img alt="Vista aérea de Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/aerea-dia.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 52%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Aerial view of Selvadentro Tulum&quot;}">
+<img alt="Vista aérea de Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/aerea-dia.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 52%;display:block" data-i18n-a="{&quot;alt&quot;:&quot;Aerial view of Selvadentro Tulum&quot;}">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,8,.3),rgba(11,15,8,.88))"></div>
 <div style="position:absolute;left:0;right:0;bottom:34px;text-align:center">
 <div style="font:700 10px Quicksand,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#CF8543;margin-bottom:14px" data-i18n="{&quot;0&quot;:&quot;Current phase&quot;}">Fase actual</div>
@@ -411,7 +423,7 @@ window.LP_CONFIG = {
 </div>
 <div class="lp-card lp-mobile" style="width:392px">
 <div style="padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(28,39,23,.12)">
-<img alt="Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/logo-selvadentro-blanco.png" style="width:104px;height:auto;display:block">
+<img alt="Selvadentro" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/logo-selvadentro-blanco.png" style="width:104px;height:auto;display:block">
 <div style="display:flex;gap:7px;align-items:center">
 <span style="padding:7px 11px;border-radius:999px;border:1px solid rgba(28,39,23,.2);font:700 10.5px Quicksand,sans-serif;letter-spacing:.08em;color:#5A6550"><span class="lp-lang" data-lang="es" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:#F7F4EC" style="color:#F7F4EC;cursor:pointer">ES</span> · <span class="lp-lang" data-lang="en" role="button" tabindex="0" data-on="color:#F7F4EC" data-off="color:#F7F4EC" style="color:#F7F4EC;cursor:pointer">EN</span></span>
 <span style="width:36px;height:36px;border-radius:50%;background:#1C2717;display:flex;align-items:center;justify-content:center;font:700 13px Quicksand,sans-serif;color:#F7F4EC">☰</span>
@@ -424,11 +436,11 @@ window.LP_CONFIG = {
 </div>
 <div style="padding:0 18px">
 <div style="position:relative;border-radius:4px;overflow:hidden;height:280px">
-<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@7b3c714ee8b83d32d74919185e8046e94b62268e/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block">
+<img alt="Selvadentro Tulum" decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@65f9f4182774146771e7bfbe5a8ccf84a824184a/public/assets/cenote-azul.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block">
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,15,8,.8))"></div>
 <div style="position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end">
 <span style="font:700 9.5px/1.6 Quicksand,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#F7F4EC" data-i18n="{&quot;0&quot;:&quot;Phase 03&quot;}">Fase 03<br><span style="color:rgba(247,244,236,.7)">Tulum</span></span>
-<span style="text-align:right"><span style="display:block;font:700 8.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.72)" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</span><span style="display:block;font:600 24px/1.2 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 USD">$68,200 USD<span style="display:block;margin-top:5px;font:600 11.0px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$1,364,000 MXN</span></span></span>
+<span style="text-align:right"><span style="display:block;font:700 8.5px Quicksand,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,236,.72)" data-i18n="{&quot;0&quot;:&quot;Lots from&quot;}">Lotes desde</span><span style="display:block;font:600 24px/1.2 Lora,Georgia,serif;color:#F7F4EC" data-i18n-h="$68,200 USD">$1,364,000 <span style="font:600 12.6px Quicksand,sans-serif;color:rgba(247,244,236,.58)">MXN</span><span style="display:block;margin-top:5px;font:600 11.0px/1.3 Quicksand,sans-serif;letter-spacing:.01em;color:rgba(247,244,236,.58)">$68,200 USD</span></span></span>
 </div>
 </div>
 </div>
@@ -542,6 +554,7 @@ window.LP_CONFIG = {
       var src = (CFG.videos || {})[clave], v = box.querySelector('video.lp-video');
       if (!src || !v) return;
       var url = src.src || src;
+      if (src.encaje) v.dataset.encaje = src.encaje; else delete v.dataset.encaje;
       if (v.getAttribute('src') !== url) { v.pause(); v.setAttribute('src', url); if (src.poster) v.poster = src.poster; v.load(); }
     });
   }
@@ -648,7 +661,15 @@ window.LP_CONFIG = {
   var TIPO_CAMBIO = 20;
   var state = { price: 68200, down: 20, term: 24, horizon: 2029 };
   var disp = null, raf = null;
-  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  // La moneda la manda el idioma de la página: la lista en español es en pesos.
+  function factorMoneda() { return LANG === 'en' ? 1 : TIPO_CAMBIO; }
+  function siglaMoneda()  { return LANG === 'en' ? 'USD' : 'MXN'; }
+  function money(n) { return '$' + Math.round(n * factorMoneda()).toLocaleString('en-US'); }
+  // versión corta para las barras, donde no cabe la cifra entera
+  function moneyCorto(n) {
+    var v = n * factorMoneda();
+    return LANG === 'en' ? '$' + Math.round(v / 1000) + 'k' : '$' + (v / 1e6).toFixed(1) + 'M';
+  }
   function calcValue(s) { return (s.price / 167) * PPM2[s.horizon]; }
   function vals() {
     var s = state, BASE = 167, ppm2 = PPM2[s.horizon], years = s.horizon - 2026;
@@ -662,7 +683,7 @@ window.LP_CONFIG = {
       bars.push({
         year: y === 0 ? t('hoy') : String(yr),
         h: (16 + (v - s.price) / (value - s.price || 1) * 68) + '%',
-        label: '$' + Math.round(v / 1000) + 'k',
+        label: moneyCorto(v),
         dim: y === years ? '#CF8543' : 'rgba(247,244,236,.22)',
         txt: y === years ? '#CF8543' : 'rgba(247,244,236,.55)',
         ldim: y === years ? '#CF8543' : 'rgba(28,39,23,.18)',
@@ -671,17 +692,22 @@ window.LP_CONFIG = {
     }
     var out = {
       priceLabel: money(s.price),
-      // en inglés el precio va solo en dólares
-      priceMxn: LANG === 'en' ? '' : '<span style="display:block;text-align:right;margin-top:2px;'
+      // debajo, la misma cifra en la otra moneda, como referencia
+      priceMxn: '<span style="display:block;text-align:right;margin-top:2px;'
         + 'font:600 10.5px/1.3 Quicksand,sans-serif;letter-spacing:.01em;opacity:.6">'
-        + money(s.price * TIPO_CAMBIO) + ' MXN</span>',
+        + (LANG === 'en'
+             ? '$' + Math.round(s.price * TIPO_CAMBIO).toLocaleString('en-US') + ' MXN'
+             : '$' + Math.round(s.price).toLocaleString('en-US') + ' USD')
+        + '</span>',
       downLabel: s.down + '%', downAmt: money(downAmt),
       termLabel: s.term + t(' meses'), monthlyLabel: s.down >= 100 ? t('pago único') : money(monthly),
-      yearsLabel: s.horizon, growthLabel: '$' + ppm2 + ' USD/m²',
+      yearsLabel: s.horizon,
+      growthLabel: '$' + Math.round(ppm2 * factorMoneda()).toLocaleString('en-US') + ' ' + siglaMoneda() + '/m²',
       valueLabel: money(disp != null ? disp : value), gainLabel: money(gain),
       roiLabel: Math.round(gain / s.price * 100) + '%', annualLabel: (annual * 100).toFixed(1) + '%',
       multLabel: (value / s.price).toFixed(2) + 'x', bars: bars,
-      m2Label: Math.round(m2).toLocaleString('en-US') + ' m²', ppm2Label: '$' + ppm2 + ' USD/m²'
+      m2Label: Math.round(m2).toLocaleString('en-US') + ' m²',
+      ppm2Label: '$' + Math.round(ppm2 * factorMoneda()).toLocaleString('en-US') + ' ' + siglaMoneda() + '/m²'
     };
     Object.keys(CHIPS).forEach(function (k) {
       var kv = CHIPS[k], on = s[kv[0]] === kv[1], light = k.charAt(0) === 'l';
@@ -712,7 +738,11 @@ window.LP_CONFIG = {
   });
   function paint() {
     var v = vals();
-    calcs.forEach(function (c) { c.el.innerHTML = render(c.tpl, v); });
+    calcs.forEach(function (c) {
+      c.el.innerHTML = render(c.tpl, v);
+      // el HTML recién puesto viene de la plantilla, en español: hay que traducirlo
+      if (LANG === 'en') aplicarIdioma(c.el);
+    });
   }
   function setState(k, val) {
     var from = disp != null ? disp : calcValue(state);
@@ -909,6 +939,12 @@ window.LP_CONFIG = {
       var rc = box.clientWidth / box.clientHeight;
       if (Math.abs(rc - rv) / rv > 0.08) v.dataset.encaje = 'contain';
     });
+    // El encuadre puede venir dicho en la configuración. Si no, más abajo se
+    // deduce al cargar los metadatos; pero cuando ya se sabe que el video y la
+    // caja no tienen la misma forma, mejor fijarlo aquí y no esperar: si la
+    // deducción no llegara a correr, un video horizontal en una caja vertical
+    // se recortaría por los lados y se perderían los subtítulos.
+    if (src.encaje) v.dataset.encaje = src.encaje;
     if (src.poster) v.poster = src.poster;
     var btn = document.createElement('div');
     btn.className = 'lp-video-btn'; btn.innerHTML = '<span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
