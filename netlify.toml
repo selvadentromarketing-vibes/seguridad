@@ -31,25 +31,24 @@
 # connect-src incluye services.leadconnectorhq.com porque ahí hace POST el
 # formulario. Si cambias de CRM, hay que cambiarlo aquí también.
 # ------------------------------------------------------------------------------
-# --- Las páginas /en/ ya no existen: cada landing lleva los dos idiomas dentro.
-#     Los enlaces antiguos siguen funcionando y entran directos en inglés.
+# --- Cada landing tiene dos direcciones: /<landing>/ en español y
+#     /en/<landing>/ en inglés. No son dos archivos: se sirve el mismo (status
+#     200, reescritura, no redirección) y la página mira su propia ruta para
+#     saber en qué idioma arrancar. Así no hay dos copias que mantener.
 [[redirects]]
   from = "/en/:landing/"
-  to = "/:landing/?lang=en"
-  status = 301
-  force = true
+  to = "/:landing/index.html"
+  status = 200
 
 [[redirects]]
   from = "/en/:landing"
-  to = "/:landing/?lang=en"
-  status = 301
-  force = true
+  to = "/:landing/index.html"
+  status = 200
 
 [[redirects]]
   from = "/en/"
-  to = "/?lang=en"
-  status = 301
-  force = true
+  to = "/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"

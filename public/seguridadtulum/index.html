@@ -823,16 +823,40 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
   document.fonts && document.fonts.ready.then(fit);
   window.addEventListener('load', fit);
 
+  /* ---------- Un idioma por dirección ----------
+     Cada landing vive en dos URLs: /<landing>/ en español y /en/<landing>/ en
+     inglés. La página no alterna: arranca en el idioma de su ruta y el control
+     ES · EN lleva a la otra dirección, arrastrando los utm_* del anuncio.
+     Dentro del CRM no hay ruta que mirar, así que el fragmento trae el idioma
+     escrito en window.LP_LANG_FIJO y ahí el control sí cambia en el sitio. */
+  var EN_RUTA = /^\/en(\/|$)/.test(location.pathname);
+  var FIJO_CRM = (window.LP_LANG_FIJO === 'en' || window.LP_LANG_FIJO === 'es') ? window.LP_LANG_FIJO : null;
+  var FIJO = FIJO_CRM || (EN_RUTA ? 'en' : 'es');
+  function otraDireccion() {
+    var destino = EN_RUTA ? location.pathname.replace(/^\/en/, '') : '/en' + location.pathname;
+    if (destino.charAt(0) !== '/') destino = '/' + destino;
+    if (destino === '/en') destino = '/en/';
+    // se conservan los utm_*; un lang= viejo se cae, que ya lo dice la ruta
+    var q = location.search.replace(/([?&])lang=(es|en)(&|$)/, '$1').replace(/[?&]$/, '');
+    if (q === '?') q = '';
+    return destino + q + location.hash;
+  }
   [].forEach.call(document.querySelectorAll('.lp-lang'), function (b) {
-    b.addEventListener('click', function (ev) { ev.preventDefault(); ev.stopPropagation(); ponIdioma(b.getAttribute('data-lang'), true); });
-    b.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); ponIdioma(b.getAttribute('data-lang'), true); } });
+    var ir = function (ev) {
+      ev.preventDefault(); ev.stopPropagation();
+      var lg = b.getAttribute('data-lang');
+      if (lg === FIJO) return;
+      if (FIJO_CRM) { ponIdioma(lg, false); return; }
+      location.href = otraDireccion();
+    };
+    b.addEventListener('click', ir);
+    b.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') ir(ev); });
   });
   (function () {
-    var guardado = null;
-    try { guardado = localStorage.getItem('lp_lang'); } catch (e) {}
+    // enlaces antiguos de campañas: ?lang= manda a la dirección que ahora toca
     var url = (location.search.match(/[?&]lang=(es|en)/) || [])[1];
-    // por defecto español: el tráfico de campañas en inglés puede entrar con ?lang=en
-    ponIdioma(url || guardado || 'es', false);
+    if (url && url !== FIJO && !FIJO_CRM) { location.replace(otraDireccion()); return; }
+    ponIdioma(FIJO, false);
   })();
 
 })();
