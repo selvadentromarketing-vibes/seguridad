@@ -49,6 +49,14 @@ window.LP_CONFIG = {
     // en vez de recortarla, y así no se pierde ningún subtítulo.
     reel_background_en: { src: "/video/background-en-720.mp4", poster: "/video/background-en-poster.jpg", encaje: "contain" },
 
+    // La misma película para las páginas en español, con la franja de subtítulos
+    // recortada (crop=1920:940:0:0). Queda en 2.04 de proporción, así que solo va
+    // en las landings cuyo hueco de video es apaisado: patrimonio (1.98, encaja
+    // casi exacta), lotes (1.24) y cenotes (1.19). En las de hueco vertical (0.56)
+    // quedaría una banda con el 72% de la caja en negro, y recortarla a vertical
+    // parte el master plan y saca de cuadro a quien habla: ahí siguen los reels.
+    pelicula_es: { src: "/video/pelicula-es.mp4", poster: "/video/pelicula-es-poster.jpg" },
+
     // REEL SELVA 1: la entrevista al equipo, vertical 9:16. Está HABLADA EN ESPAÑOL
     // y no lleva subtítulos de ningún tipo, así que en las páginas en inglés no se
     // entiende. Las cajas ya piden "reel_selva_en"; en cuanto edición entregue el
