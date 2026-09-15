@@ -62,7 +62,9 @@ window.LP_CONFIG = {
                 que Google Ads sepa qué clic acabó en formulario enviado.
   ------------------------------------------------------------------------- */
   // Chat de LeadConnector. Vacío = no se carga.
-  chatWidgetId: "6aa84e0ef095905710c94ea1",
+  // Fuera de uso: su burbuja se confundía con el botón de WhatsApp.
+  // Para volver a encenderlo, pega aquí el id: "6aa84e0ef095905710c94ea1"
+  chatWidgetId: "",
 
   analytics: {
     ga4: "G-7F35BWLHTZ",
