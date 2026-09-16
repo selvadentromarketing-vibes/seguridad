@@ -24,6 +24,23 @@ window.LP_CONFIG = {
   // "recorte" = fraccion de alto que ocupa la barra negra quemada en el archivo
   // (essence y short son 1920x1080 con 54px de barra arriba y abajo: 54/1080 = 0.05).
   // La pagina agranda el video lo justo para dejarlas fuera de la caja.
+  // OJO CON EL IDIOMA: no existe material narrado en inglés. Las tres "versiones
+  // inglesas" son EXACTAMENTE la misma película que la española, con los
+  // subtítulos en inglés quemados en el archivo; lo prueban las duraciones:
+  //   background-en (2:47.85) == pelicula-es (2:47.85)   -> la película
+  //   essence-1080  (1:56.42) == essence-es-1280         -> Essence
+  //   short-1080    (0:52.01) == short-es-1280           -> Short
+  // Las españolas son ese mismo archivo con la franja de subtítulos recortada.
+  // Mientras edición no entregue cortes narrados o doblados al inglés, lo único
+  // que distingue a /en/ es el subtítulo. Reparto actual, uno distinto por
+  // landing hasta donde alcanza el material (ES · EN):
+  //   tulum      reel_selva + pelicula_es   ·  reel_background_en + short_en
+  //   lotes      main                       ·  short_en
+  //   patrimonio pelicula_es                ·  main_en
+  //   selva      reel_background            ·  reel_background_en
+  //   cenotes    short + main               ·  main_en + reel_background_en
+  //   inversion  reel_descriptivo           ·  main_en
+  //   juridica   reel_selva                 ·  short_en
   videos: {
     // OJO: este archivo lleva los subtítulos quemados EN INGLÉS (ya venían así en
     // el material original). Por eso sirve tal cual para /en/, pero en las páginas
@@ -89,12 +106,22 @@ window.LP_CONFIG = {
                 que Google Ads sepa qué clic acabó en formulario enviado.
   ------------------------------------------------------------------------- */
   // ---------- El precio ----------
-  // El precio de entrada (68,200 USD = 1,364,000 MXN, a 20 pesos por dólar) NO
-  // vive aquí: está escrito en el HTML de cada landing, porque cada diseño lo
-  // coloca a su manera. Para cambiarlo hay que buscar "68,200" y "1,364,000"
-  // dentro de public/seguridad<landing>/index.html. En la calculadora sí se
-  // calcula: el tipo de cambio es la constante TIPO_CAMBIO del motor, en esas
-  // mismas páginas. Los pesos solo se muestran en las páginas en español.
+  // Ninguna cifra de precio vive aquí: están escritas en el HTML de cada landing,
+  // porque cada diseño las coloca a su manera. Hay DOS precios distintos:
+  //
+  //   1) Precio del lote de entrada: 68,200 USD = 1,364,000 MXN (20 pesos por
+  //      dólar). Para cambiarlo, buscar "68,200" y "1,364,000" dentro de
+  //      public/seguridad<landing>/index.html.
+  //
+  //   2) Precio por metro cuadrado, hoy 170 USD/m² = 3,400 MXN/m². Vive en tres
+  //      sitios del motor de cada página: PPM2 (el año 2026 de la tabla de
+  //      proyección), la constante BASE y el divisor de calcValue. Los tres
+  //      tienen que llevar el mismo número. Además sale escrito en el rótulo
+  //      "Referencia de zona 2026" de tulum, selva y patrimonio, en pesos en la
+  //      versión española y en dólares en el atributo data-i18n de la inglesa.
+  //
+  // El tipo de cambio es la constante TIPO_CAMBIO del motor, en esas mismas
+  // páginas. Los pesos solo se muestran en las páginas en español.
 
   // Chat de LeadConnector. Vacío = no se carga.
   // Fuera de uso: su burbuja se confundía con el botón de WhatsApp.
