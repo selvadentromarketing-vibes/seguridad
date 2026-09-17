@@ -40,11 +40,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 .lp-video-btn svg{width:26px;height:26px;margin-left:4px;fill:#1C2717}
 [data-video].lp-playing .lp-video[data-encaje=contain]{object-fit:contain;top:0;height:100%}
 [data-video].lp-playing .lp-video-btn{display:none}
-/* WhatsApp flotante */
-.lp-fab{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(37,211,102,.2);transition:transform .2s}
-.lp-fab:hover{transform:scale(1.06)}
-.lp-fab svg{width:32px;height:32px;fill:#fff}
-@media (max-width:767px){.lp-fab{display:none}}
+@media (max-width:767px){}
 /* Modal de lead */
 .lp-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,12,6,.72);backdrop-filter:blur(6px)}
 .lp-modal.on{display:flex}
@@ -237,11 +233,6 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 </div>
 </div>
 </div>
-
-
-<a class="lp-fab" href="#wa" data-wa="" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-i18n-a="{&quot;aria-label&quot;:&quot;Contact us via WhatsApp&quot;}">
-<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.6l-.4-.2-4 1 1.1-3.9-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.1.9 2.9 1 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"></path></svg>
-</a>
 
 <div class="lp-modal" role="dialog" aria-modal="true" aria-labelledby="lp-modal-h">
   <div class="lp-modal-box">
@@ -614,7 +605,22 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
   }
   function afterSend(p) {
     track('lead', { landing: LANDING, variant: VARIANT });
-    if (CFG.thankYouUrl) { location.href = CFG.thankYouUrl; return; }
+    // Página de gracias. La dirección es absoluta en config.js porque esta misma
+    // página también se pega como fragmento dentro del CRM, donde una ruta
+    // relativa apuntaría al dominio del CRM y no al del sitio.
+    var destino = (LANG === 'en' ? CFG.thankYouUrlEn : CFG.thankYouUrl) || '';
+    if (!destino) return;
+    // Le pasamos la atribución para que la página de gracias sepa de dónde vino
+    // el lead y pueda ofrecerle el WhatsApp con la campaña puesta.
+    var q = [];
+    UTM_KEYS.forEach(function (k) { if (p[k]) q.push(k + '=' + encodeURIComponent(p[k])); });
+    if (LANDING) q.push('lp=' + encodeURIComponent(LANDING));
+    if (VARIANT) q.push('v=' + encodeURIComponent(VARIANT));
+    if (p.first_name) q.push('n=' + encodeURIComponent(p.first_name));
+    var url = destino + (q.length ? (destino.indexOf('?') < 0 ? '?' : '&') + q.join('&') : '');
+    // Medio segundo para que salgan las balizas de Analytics y del píxel antes
+    // de cambiar de página; si no, se pierden eventos en conexiones lentas.
+    setTimeout(function () { location.href = url; }, 500);
   }
 
   document.addEventListener('click', function (ev) {

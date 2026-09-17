@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gracias · Selvadentro Tulum</title>
+<meta name="description" content="Recibimos tus datos. Te llamamos en menos de 24 h con la lista de lotes disponibles y el plan de pagos.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/logo-selvadentro-negro.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="/config.js"></script>
+<style>
+/* Misma paleta y misma tipografía que las landings, para que el salto no se note. */
+:root{
+  --g-fondo:#14180F; --g-fondo2:#1C2717;
+  --g-crema:#F7F4EC; --g-naranja:#CF8543; --g-verde:#A3B26A; --g-wa:#25D366;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--g-fondo); color:var(--g-crema);
+  font:400 16px/1.6 Quicksand,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh; display:flex; flex-direction:column;
+}
+/* La foto aérea de fondo, muy bajada, para que el texto siga legible. */
+.g-fondo{position:fixed;inset:0;z-index:0;overflow:hidden}
+.g-fondo img{width:100%;height:100%;object-fit:cover;opacity:.22}
+.g-fondo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,24,15,.74),rgba(20,24,15,.93))}
+.g-hoja{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;
+  align-items:center;padding:34px 20px 48px}
+.g-logo{height:34px;width:auto;opacity:.9;margin-bottom:auto}
+.g-caja{width:100%;max-width:640px;margin:44px 0 0;text-align:center}
+
+.g-eyebrow{font:700 10.5px Quicksand,sans-serif;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--g-naranja);margin-bottom:18px}
+.g-check{width:62px;height:62px;border-radius:50%;margin:0 auto 22px;
+  border:1.5px solid rgba(163,178,106,.55);display:flex;align-items:center;justify-content:center}
+.g-check svg{width:28px;height:28px;fill:none;stroke:var(--g-verde);stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round}
+h1{margin:0 0 16px;font:300 44px/1.12 Quicksand,sans-serif;letter-spacing:-.02em;
+  color:rgba(247,244,236,.94)}
+.g-lead{margin:0 auto;max-width:520px;font-size:16.5px;color:rgba(247,244,236,.72)}
+.g-nota{margin-top:16px;font-size:12.5px;letter-spacing:.02em;color:rgba(247,244,236,.46)}
+
+/* El bloque de WhatsApp: es la acción principal de esta página. */
+.g-wa{margin:38px auto 0;max-width:520px;padding:26px 24px 24px;border-radius:6px;
+  background:rgba(28,39,23,.66);border:1px solid rgba(247,244,236,.14)}
+.g-wa-t{font:600 15px Quicksand,sans-serif;color:rgba(247,244,236,.9);margin-bottom:6px}
+.g-wa-s{font-size:13.5px;color:rgba(247,244,236,.6);margin-bottom:20px}
+.g-wa-b{display:flex;align-items:center;justify-content:center;gap:12px;
+  min-height:56px;padding:12px 26px;border-radius:999px;background:var(--g-wa);
+  color:#08210F;font:600 15.5px Quicksand,sans-serif;text-decoration:none;
+  box-shadow:0 12px 30px rgba(37,211,102,.26);transition:transform .2s ease,box-shadow .2s ease}
+.g-wa-b:hover{transform:translateY(-1px);box-shadow:0 16px 36px rgba(37,211,102,.34)}
+.g-wa-b svg{width:24px;height:24px;fill:#08210F;flex:none}
+.g-tel{display:inline-block;margin-top:16px;font-size:13px;letter-spacing:.04em;
+  color:rgba(247,244,236,.55);text-decoration:none}
+.g-tel:hover{color:rgba(247,244,236,.8)}
+
+/* Las mismas tres garantías que llevan las landings. */
+.g-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:38px auto 0;max-width:640px}
+.g-card{padding:20px 16px;border-radius:5px;background:rgba(247,244,236,.05);
+  border:1px solid rgba(247,244,236,.1);text-align:left}
+.g-card b{display:block;font:600 13.5px Quicksand,sans-serif;color:rgba(247,244,236,.9);margin-bottom:6px}
+.g-card span{font-size:12.5px;line-height:1.5;color:rgba(247,244,236,.58)}
+
+.g-volver{display:inline-block;margin-top:34px;font-size:13.5px;
+  color:rgba(247,244,236,.5);text-decoration:none;border-bottom:1px solid rgba(247,244,236,.2);
+  padding-bottom:2px}
+.g-volver:hover{color:rgba(247,244,236,.82)}
+.g-pie{position:relative;z-index:1;padding:22px 20px 30px;text-align:center;
+  font-size:11.5px;letter-spacing:.06em;color:rgba(247,244,236,.36)}
+.g-pie a{color:inherit;text-decoration:none}
+.g-pie a:hover{color:rgba(247,244,236,.62)}
+
+/* El widget flotante de WhatsApp. Aquí sí se ve también en móvil: en esta
+   página ya tenemos el lead, así que no compite con el formulario. */
+.g-fab{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;
+  border-radius:50%;background:var(--g-wa);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.34),0 0 0 5px rgba(37,211,102,.2);transition:transform .2s}
+.g-fab:hover{transform:scale(1.06)}
+.g-fab svg{width:32px;height:32px;fill:#fff}
+
+@media (max-width:720px){
+  h1{font-size:34px}
+  .g-caja{margin-top:30px}
+  .g-cards{grid-template-columns:1fr}
+  .g-hoja{padding:26px 18px 40px}
+  .g-fab{right:14px;bottom:14px;width:54px;height:54px}
+}
+</style>
+</head>
+<body>
+
+<div class="g-fondo"><img src="/assets/aerea-dia.jpg" alt="" decoding="async"></div>
+
+<div class="g-hoja">
+  <img class="g-logo" src="/assets/logo-selvadentro-blanco.png" alt="Selvadentro Tulum">
+
+  <div class="g-caja">
+    <div class="g-check"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+    <div class="g-eyebrow" data-t="eyebrow">Recibido</div>
+    <h1 data-t="titulo">Gracias.</h1>
+    <p class="g-lead" data-t="lead">Ya tenemos tus datos. Te enviamos la lista de lotes disponibles y el plan de pagos, y te llamamos en menos de 24 h.</p>
+    <div class="g-nota" data-t="nota">Sin compromiso · No compartimos tus datos</div>
+
+    <div class="g-wa">
+      <div class="g-wa-t" data-t="waT">¿Prefieres no esperar?</div>
+      <div class="g-wa-s" data-t="waS">Escríbenos ahora y te atendemos por WhatsApp.</div>
+      <a class="g-wa-b" id="waBoton" href="#wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.94-.26-.1-.46-.15-.65.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.62.07-.29-.15-1.22-.45-2.32-1.43-.86-.76-1.44-1.71-1.6-2-.17-.29-.02-.44.12-.59.13-.13.29-.34.44-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.65-1.57-.89-2.15-.24-.56-.47-.49-.65-.5h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.06 4.86 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.93.96-3.47-.23-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.18 4.23-9.4 9.44-9.4 2.52 0 4.89.98 6.67 2.76a9.35 9.35 0 0 1 2.76 6.65c0 5.18-4.23 9.41-9.44 9.41m8.03-17.44A11.28 11.28 0 0 0 12.05.75C5.8.75.72 5.82.72 12.05c0 1.99.52 3.93 1.51 5.64L.63 23.25l5.7-1.49a11.34 11.34 0 0 0 5.71 1.45h.01c6.25 0 11.33-5.07 11.33-11.3 0-3.02-1.18-5.86-3.32-8Z"/></svg>
+        <span data-t="waB">Escríbenos por WhatsApp</span>
+      </a>
+      <a class="g-tel" id="telLink" href="tel:+529994890828">+52 999 489 0828</a>
+    </div>
+
+    <div class="g-cards">
+      <div class="g-card">
+        <b data-t="c1t">Fideicomiso bancario</b>
+        <span data-t="c1s">Para compradores extranjeros, con banco mexicano</span>
+      </div>
+      <div class="g-card">
+        <b data-t="c2t">Planes de pago directos</b>
+        <span data-t="c2s">Enganche desde 20%, hasta 48 meses sin banco</span>
+      </div>
+      <div class="g-card">
+        <b data-t="c3t">Historial comprobado</b>
+        <span data-t="c3s">JJF Creando · 20 años · 12 proyectos entregados</span>
+      </div>
+    </div>
+
+    <a class="g-volver" id="volver" href="/" data-t="volver">Volver a la página</a>
+  </div>
+</div>
+
+<div class="g-pie">
+  <a href="tel:+529994890828">+52 999 489 0828</a> ·
+  <a href="mailto:info@selvadentrotulum.com">info@selvadentrotulum.com</a><br>
+  <span data-t="pie">© 2026 Selvadentro Tulum</span>
+</div>
+
+<a class="g-fab" id="waFab" href="#wa" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.94-.26-.1-.46-.15-.65.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.62.07-.29-.15-1.22-.45-2.32-1.43-.86-.76-1.44-1.71-1.6-2-.17-.29-.02-.44.12-.59.13-.13.29-.34.44-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.65-1.57-.89-2.15-.24-.56-.47-.49-.65-.5h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.06 4.86 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.93.96-3.47-.23-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.18 4.23-9.4 9.44-9.4 2.52 0 4.89.98 6.67 2.76a9.35 9.35 0 0 1 2.76 6.65c0 5.18-4.23 9.41-9.44 9.41m8.03-17.44A11.28 11.28 0 0 0 12.05.75C5.8.75.72 5.82.72 12.05c0 1.99.52 3.93 1.51 5.64L.63 23.25l5.7-1.49a11.34 11.34 0 0 0 5.71 1.45h.01c6.25 0 11.33-5.07 11.33-11.3 0-3.02-1.18-5.86-3.32-8Z"/></svg>
+</a>
+
+<script>
+(function () {
+  'use strict';
+  var CFG = window.LP_CONFIG || {};
+
+  /* ---------- Idioma ----------
+     Igual que en las landings: lo manda la ruta. /gracias/ es español y
+     /en/gracias/ es inglés (netlify.toml sirve el mismo archivo en las dos).
+     ?lang= se acepta como respaldo por si alguien llega con un enlace viejo. */
+  var par = new URLSearchParams(location.search);
+  var EN = /^\/en(\/|$)/.test(location.pathname) || par.get('lang') === 'en';
+  var LANG = EN ? 'en' : 'es';
+
+  var T = {
+    eyebrow: 'Received',
+    titulo: 'Thank you.',
+    lead: 'We have your details. We will send you the list of available lots and the payment plan, and we will call you within 24 hours.',
+    nota: 'No obligation · Your information is never shared',
+    waT: 'Rather not wait?',
+    waS: 'Message us now and we will reply on WhatsApp.',
+    waB: 'Message us on WhatsApp',
+    c1t: 'Bank trust (fideicomiso)',
+    c1s: 'For foreign buyers, with a Mexican bank',
+    c2t: 'Direct payment plans',
+    c2s: 'From 20% down, up to 48 months, no bank required',
+    c3t: 'Proven track record',
+    c3s: 'JJF Creando · 20 years · 12 projects delivered',
+    volver: 'Back to the page',
+    pie: '© 2026 Selvadentro Tulum'
+  };
+  if (EN) {
+    document.documentElement.lang = 'en';
+    document.documentElement.setAttribute('data-lang', 'en');
+    document.title = 'Thank you · Selvadentro Tulum';
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var k = el.getAttribute('data-t');
+      if (T[k]) el.textContent = T[k];
+    });
+  }
+
+  /* ---------- El nombre, si la landing lo pasó ----------
+     Solo el nombre de pila, y saneado: lo que llega por la URL no se
+     inserta como HTML nunca. */
+  var nombre = (par.get('n') || '').replace(/[^\p{L}\p{M}\s'.-]/gu, '').trim().slice(0, 28);
+  if (nombre) {
+    var h1 = document.querySelector('h1');
+    h1.textContent = EN ? 'Thank you, ' + nombre + '.' : 'Gracias, ' + nombre + '.';
+  }
+
+  /* ---------- WhatsApp ----------
+     El mismo número y el mismo mensaje que usan las landings, y arrastramos
+     la campaña para que en el CRM se sepa de qué anuncio vino. */
+  function waUrl() {
+    var msg = (EN ? CFG.waMessageEn : CFG.waMessage)
+      || (EN ? 'Hello, I have seen the Selvadentro Tulum page and would like to receive prices and payment plans.'
+             : 'Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.');
+    if (nombre) {
+      // al quitarle el saludo al mensaje hay que volver a poner la mayúscula
+      var resto = msg.replace(/^(Hola, |Hello, )/, '');
+      resto = resto.charAt(0).toUpperCase() + resto.slice(1);
+      msg = (EN ? 'Hi, I am ' : 'Hola, soy ') + nombre + '. ' + resto;
+    }
+    var camp = par.get('utm_campaign');
+    if (camp) msg += ' (ref: ' + camp + ')';
+    return 'https://wa.me/' + (CFG.waNumber || '529994890828') + '?text=' + encodeURIComponent(msg);
+  }
+  var url = waUrl();
+  document.getElementById('waBoton').href = url;
+  document.getElementById('waFab').href = url;
+  if (EN) document.getElementById('waFab').setAttribute('aria-label', 'Contact us via WhatsApp');
+
+  /* ---------- Volver a la landing de la que vino ---------- */
+  var lp = (par.get('lp') || '').replace(/[^a-z0-9-]/g, '');
+  var volver = document.getElementById('volver');
+  volver.href = lp ? (EN ? '/en/' : '/') + lp + '/' : (EN ? '/en/' : '/');
+
+  /* ---------- Medición ----------
+     El evento "lead" ya lo dispara la landing al enviar el formulario, así que
+     aquí NO se repite: se manda uno propio, para poder medir cuántos llegan de
+     verdad hasta esta página. Para Google Ads, lo cómodo es dar de alta una
+     conversión por URL de destino apuntando a /gracias/ (y /en/gracias/): así
+     no hay que tocar código. Si prefieres la conversión por evento, se rellenan
+     googleAds y googleAdsLabel en config.js y se dispara sola con el "lead". */
+  function ev(nombreEvento, datos) {
+    try { if (window.gtag) gtag('event', nombreEvento, datos || {}); } catch (e) {}
+    try { if (window.dataLayer) dataLayer.push(Object.assign({ event: nombreEvento }, datos || {})); } catch (e) {}
+  }
+  var meta = {
+    landing: lp || '(directo)',
+    variant: (par.get('v') || '').replace(/[^a-z0-9]/gi, '') || '(sin variante)',
+    language: LANG
+  };
+  ev('lead_gracias', meta);
+  document.querySelectorAll('#waBoton, #waFab').forEach(function (a) {
+    a.addEventListener('click', function () { ev('whatsapp_click', Object.assign({ desde: 'gracias' }, meta)); });
+  });
+})();
+</script>
+</body>
+</html>

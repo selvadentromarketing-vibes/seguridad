@@ -14,7 +14,17 @@ window.LP_CONFIG = {
   waNumber: "529994890828",          // WhatsApp de ventas, sin + ni espacios
   waMessage: "Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.",
   thanks: "¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.",
-  thankYouUrl: "",                   // opcional: redirigir a una página de gracias
+  // ---------- Página de gracias ----------
+  // Al enviar el formulario, la landing manda al visitante aquí. La dirección
+  // va ENTERA (con https:// y dominio) a propósito: estas mismas páginas se
+  // pegan como fragmento dentro del CRM, y ahí una ruta suelta como "/gracias/"
+  // llevaría al dominio del CRM, que no tiene esa página.
+  // Se le pasan por la dirección los utm_*, la landing, la variante y el nombre
+  // de pila, para saludar y para que el WhatsApp salga con la campaña puesta.
+  // Vaciar las dos líneas = volver al mensaje de "recibido" dentro de la propia
+  // landing, sin cambiar de página.
+  thankYouUrl:   "https://seguridad.selvadentrotulum.com/gracias/",
+  thankYouUrlEn: "https://seguridad.selvadentrotulum.com/en/gracias/",
 
   // Versiones en inglés de los dos textos que ve el visitante. Las páginas de
   // /en/ leen estas y las de español las de arriba.
