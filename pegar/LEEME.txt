@@ -30,5 +30,5 @@ Cuando el sitio esté en Netlify
 -------------------------------
 Ya no hace falta esta versión. Si aun así quieres seguir usándola, cambia en cada
 archivo el prefijo del CDN por el dominio:
-  buscar:   https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@5dc3af5bbe393ce851dc218927a1a45d9402381b/public
+  buscar:   https://cdn.jsdelivr.net/gh/selvadentromarketing-vibes/seguridad@807147b938134dd38e8d286dfe6e98d2f73f8c2a/public
   poner:    https://seguridad.selvadentrotulum.com
