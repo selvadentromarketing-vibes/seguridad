@@ -27,7 +27,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 .lp-in::placeholder{color:var(--ph,inherit);opacity:1}
 .lp-in:focus{border-color:#CF8543 !important}
 .lp-in.lp-err{border-color:#e0674a !important}
-[data-cta],[data-chip],[data-wa]{-webkit-tap-highlight-color:transparent}
+[data-cta],[data-chip]{-webkit-tap-highlight-color:transparent}
 [data-cta]:active,[data-chip]:active{transform:translateY(1px)}
 /* video incrustado en placeholders */
 [data-video]{cursor:pointer}
@@ -128,7 +128,6 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="display:flex;flex-direction:column;gap:5px"><span style="font:400 9px Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.45)">Email</span><input autocomplete="email" class="lp-in" name="email" placeholder="tucorreo@mail.com" required="" style="min-height:44px;border-radius:3px;border:1px solid rgba(247,244,236,.2);background:rgba(247,244,236,.04);display:flex;align-items:center;padding:0 14px;font:400 13px Quicksand,sans-serif;color:rgba(247,244,236,.4);--ph:rgba(247,244,236,.4);color:rgba(247,244,236,.95);display:block;width:100%;box-sizing:border-box;background:transparent;outline:none;font-family:inherit;appearance:none;border-radius:inherit" type="email" data-i18n-a="{&quot;placeholder&quot;:&quot;name@email.com&quot;}"></div>
 </div>
 <div class="hv72" data-cta="submit" role="button" style="min-height:52px;margin-top:16px;border-radius:999px;background:#CF8543;box-shadow:0 10px 26px rgba(207,133,67,.3);display:flex;align-items:center;justify-content:center;gap:10px;font:700 14px Quicksand,sans-serif;color:#FFFDF8;cursor:pointer;transition:transform .2s ease,background .2s ease;cursor:pointer;user-select:none" tabindex="0" data-i18n="{&quot;0&quot;:&quot;Request the list of lots &quot;}">Quiero la lista de lotes <span style="font-weight:400">↗</span></div>
-<a class="hv73" data-wa="" href="#wa" rel="noopener" style="min-height:46px;margin-top:9px;border-radius:999px;border:1px solid rgba(31,168,85,.5);display:flex;align-items:center;justify-content:center;gap:9px;font:600 12px Quicksand,sans-serif;color:#8FD9AC;cursor:pointer;transition:background .2s ease;text-decoration:none;cursor:pointer" target="_blank" data-i18n="{&quot;1&quot;:&quot;I would prefer WhatsApp&quot;}"><svg aria-hidden="true" height="19" style="flex:none" viewBox="0 0 32 32" width="19"><path d="M16.03 3.2c-7.06 0-12.79 5.73-12.79 12.79 0 2.26.59 4.46 1.71 6.41L3.2 28.8l6.6-1.73a12.74 12.74 0 0 0 6.23 1.59h.01c7.05 0 12.79-5.74 12.79-12.79 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.62Zm0 23.13h-.01c-1.94 0-3.85-.52-5.51-1.51l-.4-.23-4.09 1.07 1.1-4-.26-.41a10.6 10.6 0 0 1-1.63-5.66c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.5 1.11 7.51 3.12a10.55 10.55 0 0 1 3.11 7.52c0 5.86-4.77 10.63-10.46 10.63Zm5.83-7.96c-.32-.16-1.97-.97-2.27-1.08-.31-.11-.53-.17-.75.16-.22.32-.86 1.08-1.06 1.3-.2.22-.39.24-.71.08-.32-.16-1.36-.5-2.59-1.6-.96-.86-1.6-1.92-1.79-2.24-.19-.32-.02-.5.14-.66.15-.15.32-.39.48-.58.16-.19.22-.33.32-.55.11-.22.05-.41-.03-.58-.08-.16-.71-1.79-.98-2.44-.25-.62-.51-.54-.7-.55h-.64c-.22 0-.58.08-.88.41-.3.32-1.15 1.12-1.15 2.74s1.18 3.18 1.34 3.4c.16.22 2.31 3.6 5.63 4.92.79.32 1.4.51 1.88.65.79.25 1.51.22 2.08.13.63-.09 2.16-.88 2.47-1.73.31-.86.31-1.59.22-1.74-.09-.16-.3-.24-.62-.4Z" fill="#1FA855"></path></svg>Prefiero WhatsApp</a>
 <div style="margin-top:10px;font:400 10px/1.6 Quicksand,sans-serif;color:rgba(247,244,236,.4)" data-i18n="{&quot;0&quot;:&quot;Same-day response. No unsolicited calls.&quot;}">Respuesta el mismo día. Sin llamadas insistentes.</div>
 </div>
 <div data-video="main" data-video-en="short_en" style="position:relative;height:100%;min-height:420px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.18);background:rgba(247,244,236,.03);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer">
@@ -185,7 +184,6 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="display:flex;flex-direction:column;gap:5px"><span style="font:400 7.5px Quicksand,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,236,.45)">Email</span><input autocomplete="email" class="lp-in" name="email" placeholder="tucorreo@mail.com" required="" style="min-height:40px;border-radius:3px;border:1px solid rgba(247,244,236,.2);background:rgba(247,244,236,.04);display:flex;align-items:center;padding:0 14px;font:400 11.5px Quicksand,sans-serif;color:rgba(247,244,236,.4);--ph:rgba(247,244,236,.4);color:rgba(247,244,236,.95);display:block;width:100%;box-sizing:border-box;background:transparent;outline:none;font-family:inherit;appearance:none;border-radius:inherit" type="email" data-i18n-a="{&quot;placeholder&quot;:&quot;name@email.com&quot;}"></div>
 </div>
 <div class="hv90" data-cta="submit" role="button" style="min-height:50px;margin-top:14px;border-radius:999px;background:#CF8543;box-shadow:0 10px 26px rgba(207,133,67,.3);display:flex;align-items:center;justify-content:center;gap:10px;font:700 12.5px Quicksand,sans-serif;color:#FFFDF8;cursor:pointer;transition:transform .2s ease,background .2s ease;cursor:pointer;user-select:none" tabindex="0" data-i18n="{&quot;0&quot;:&quot;Request the list of lots &quot;}">Quiero la lista de lotes <span style="font-weight:400">↗</span></div>
-<a class="hv91" data-wa="" href="#wa" rel="noopener" style="min-height:44px;margin-top:9px;border-radius:999px;border:1px solid rgba(31,168,85,.5);display:flex;align-items:center;justify-content:center;gap:9px;font:600 10.5px Quicksand,sans-serif;color:#8FD9AC;cursor:pointer;transition:background .2s ease;text-decoration:none;cursor:pointer" target="_blank" data-i18n="{&quot;1&quot;:&quot;I would prefer WhatsApp&quot;}"><svg aria-hidden="true" height="19" style="flex:none" viewBox="0 0 32 32" width="19"><path d="M16.03 3.2c-7.06 0-12.79 5.73-12.79 12.79 0 2.26.59 4.46 1.71 6.41L3.2 28.8l6.6-1.73a12.74 12.74 0 0 0 6.23 1.59h.01c7.05 0 12.79-5.74 12.79-12.79 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.62Zm0 23.13h-.01c-1.94 0-3.85-.52-5.51-1.51l-.4-.23-4.09 1.07 1.1-4-.26-.41a10.6 10.6 0 0 1-1.63-5.66c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.5 1.11 7.51 3.12a10.55 10.55 0 0 1 3.11 7.52c0 5.86-4.77 10.63-10.46 10.63Zm5.83-7.96c-.32-.16-1.97-.97-2.27-1.08-.31-.11-.53-.17-.75.16-.22.32-.86 1.08-1.06 1.3-.2.22-.39.24-.71.08-.32-.16-1.36-.5-2.59-1.6-.96-.86-1.6-1.92-1.79-2.24-.19-.32-.02-.5.14-.66.15-.15.32-.39.48-.58.16-.19.22-.33.32-.55.11-.22.05-.41-.03-.58-.08-.16-.71-1.79-.98-2.44-.25-.62-.51-.54-.7-.55h-.64c-.22 0-.58.08-.88.41-.3.32-1.15 1.12-1.15 2.74s1.18 3.18 1.34 3.4c.16.22 2.31 3.6 5.63 4.92.79.32 1.4.51 1.88.65.79.25 1.51.22 2.08.13.63-.09 2.16-.88 2.47-1.73.31-.86.31-1.59.22-1.74-.09-.16-.3-.24-.62-.4Z" fill="#1FA855"></path></svg>Prefiero WhatsApp</a>
 <div style="margin-top:10px;font:400 8.5px/1.6 Quicksand,sans-serif;color:rgba(247,244,236,.4)" data-i18n="{&quot;0&quot;:&quot;Same-day response. No unsolicited calls.&quot;}">Respuesta el mismo día. Sin llamadas insistentes.</div>
 </div>
 <div data-video="main" data-video-en="short_en" style="position:relative;height:200px;border-radius:3px;overflow:hidden;border:1px solid rgba(247,244,236,.18);background:rgba(247,244,236,.03);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer">
@@ -270,7 +268,6 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="display:flex;justify-content:space-between;font:400 11px Quicksand,sans-serif;color:rgba(247,244,236,.7)"><span data-i18n="{&quot;0&quot;:&quot;Estimated appreciation&quot;}">Plusvalía estimada</span><span style="color:#E8A768">+{{ gainLabel }}</span></div>
 </div>
 <div class="hv88" data-cta="escenario" role="button" style="min-height:46px;border-radius:999px;background:#CF8543;display:flex;align-items:center;justify-content:center;gap:10px;padding:6px 7px 6px 20px;font:600 13px Quicksand,sans-serif;color:#FFFDF8;transition:background .28s ease,border-color .28s ease,color .28s ease,transform .18s ease;cursor:pointer;cursor:pointer;user-select:none" tabindex="0" data-i18n="{&quot;0&quot;:&quot;Send this scenario in writing&quot;}">Quiero este escenario por escrito<span style="width:32px;height:32px;flex:none;border-radius:50%;background:#FFFDF8;color:#14180F;display:flex;align-items:center;justify-content:center;font:400 13px Quicksand,sans-serif">↗</span></div>
-<a class="hv89" data-wa="" href="#wa" rel="noopener" style="min-height:44px;margin-top:8px;border-radius:999px;border:1px solid rgba(31,168,85,.6);display:flex;align-items:center;justify-content:center;gap:10px;padding:5px 7px 5px 20px;font:500 12.5px Quicksand,sans-serif;color:#8FD9AC;transition:background .28s ease,border-color .28s ease,color .28s ease,transform .18s ease;cursor:pointer;text-decoration:none;cursor:pointer" target="_blank" data-i18n="{&quot;0&quot;:&quot;Send my scenario via WhatsApp&quot;}">Enviar mi escenario por WhatsApp<span style="width:30px;height:30px;flex:none;border-radius:50%;border:1px solid rgba(31,168,85,.6);display:flex;align-items:center;justify-content:center"><svg aria-hidden="true" height="20" viewBox="0 0 32 32" width="20"><path d="M16.03 3.2c-7.06 0-12.79 5.73-12.79 12.79 0 2.26.59 4.46 1.71 6.41L3.2 28.8l6.6-1.73a12.74 12.74 0 0 0 6.23 1.59h.01c7.05 0 12.79-5.74 12.79-12.79 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.62Zm0 23.13h-.01c-1.94 0-3.85-.52-5.51-1.51l-.4-.23-4.09 1.07 1.1-4-.26-.41a10.6 10.6 0 0 1-1.63-5.66c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.5 1.11 7.51 3.12a10.55 10.55 0 0 1 3.11 7.52c0 5.86-4.77 10.63-10.46 10.63Zm5.83-7.96c-.32-.16-1.97-.97-2.27-1.08-.31-.11-.53-.17-.75.16-.22.32-.86 1.08-1.06 1.3-.2.22-.39.24-.71.08-.32-.16-1.36-.5-2.59-1.6-.96-.86-1.6-1.92-1.79-2.24-.19-.32-.02-.5.14-.66.15-.15.32-.39.48-.58.16-.19.22-.33.32-.55.11-.22.05-.41-.03-.58-.08-.16-.71-1.79-.98-2.44-.25-.62-.51-.54-.7-.55h-.64c-.22 0-.58.08-.88.41-.3.32-1.15 1.12-1.15 2.74s1.18 3.18 1.34 3.4c.16.22 2.31 3.6 5.63 4.92.79.32 1.4.51 1.88.65.79.25 1.51.22 2.08.13.63-.09 2.16-.88 2.47-1.73.31-.86.31-1.59.22-1.74-.09-.16-.3-.24-.62-.4Z" fill="#1FA855"></path></svg></span></a>
 <p style="margin:10px 0 0;font:400 9px/1.6 Quicksand,sans-serif;color:rgba(247,244,236,.42)" data-i18n="{&quot;0&quot;:&quot;Estimated projection. This is not a guarantee of returns nor financial advice.&quot;}">Proyección estimada. No constituye garantía de rendimiento ni asesoría financiera.</p>
 </div>
 </template>
@@ -332,7 +329,6 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
 <div style="display:flex;justify-content:space-between;font:400 11.5px Quicksand,sans-serif;color:rgba(247,244,236,.72)"><span data-i18n="{&quot;0&quot;:&quot;Monthly ({{ termLabel }})&quot;}">Mensualidad ({{ termLabel }})</span><span style="color:#F7F4EC">{{ monthlyLabel }}</span></div>
 </div>
 <div class="hv106" data-cta="escenario" role="button" style="min-height:50px;border-radius:999px;background:#CF8543;display:flex;align-items:center;justify-content:center;gap:10px;padding:7px 8px 7px 20px;font:600 13.5px Quicksand,sans-serif;color:#FFFDF8;transition:background .28s ease,border-color .28s ease,color .28s ease,transform .18s ease;cursor:pointer;cursor:pointer;user-select:none" tabindex="0" data-i18n="{&quot;0&quot;:&quot;Send this scenario in writing&quot;}">Quiero este escenario por escrito<span style="width:34px;height:34px;flex:none;border-radius:50%;background:#FFFDF8;color:#14180F;display:flex;align-items:center;justify-content:center;font:400 13px Quicksand,sans-serif">↗</span></div>
-<a class="hv107" data-wa="" href="#wa" rel="noopener" style="min-height:48px;margin-top:10px;border-radius:999px;border:1px solid rgba(31,168,85,.6);display:flex;align-items:center;justify-content:center;gap:10px;font:500 13.5px Quicksand,sans-serif;color:#8FD9AC;transition:background .28s ease,border-color .28s ease,color .28s ease,transform .18s ease;cursor:pointer;text-decoration:none;cursor:pointer" target="_blank" data-i18n="{&quot;1&quot;:&quot;Send via WhatsApp&quot;}"><svg aria-hidden="true" height="24" style="flex:none" viewBox="0 0 32 32" width="24"><path d="M16.03 3.2c-7.06 0-12.79 5.73-12.79 12.79 0 2.26.59 4.46 1.71 6.41L3.2 28.8l6.6-1.73a12.74 12.74 0 0 0 6.23 1.59h.01c7.05 0 12.79-5.74 12.79-12.79 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.62Zm0 23.13h-.01c-1.94 0-3.85-.52-5.51-1.51l-.4-.23-4.09 1.07 1.1-4-.26-.41a10.6 10.6 0 0 1-1.63-5.66c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.5 1.11 7.51 3.12a10.55 10.55 0 0 1 3.11 7.52c0 5.86-4.77 10.63-10.46 10.63Zm5.83-7.96c-.32-.16-1.97-.97-2.27-1.08-.31-.11-.53-.17-.75.16-.22.32-.86 1.08-1.06 1.3-.2.22-.39.24-.71.08-.32-.16-1.36-.5-2.59-1.6-.96-.86-1.6-1.92-1.79-2.24-.19-.32-.02-.5.14-.66.15-.15.32-.39.48-.58.16-.19.22-.33.32-.55.11-.22.05-.41-.03-.58-.08-.16-.71-1.79-.98-2.44-.25-.62-.51-.54-.7-.55h-.64c-.22 0-.58.08-.88.41-.3.32-1.15 1.12-1.15 2.74s1.18 3.18 1.34 3.4c.16.22 2.31 3.6 5.63 4.92.79.32 1.4.51 1.88.65.79.25 1.51.22 2.08.13.63-.09 2.16-.88 2.47-1.73.31-.86.31-1.59.22-1.74-.09-.16-.3-.24-.62-.4Z" fill="#1FA855"></path></svg>Enviar por WhatsApp</a>
 <p style="margin:12px 0 0;font:400 9.5px/1.6 Quicksand,sans-serif;color:rgba(247,244,236,.45)" data-i18n="{&quot;0&quot;:&quot;Estimated projection based on the selected appreciation rate. This is not a guarantee of returns.&quot;}">Proyección estimada con base en la apreciación seleccionada. No constituye garantía de rendimiento.</p>
 <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 70%,rgba(20,24,15,.5))"></div></template>
 
@@ -347,7 +343,6 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       <label data-i18n="{&quot;0&quot;:&quot;Phone / WhatsApp&quot;}">Teléfono / WhatsApp</label><input type="tel" name="telefono" placeholder="+52 55 1234 5678" autocomplete="tel" required="">
       <label>Email</label><input type="email" name="email" placeholder="tucorreo@mail.com" autocomplete="email" required="" data-i18n-a="{&quot;placeholder&quot;:&quot;name@email.com&quot;}">
       <button class="lp-btn" type="submit" data-i18n="{&quot;0&quot;:&quot;Request prices and payment plan&quot;}">Quiero precios y plan de pagos</button>
-      <a class="lp-alt" href="#wa" data-wa="" target="_blank" rel="noopener" data-i18n="{&quot;0&quot;:&quot;I would prefer to ask via WhatsApp&quot;}">Prefiero preguntar por WhatsApp</a>
       <p class="lp-fine" data-i18n="{&quot;0&quot;:&quot;Same-day response · Your information is never shared&quot;}">Respuesta el mismo día · No compartimos tus datos</p>
     </form>
   </div>
@@ -621,26 +616,13 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
   });
   if (calcs.length) paint();
 
-  /* ---------- WhatsApp ---------- */
-  function waUrl(extra) {
-    var msg = (LANG === 'en' ? CFG.waMessageEn : CFG.waMessage) || t('Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.');
-    if (extra) msg += ' ' + extra;
-    var c = ctx(); if (c.utm_campaign) msg += ' (ref: ' + c.utm_campaign + ')';
-    return 'https://wa.me/' + (CFG.waNumber || '529994890828') + '?text=' + encodeURIComponent(msg);
-  }
-  function refreshWa() { document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = waUrl(); }); }
-  refreshWa();
-  document.addEventListener('click', function (ev) {
-    var a = ev.target.closest('[data-wa]');
-    if (!a) return;
-    var extra = '';
-    if (/escenario|scenario/.test(a.textContent.toLowerCase()) && calcs.length) {
-      var v = vals();
-      extra = t('Mi escenario: lote ') + v.priceLabel + t(', enganche ') + v.downLabel + ', ' + v.termLabel + t(', valor estimado ') + v.valueLabel + ' a ' + v.yearsLabel + '.';
-    }
-    a.href = waUrl(extra);
-    track('whatsapp_click', { landing: LANDING, variant: VARIANT });
-  });
+  /* ---------- WhatsApp ----------
+     Ya no queda ningún enlace a WhatsApp en la landing: se fueron todos, el
+     flotante y los de dentro del diseño. El motivo es el mismo en los dos
+     casos: mientras el visitante no deja sus datos, irse por WhatsApp no se
+     cuenta como conversión y la campaña parece peor de lo que es. El botón
+     vive ahora en la página de gracias, cuando el lead ya existe. El número
+     y el mensaje siguen en config.js porque los usa esa página. */
 
   /* ---------- Tracking ---------- */
   function track(name, params) {
@@ -779,7 +761,7 @@ body{background:var(--lp-bg,#14180F);font-family:Poppins,system-ui,sans-serif;-w
       var btn = f.querySelector('.lp-btn'); btn.disabled = true; btn.textContent = t('Enviando…');
       var p = payload(collect(f), 'modal-' + (modal.getAttribute('data-kind') || 'open'));
       send(p).then(function () {
-        f.innerHTML = t('<div style="text-align:center;padding:26px 0 10px"><div style="font:600 10px Quicksand;letter-spacing:.2em;text-transform:uppercase;color:#CF8543;margin-bottom:10px">Recibido</div><div style="font:500 20px/1.3 Quicksand">') + ((LANG === 'en' ? CFG.thanksEn : (LANG === 'en' ? CFG.thanksEn : CFG.thanks)) || t('¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.')) + '</div><a class="lp-alt" href="' + waUrl() + '" target="_blank" rel="noopener" style="margin-top:22px">¿Prefieres hablar ahora? Escríbenos por WhatsApp →</a></div>';
+        f.innerHTML = t('<div style="text-align:center;padding:26px 0 10px"><div style="font:600 10px Quicksand;letter-spacing:.2em;text-transform:uppercase;color:#CF8543;margin-bottom:10px">Recibido</div><div style="font:500 20px/1.3 Quicksand">') + ((LANG === 'en' ? CFG.thanksEn : (LANG === 'en' ? CFG.thanksEn : CFG.thanks)) || t('¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.')) + '</div></div>';
         afterSend(p);
       }).catch(function (e) { btn.disabled = false; btn.textContent = t('Reintentar'); toast(t('No pudimos enviar tus datos. Intenta de nuevo o escríbenos por WhatsApp.')); console.error(e); });
     });
