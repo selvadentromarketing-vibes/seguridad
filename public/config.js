@@ -142,8 +142,8 @@ window.LP_CONFIG = {
     ga4: "G-7F35BWLHTZ",
     clarity: "xfbmy7v603",
     metaPixel: "680727997874671",
-    googleAds: "",
-    googleAdsLabel: ""
+    googleAds: "AW-16717627054",
+    googleAdsLabel: "4jnsCKrQ3dQbEK79yqM-"
   }
 };
 
