@@ -12,6 +12,13 @@ window.LP_CONFIG = {
     // "https://services.leadconnectorhq.com/hooks/crN2IhAuOBAl7D8324yI/webhook-trigger/f6b47137-a78e-4db7-aefa-f287e33266d2"
   ],
   waNumber: "529994890828",          // WhatsApp de ventas, sin + ni espacios
+  // Enlace corto de WhatsApp (wa.link). Si está relleno, el botón de WhatsApp
+  // de la página de gracias usa ESTE enlace tal cual, en los dos idiomas: el
+  // número y el mensaje se cambian en el panel de wa.link, no aquí. Ojo: un
+  // wa.link no admite añadirle texto, así que con él se pierden el nombre del
+  // visitante, el mensaje en inglés y la campaña real que antes se añadían.
+  // Vaciarlo ("") = volver al mensaje armado con waNumber y waMessage.
+  waLink: "https://wa.link/9a8yih",
   waMessage: "Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.",
   thanks: "¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.",
   // ---------- Página de gracias ----------

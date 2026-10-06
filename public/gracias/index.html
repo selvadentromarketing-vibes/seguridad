@@ -199,6 +199,8 @@ h1{margin:0 0 16px;font:300 44px/1.12 Quicksand,sans-serif;letter-spacing:-.02em
      El mismo número y el mismo mensaje que usan las landings, y arrastramos
      la campaña para que en el CRM se sepa de qué anuncio vino. */
   function waUrl() {
+    // Si hay enlace corto de wa.link en config.js, manda ese y nada más.
+    if (CFG.waLink) return CFG.waLink;
     var msg = (EN ? CFG.waMessageEn : CFG.waMessage)
       || (EN ? 'Hello, I have seen the Selvadentro Tulum page and would like to receive prices and payment plans.'
              : 'Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.');
