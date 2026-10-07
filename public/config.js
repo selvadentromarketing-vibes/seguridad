@@ -117,6 +117,8 @@ window.LP_CONFIG = {
 
      ga4        Google Analytics 4. Admin → Flujos de datos → "G-XXXXXXXXXX".
                 De ahí salen país/ciudad, dispositivo y tiempo de permanencia.
+                Admite varias propiedades en una lista ["G-…", "G-…"]: todas
+                reciben las mismas visitas y los mismos eventos (lead incluido).
      clarity    Microsoft Clarity (gratis). Es quien da el MAPA DE CALOR:
                 mapas de clic, mapas de scroll y grabaciones de sesión.
                 clarity.microsoft.com → Settings → "Clarity project id".
@@ -148,7 +150,9 @@ window.LP_CONFIG = {
   chatWidgetId: "",
 
   analytics: {
-    ga4: "G-7F35BWLHTZ",
+    // G-7F35BWLHTZ es la misma propiedad que usa selvadentrotulum.com;
+    // G-J0HN3D7DVM se añadió en octubre de 2026, a petición de marketing.
+    ga4: ["G-7F35BWLHTZ", "G-J0HN3D7DVM"],
     clarity: "xfbmy7v603",
     metaPixel: "680727997874671",
     googleAds: "AW-16717627054",
@@ -174,7 +178,8 @@ window.LP_CONFIG = {
   }
 
   /* ---------- Google Analytics 4 y Google Ads ---------- */
-  var idsGoogle = [A.ga4, A.googleAds].filter(Boolean);
+  // ga4 puede ser un id suelto o una lista de ids
+  var idsGoogle = [].concat(A.ga4 || [], A.googleAds || []).filter(Boolean);
   if (idsGoogle.length) {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
