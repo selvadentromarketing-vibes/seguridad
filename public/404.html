@@ -47,13 +47,28 @@
 </style>
 </head>
 <body>
+<script>
+  /* Rescate de direcciones rotas de las landings.
+     Si alguien entra a una dirección que empieza por una landing pero trae algo
+     detrás (un {ignore} de un anuncio que no se sustituyó, un enlace cortado al
+     copiarlo, una errata), no se queda en este error: va a la landing en su
+     idioma y con los utm_*, el gclid y el fbclid intactos, para que el lead siga
+     contando para su campaña. */
+  (function () {
+    var m = location.pathname.match(/^\/(en\/)?(seguridad(?:tulum|lotes|juridica|selva|inversion|cenotes|patrimonio))(?:\/|$)/i);
+    if (!m) return;
+    var destino = '/' + (m[1] ? 'en/' : '') + m[2].toLowerCase() + '/';
+    // si ya estamos en la landing misma, no redirigir (evita un bucle)
+    if (destino !== location.pathname) location.replace(destino + location.search + location.hash);
+  })();
+</script>
   <img class="logo" src="/assets/logo-selvadentro-blanco.png" alt="Selvadentro Tulum">
   <p class="eyebrow">Error 404</p>
   <h1>Esta página no existe</h1>
   <p>Puede que el enlace esté mal escrito o que la página se haya movido. Si buscabas información de lotes, escríbenos y te la enviamos.</p>
   <div class="actions">
-    <a class="btn" href="https://wa.me/529994890828?text=Hola%2C%20quiero%20recibir%20precios%20y%20plan%20de%20pagos%20de%20Selvadentro%20Tulum." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
-    <a class="alt" href="/seguridadtulum/">Ver la página principal</a>
+    <a class="btn" href="https://wa.link/9a8yih" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    <a class="alt" href="/">Ver la página principal</a>
   </div>
 </body>
 </html>
