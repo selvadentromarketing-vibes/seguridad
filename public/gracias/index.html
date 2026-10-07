@@ -202,13 +202,14 @@ h1{margin:0 0 16px;font:300 44px/1.12 Quicksand,sans-serif;letter-spacing:-.02em
     // Si hay enlace corto de wa.link en config.js, manda ese y nada más.
     if (CFG.waLink) return CFG.waLink;
     var msg = (EN ? CFG.waMessageEn : CFG.waMessage)
-      || (EN ? 'Hello, I have seen the Selvadentro Tulum page and would like to receive prices and payment plans.'
-             : 'Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.');
+      || (EN ? 'Hi! I saw the Selvadentro Tulum page and would like to know more about the residential lots.'
+             : '¡Hola! Vi la página de Selvadentro en Tulum y quisiera saber más sobre los lotes residenciales.');
     if (nombre) {
-      // al quitarle el saludo al mensaje hay que volver a poner la mayúscula
-      var resto = msg.replace(/^(Hola, |Hello, )/, '');
+      // se cambia el saludo del mensaje por uno con el nombre; al quitárselo
+      // hay que volver a poner la mayúscula
+      var resto = msg.replace(/^(¡Hola!|Hola,|Hi!|Hi,|Hello,)\s*/, '');
       resto = resto.charAt(0).toUpperCase() + resto.slice(1);
-      msg = (EN ? 'Hi, I am ' : 'Hola, soy ') + nombre + '. ' + resto;
+      msg = (EN ? 'Hi! I am ' : '¡Hola! Soy ') + nombre + '. ' + resto;
     }
     var camp = par.get('utm_campaign');
     if (camp) msg += ' (ref: ' + camp + ')';

@@ -17,9 +17,11 @@ window.LP_CONFIG = {
   // número y el mensaje se cambian en el panel de wa.link, no aquí. Ojo: un
   // wa.link no admite añadirle texto, así que con él se pierden el nombre del
   // visitante, el mensaje en inglés y la campaña real que antes se añadían.
-  // Vaciarlo ("") = volver al mensaje armado con waNumber y waMessage.
-  waLink: "https://wa.link/9a8yih",
-  waMessage: "Hola, vi la página de Selvadentro Tulum y quiero recibir precios y plan de pagos.",
+  // Vacío a propósito: el wa.link/9a8yih que se probó llevaba al +52 1 999 588
+  // 8888, que no es el WhatsApp de ventas ni está conectado al CRM. De él se
+  // tomó solo el texto del mensaje (abajo), con el número de siempre.
+  waLink: "",
+  waMessage: "¡Hola! Vi la página de Selvadentro en Tulum y quisiera saber más sobre los lotes residenciales. 🌿",
   thanks: "¡Listo! Te enviamos la lista de lotes y el plan de pagos en unos minutos.",
   // ---------- Página de gracias ----------
   // Al enviar el formulario, la landing manda al visitante aquí. La dirección
@@ -35,7 +37,7 @@ window.LP_CONFIG = {
 
   // Versiones en inglés de los dos textos que ve el visitante. Las páginas de
   // /en/ leen estas y las de español las de arriba.
-  waMessageEn: "Hello, I have seen the Selvadentro Tulum page and would like to receive prices and payment plans.",
+  waMessageEn: "Hi! I saw the Selvadentro Tulum page and would like to know more about the residential lots. 🌿",
   thanksEn: "Thank you. The list of lots and the payment plan will reach you within minutes.",
 
   // "recorte" = fraccion de alto que ocupa la barra negra quemada en el archivo
