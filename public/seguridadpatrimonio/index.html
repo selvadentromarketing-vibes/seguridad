@@ -673,7 +673,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       email: data.email || '', phone: normalizePhone(data.telefono),
       source: 'landing-seguridad', landing_name: LANDING, landing_variant: VARIANT, landing_form: source, language: LANG,
       page_url: location.href, page_path: location.pathname, submitted_at: new Date().toISOString(),
-      tags: ['landing-seguridad', 'landing-' + LANDING, 'variante-' + VARIANT]
+      tags: ['landing-seguridad', 'landing-' + LANDING, 'variante-' + VARIANT],
+      // las mismas etiquetas en un solo texto separado por comas: es lo que
+      // el campo Tags del CRM sabe leer (una lista no la interpreta)
+      tag_list: ['landing-seguridad', 'landing-' + LANDING, 'variante-' + VARIANT].join(', ')
     };
     UTM_KEYS.concat(['referrer', 'landing_first_url']).forEach(function (k) { if (c[k]) p[k] = c[k]; });
     if (v) { p.calc_precio_lote = state.price; p.calc_enganche_pct = state.down; p.calc_plazo_meses = state.term; p.calc_horizonte = state.horizon; p.calc_valor_proyectado = v.valueLabel; }

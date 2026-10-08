@@ -552,7 +552,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       source: 'landing-seguridad', landing_name: LANDING, landing_variant: VARIANT,
       landing_form: 'home', language: LANG,
       page_url: location.href, page_path: location.pathname, submitted_at: new Date().toISOString(),
-      tags: ['landing-seguridad', 'landing-home']
+      tags: ['landing-seguridad', 'landing-home'],
+      // las mismas etiquetas en un solo texto separado por comas: es lo que
+      // el campo Tags del CRM sabe leer (una lista no la interpreta)
+      tag_list: ['landing-seguridad', 'landing-home'].join(', ')
     };
     UTM.concat(['referrer', 'landing_first_url']).forEach(function (k) { if (C[k]) lead[k] = C[k]; });
 
