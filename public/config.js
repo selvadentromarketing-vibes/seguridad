@@ -161,6 +161,46 @@ window.LP_CONFIG = {
 };
 
 /* ============================================================================
+   Atribución del lead — la misma regla que lotes.selvadentrotulum.com
+   ----------------------------------------------------------------------------
+   - utm_*, gclid y fbclid son UN solo bloque en localStorage (ad_attribution).
+     Una URL con cualquiera de ellos reemplaza el bloque entero: nunca se mezcla
+     el utm_source de una visita con el utm_campaign de otra. Una URL sin ellos
+     conserva el guardado, así sobrevive a la navegación. Caduca a los 30 días
+     de guardarse: la pauta se decide en ventanas cortas.
+   - referrer (solo el dominio) y landing_page (ruta de la primera página) se
+     guardan en la primera visita, 90 días, sin sobrescribir (visitor_origin).
+   Corre en la primera carga de cualquier página; las landings lo leen con
+   window.LP_ATRIBUCION() al armar el lead.
+   ============================================================================ */
+(function () {
+  var BLOQUE = 'ad_attribution', ORIGEN = 'visitor_origin', DIA = 864e5;
+  var CLAVES = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id', 'gclid', 'fbclid'];
+  function lee(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
+  function guarda(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+
+  var url = new URLSearchParams(location.search), deUrl = null;
+  CLAVES.forEach(function (k) { var v = url.get(k); if (v) { deUrl = deUrl || {}; deUrl[k] = v; } });
+  if (deUrl) guarda(BLOQUE, { params: deUrl, saved_at: Date.now() });
+
+  var o = lee(ORIGEN);
+  if (!o || !(o.expires_at > Date.now())) {
+    var dominio = '';
+    try { dominio = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+    guarda(ORIGEN, { referrer: dominio, landing_page: location.pathname, expires_at: Date.now() + 90 * DIA });
+  }
+
+  window.LP_ATRIBUCION = function () {
+    // sin localStorage (navegación privada estricta) vale al menos lo que trae la URL
+    var b = lee(BLOQUE) || (deUrl && { params: deUrl, saved_at: Date.now() }), params = {};
+    if (b && Date.now() - b.saved_at <= 30 * DIA) params = b.params || {};
+    else if (b) { try { localStorage.removeItem(BLOQUE); } catch (e) {} }
+    var or = lee(ORIGEN) || {};
+    return { claves: CLAVES, params: params, referrer: or.referrer || '', landing_page: or.landing_page || '' };
+  };
+})();
+
+/* ============================================================================
    A partir de aquí no hace falta tocar nada.
    Carga las herramientas activas y añade los eventos de permanencia y scroll.
    ============================================================================ */

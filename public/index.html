@@ -479,7 +479,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!c.landing_first_url) c.landing_first_url = location.href;
     if (!c.referrer) c.referrer = document.referrer || '';
     try { sessionStorage.setItem('lp_ctx', JSON.stringify(c)); } catch (e) {}
-    return c;
+    return conAtribucion(c);
+  }
+  // Misma regla de atribución que lotes (ver config.js): los utm_*, gclid y fbclid salen
+  // del bloque guardado 30 días, y referrer/landing_page de la primera visita.
+  function conAtribucion(c) {
+    if (!window.LP_ATRIBUCION) return c;   // fragmento del CRM con un config.js antiguo
+    var a = window.LP_ATRIBUCION(), r = {};
+    for (var k in c) if (a.claves.indexOf(k) < 0 && k !== 'referrer') r[k] = c[k];
+    for (var j in a.params) r[j] = a.params[j];
+    r.referrer = a.referrer; r.landing_page = a.landing_page;
+    return r;
   }
   var C = ctx();
   function conUtm(base) {
@@ -552,7 +562,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var lead = {
       first_name: partes.shift() || '', last_name: partes.join(' '), full_name: (datos.nombre || '').trim(),
       email: datos.email || '', phone: telefono(datos.telefono),
-      source: 'landing-seguridad', landing_name: LANDING, landing_variant: VARIANT,
+      source: C.utm_source || '', landing_name: LANDING, landing_variant: VARIANT,
       landing_form: 'home', language: LANG,
       page_url: location.href, page_path: location.pathname, submitted_at: new Date().toISOString(),
       tags: ['landing-seguridad', 'landing-home'],
@@ -560,7 +570,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // el campo Tags del CRM sabe leer (una lista no la interpreta)
       tag_list: ['landing-seguridad', 'landing-home'].join(', ')
     };
-    UTM.concat(['referrer', 'landing_first_url']).forEach(function (k) { if (C[k]) lead[k] = C[k]; });
+    UTM.concat(['referrer', 'landing_first_url', 'landing_page']).forEach(function (k) { if (C[k]) lead[k] = C[k]; });
 
     var destinos = [].concat(CFG.webhooks || [], CFG.webhook || []).filter(Boolean);
     var envio = destinos.length
