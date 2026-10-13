@@ -8,6 +8,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5MJKSKHD');</script>
 <!-- End Google Tag Manager -->
+<!-- Píxel de OpenAI Ads -->
+<script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"YHbc4jBGgyouEK6ARcY5Ng",debug:true});</script>
+<!-- Fin píxel de OpenAI Ads -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Selvadentro Tulum · Seguridad en Tulum</title>
 <meta name="description" content="Lotes residenciales en la selva de Tulum con título de propiedad privada y fideicomiso para extranjeros. Precios, planes de pago directos y disponibilidad de hoy.">
@@ -272,6 +275,46 @@ window.LP_CONFIG = {
 };
 
 /* ============================================================================
+   Atribución del lead — la misma regla que lotes.selvadentrotulum.com
+   ----------------------------------------------------------------------------
+   - utm_*, gclid y fbclid son UN solo bloque en localStorage (ad_attribution).
+     Una URL con cualquiera de ellos reemplaza el bloque entero: nunca se mezcla
+     el utm_source de una visita con el utm_campaign de otra. Una URL sin ellos
+     conserva el guardado, así sobrevive a la navegación. Caduca a los 30 días
+     de guardarse: la pauta se decide en ventanas cortas.
+   - referrer (solo el dominio) y landing_page (ruta de la primera página) se
+     guardan en la primera visita, 90 días, sin sobrescribir (visitor_origin).
+   Corre en la primera carga de cualquier página; las landings lo leen con
+   window.LP_ATRIBUCION() al armar el lead.
+   ============================================================================ */
+(function () {
+  var BLOQUE = 'ad_attribution', ORIGEN = 'visitor_origin', DIA = 864e5;
+  var CLAVES = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id', 'gclid', 'fbclid'];
+  function lee(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
+  function guarda(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+
+  var url = new URLSearchParams(location.search), deUrl = null;
+  CLAVES.forEach(function (k) { var v = url.get(k); if (v) { deUrl = deUrl || {}; deUrl[k] = v; } });
+  if (deUrl) guarda(BLOQUE, { params: deUrl, saved_at: Date.now() });
+
+  var o = lee(ORIGEN);
+  if (!o || !(o.expires_at > Date.now())) {
+    var dominio = '';
+    try { dominio = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+    guarda(ORIGEN, { referrer: dominio, landing_page: location.pathname, expires_at: Date.now() + 90 * DIA });
+  }
+
+  window.LP_ATRIBUCION = function () {
+    // sin localStorage (navegación privada estricta) vale al menos lo que trae la URL
+    var b = lee(BLOQUE) || (deUrl && { params: deUrl, saved_at: Date.now() }), params = {};
+    if (b && Date.now() - b.saved_at <= 30 * DIA) params = b.params || {};
+    else if (b) { try { localStorage.removeItem(BLOQUE); } catch (e) {} }
+    var or = lee(ORIGEN) || {};
+    return { claves: CLAVES, params: params, referrer: or.referrer || '', landing_page: or.landing_page || '' };
+  };
+})();
+
+/* ============================================================================
    A partir de aquí no hace falta tocar nada.
    Carga las herramientas activas y añade los eventos de permanencia y scroll.
    ============================================================================ */
@@ -307,6 +350,8 @@ window.LP_CONFIG = {
         gtagOriginal.apply(null, args);
         if (args[0] === 'event' && args[1] === 'lead') {
           gtagOriginal('event', 'conversion', { send_to: A.googleAds + '/' + A.googleAdsLabel });
+          // Píxel de OpenAI Ads (va en el <head> de cada página): el mismo lead
+          try { if (window.oaiq) window.oaiq('measure', 'lead_created', { type: 'customer_action' }); } catch (e) {}
         }
       };
     }
@@ -439,6 +484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span style="width:38px;height:38px;flex:none;border-radius:50%;background:#FFFDF8;color:#14180F;display:flex;align-items:center;justify-content:center;font:400 15px Quicksand,sans-serif">↗</span>
 </div>
 <div style="margin-top:11px;display:flex;justify-content:center;gap:16px;font:500 10.5px Quicksand,sans-serif;color:rgba(247,244,236,.55)"><span data-i18n="{&quot;0&quot;:&quot;30 seconds&quot;}">30 segundos</span><span>·</span><span data-i18n="{&quot;0&quot;:&quot;No obligation&quot;}">Sin compromiso</span><span>·</span><span data-i18n="{&quot;0&quot;:&quot;Response today&quot;}">Respuesta hoy mismo</span></div>
+<p style="margin:8px 0 0;text-align:center;font:500 10.5px Quicksand,sans-serif;color:rgba(247,244,236,.55)" data-i18n="{&quot;0&quot;:&quot;By submitting you agree to our &quot;}">Al enviar aceptas nuestra <a href="https://selvadentrotulum.com/privacy-policy/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Privacy Policy&quot;}">Política de Privacidad</a></p>
 </div>
 </div>
 </div>
@@ -507,6 +553,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span style="font:400 10.5px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.55)" data-i18n="{&quot;0&quot;:&quot;An advisor will contact you within 24 hours with the list of available lots and the payment plan for your budget.&quot;,&quot;2&quot;:&quot;No obligation · Your information is never shared&quot;}">Un asesor te llama en menos de 24 h con la lista de lotes y el esquema de pagos de tu rango.<br>Sin compromiso · No compartimos tus datos</span>
 <div style="display:flex;gap:14px;align-items:center;flex:none">
 <div data-cta="submit" role="button" style="display:inline-flex;align-items:center;gap:14px;background:#CF8543;border-radius:999px;padding:8px 9px 8px 26px;cursor:pointer;user-select:none" tabindex="0"><span style="font:600 14px Quicksand,sans-serif;color:#FFFDF8;white-space:nowrap" data-i18n="{&quot;0&quot;:&quot;Request prices and payment plan&quot;}">Quiero precios y plan de pagos</span><span style="width:36px;height:36px;border-radius:50%;background:#FFFDF8;color:#14180F;display:flex;align-items:center;justify-content:center;font:400 14px Quicksand,sans-serif">↗</span></div>
+<p style="margin:14px 0 0;text-align:right;font:400 10.5px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.55)" data-i18n="{&quot;0&quot;:&quot;By submitting you agree to our &quot;}">Al enviar aceptas nuestra <a href="https://selvadentrotulum.com/privacy-policy/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Privacy Policy&quot;}">Política de Privacidad</a></p>
 </div>
 </div>
 </div>
@@ -517,7 +564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div style="font:400 10px Quicksand,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#CF8543;margin-bottom:18px" data-i18n="{&quot;0&quot;:&quot;Current phase&quot;}">Fase actual</div>
 <h2 style="margin:0 0 26px;font:300 60px/1.06 Quicksand,sans-serif;color:rgba(247,244,236,.92);letter-spacing:-.035em"></h2><h1 style="font: 300 104px / 0.98 Quicksand, sans-serif; text-align: start; margin: 0px; letter-spacing: -0.03em; color: rgba(247, 244, 236, 0.82);"><span style="letter-spacing: -0.03em; font-size: 50px; position: relative" data-i18n="{&quot;0&quot;:&quot;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Legal Certainty&quot;}">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CertezaJurídica</span></h1>
 <div data-cta="open" role="button" style="display:inline-flex;align-items:center;gap:14px;border:1px solid rgba(247,244,236,.4);border-radius:999px;padding:8px 9px 8px 26px;cursor:pointer;user-select:none" tabindex="0"><span style="font:400 15px Quicksand,sans-serif;color:#F7F4EC;white-space:nowrap" data-i18n="{&quot;0&quot;:&quot;View the 8 remaining lots&quot;}">Ver los 8 lotes restantes</span><span style="width:36px;height:36px;border-radius:50%;background:#CF8543;color:#FFFDF8;display:flex;align-items:center;justify-content:center;font:400 14px Quicksand,sans-serif">↗</span></div>
-<div style="margin-top:64px;display:flex;justify-content:space-between;font:400 9.5px Quicksand,sans-serif;color:rgba(247,244,236,.45)"><span>© 2026 Selvadentro Tulum</span><span>+52 999 489 0828 · info@selvadentrotulum.com</span></div>
+<div style="margin-top:64px;display:flex;justify-content:space-between;font:400 9.5px Quicksand,sans-serif;color:rgba(247,244,236,.45)"><span>© 2026 Selvadentro Tulum · <a href="https://selvadentrotulum.com/privacy-policy/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Privacy Policy&quot;}">Política de Privacidad</a> · <a href="https://selvadentrotulum.com/terms-and-conditions/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Terms &amp; Conditions&quot;}">Términos y Condiciones</a></span><span>+52 999 489 0828 · info@selvadentrotulum.com</span></div>
 </div>
 </div>
 </div>
@@ -551,6 +598,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span style="width:38px;height:38px;flex:none;border-radius:50%;background:#FFFDF8;color:#14180F;display:flex;align-items:center;justify-content:center;font:400 15px Quicksand,sans-serif">↗</span>
 </div>
 <div style="margin-top:11px;display:flex;justify-content:center;gap:16px;font:500 10px Quicksand,sans-serif;color:rgba(247,244,236,.55)"><span data-i18n="{&quot;0&quot;:&quot;30 seconds&quot;}">30 segundos</span><span>·</span><span data-i18n="{&quot;0&quot;:&quot;No obligation&quot;}">Sin compromiso</span><span>·</span><span data-i18n="{&quot;0&quot;:&quot;Response today&quot;}">Respuesta hoy mismo</span></div>
+<p style="margin:8px 0 0;text-align:center;font:500 10px Quicksand,sans-serif;color:rgba(247,244,236,.55)" data-i18n="{&quot;0&quot;:&quot;By submitting you agree to our &quot;}">Al enviar aceptas nuestra <a href="https://selvadentrotulum.com/privacy-policy/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Privacy Policy&quot;}">Política de Privacidad</a></p>
 </div>
 </div>
 <div style="position:relative;padding:44px 18px 0"><span style="font:400 9.5px Quicksand,sans-serif;color:rgba(247,244,236,.6)" data-i18n="{&quot;0&quot;:&quot;Everything included&quot;}">Todo lo que incluye</span><p style="margin:12px 0 0;font:300 21px/1.4 Quicksand,sans-serif;color:rgba(247,244,236,.9);letter-spacing:-.01em" data-i18n="{&quot;0&quot;:&quot;Private property title per lot, bank trust for foreign buyers, from 20% down, direct terms of up to 48 months, 9 natural cenotes, trails, clubhouse, spa, beach club, 24-hour security&quot;}">Título de propiedad privada por lote, fideicomiso bancario para extranjeros, enganche desde 20%, plazo directo hasta 48 meses, 9 cenotes naturales, senderos, casa club, spa, beach club, seguridad 24 horas</p></div>
@@ -584,12 +632,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div data-cta="submit" role="button" style="min-height:50px;border-radius:999px;background:#CF8543;display:flex;align-items:center;justify-content:center;gap:10px;padding:7px 8px 7px 20px;font:600 13.5px Quicksand,sans-serif;color:#FFFDF8;cursor:pointer;user-select:none" tabindex="0" data-i18n="{&quot;0&quot;:&quot;Request prices and payment plan&quot;}">Quiero precios y plan de pagos<span style="width:34px;height:34px;flex:none;border-radius:50%;background:#FFFDF8;color:#14180F;display:flex;align-items:center;justify-content:center;font:400 13px Quicksand,sans-serif">↗</span></div>
 <p style="margin:12px 0 0;text-align:center;font:400 10px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.55)" data-i18n="{&quot;0&quot;:&quot;We will call you within 24 hours · Your information is never shared&quot;}">Te llamamos en menos de 24 h · No compartimos tus datos</p>
+<p style="margin:6px 0 0;text-align:center;font:400 10px/1.7 Quicksand,sans-serif;color:rgba(247,244,236,.55)" data-i18n="{&quot;0&quot;:&quot;By submitting you agree to our &quot;}">Al enviar aceptas nuestra <a href="https://selvadentrotulum.com/privacy-policy/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Privacy Policy&quot;}">Política de Privacidad</a></p>
 </div>
 <div style="position:relative;padding:52px 18px 26px;text-align:center">
 <div style="font:400 9.5px Quicksand,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#CF8543;margin-bottom:14px" data-i18n="{&quot;0&quot;:&quot;Current phase&quot;}">Fase actual</div>
 <h2 style="margin:0 0 22px;font:300 34px/1.08 Quicksand,sans-serif;color:rgba(247,244,236,.92);letter-spacing:-.03em" data-i18n="{&quot;0&quot;:&quot;Legal&quot;,&quot;2&quot;:&quot;certainty&quot;}">Certeza<br>jurídica</h2>
 <div data-cta="open" role="button" style="min-height:50px;border-radius:999px;border:1px solid rgba(247,244,236,.4);display:flex;align-items:center;justify-content:center;gap:12px;padding:7px 8px 7px 22px;font:400 14px Quicksand,sans-serif;color:#F7F4EC;cursor:pointer;user-select:none" tabindex="0" data-i18n="{&quot;0&quot;:&quot;View the 8 remaining lots&quot;}">Ver los 8 lotes restantes<span style="width:34px;height:34px;flex:none;border-radius:50%;background:#CF8543;color:#FFFDF8;display:flex;align-items:center;justify-content:center;font:400 13px Quicksand,sans-serif">↗</span></div>
-<div style="margin-top:34px;font:400 9.5px/1.8 Quicksand,sans-serif;color:rgba(247,244,236,.4)">© 2026 Selvadentro Tulum<br>+52 999 489 0828 · info@selvadentrotulum.com</div>
+<div style="margin-top:34px;font:400 9.5px/1.8 Quicksand,sans-serif;color:rgba(247,244,236,.4)">© 2026 Selvadentro Tulum<br>+52 999 489 0828 · info@selvadentrotulum.com<br><a href="https://selvadentrotulum.com/privacy-policy/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Privacy Policy&quot;}">Política de Privacidad</a> · <a href="https://selvadentrotulum.com/terms-and-conditions/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Terms &amp; Conditions&quot;}">Términos y Condiciones</a></div>
 </div>
 <div style="position:sticky;bottom:0;background:rgba(20,24,15,.97);border-top:1px solid rgba(247,244,236,.14);padding:10px 14px;display:flex;gap:10px">
 <div data-cta="open" role="button" style="flex:1;min-height:48px;border-radius:999px;background:#CF8543;display:flex;align-items:center;justify-content:center;font:600 14.5px Quicksand,sans-serif;color:#FFFDF8;cursor:pointer;user-select:none" tabindex="0" data-i18n="{&quot;0&quot;:&quot;View prices&quot;}">Ver precios</div>
@@ -663,6 +712,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <label>Email</label><input type="email" name="email" placeholder="tucorreo@mail.com" autocomplete="email" required="" data-i18n-a="{&quot;placeholder&quot;:&quot;name@email.com&quot;}">
       <button class="lp-btn" type="submit" data-i18n="{&quot;0&quot;:&quot;Request prices and payment plan&quot;}">Quiero precios y plan de pagos</button>
       <p class="lp-fine" data-i18n="{&quot;0&quot;:&quot;Same-day response · Your information is never shared&quot;}">Respuesta el mismo día · No compartimos tus datos</p>
+      <p class="lp-fine" style="margin-top:4px" data-i18n="{&quot;0&quot;:&quot;By submitting you agree to our &quot;}">Al enviar aceptas nuestra <a href="https://selvadentrotulum.com/privacy-policy/" target="_blank" rel="noopener" style="color:inherit" data-i18n="{&quot;0&quot;:&quot;Privacy Policy&quot;}">Política de Privacidad</a></p>
     </form>
   </div>
 </div>
@@ -811,7 +861,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!c.landing_first_url) c.landing_first_url = location.href;
     if (!c.referrer) c.referrer = document.referrer || '';
     try { sessionStorage.setItem('lp_ctx', JSON.stringify(c)); } catch (e) {}
-    return c;
+    return conAtribucion(c);
+  }
+  // Misma regla de atribución que lotes (ver config.js): los utm_*, gclid y fbclid salen
+  // del bloque guardado 30 días, y referrer/landing_page de la primera visita.
+  function conAtribucion(c) {
+    if (!window.LP_ATRIBUCION) return c;   // fragmento del CRM con un config.js antiguo
+    var a = window.LP_ATRIBUCION(), r = {};
+    for (var k in c) if (a.claves.indexOf(k) < 0 && k !== 'referrer') r[k] = c[k];
+    for (var j in a.params) r[j] = a.params[j];
+    r.referrer = a.referrer; r.landing_page = a.landing_page;
+    return r;
   }
 
   /* ---------- Calculadora de plusvalía ---------- */
@@ -981,14 +1041,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var p = {
       first_name: parts.shift() || '', last_name: parts.join(' '), full_name: full.trim(),
       email: data.email || '', phone: normalizePhone(data.telefono),
-      source: 'landing-seguridad', landing_name: LANDING, landing_variant: VARIANT, landing_form: source, language: t('es'),
+      source: c.utm_source || '', landing_name: LANDING, landing_variant: VARIANT, landing_form: source, language: t('es'),
       page_url: location.href, page_path: location.pathname, submitted_at: new Date().toISOString(),
       tags: ['landing-seguridad', 'landing-' + LANDING, 'variante-' + VARIANT],
       // las mismas etiquetas en un solo texto separado por comas: es lo que
       // el campo Tags del CRM sabe leer (una lista no la interpreta)
       tag_list: ['landing-seguridad', 'landing-' + LANDING, 'variante-' + VARIANT].join(', ')
     };
-    UTM_KEYS.concat(['referrer', 'landing_first_url']).forEach(function (k) { if (c[k]) p[k] = c[k]; });
+    UTM_KEYS.concat(['referrer', 'landing_first_url', 'landing_page']).forEach(function (k) { if (c[k]) p[k] = c[k]; });
     if (v) { p.calc_precio_lote = state.price; p.calc_enganche_pct = state.down; p.calc_plazo_meses = state.term; p.calc_horizonte = state.horizon; p.calc_valor_proyectado = v.valueLabel; }
     return p;
   }
