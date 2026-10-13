@@ -11,6 +11,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Píxel de OpenAI Ads -->
 <script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"YHbc4jBGgyouEK6ARcY5Ng",debug:true});</script>
 <!-- Fin píxel de OpenAI Ads -->
+<script>
+  // Lead para OpenAI Ads: se cuenta aquí, en /gracias/ y /en/gracias/, y solo
+  // si se llega desde un formulario (la landing añade ?lp=). Una recarga de la
+  // misma página no lo vuelve a contar. El envío del formulario ya no lo manda.
+  (function () {
+    if (!/^\/(en\/)?gracias(\/|$)/.test(location.pathname)) return;
+    if (!new URLSearchParams(location.search).get('lp')) return;
+    var clave = 'oai_lead:' + location.search;
+    try { if (sessionStorage.getItem(clave)) return; sessionStorage.setItem(clave, '1'); } catch (e) {}
+    oaiq("measure", "lead_created", { type: "customer_action" });
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gracias · Selvadentro Tulum</title>
 <meta name="description" content="Recibimos tus datos. Te llamamos en menos de 24 h con la lista de lotes disponibles y el plan de pagos.">
