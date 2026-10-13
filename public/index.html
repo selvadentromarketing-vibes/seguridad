@@ -503,7 +503,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* ---------- Medición ---------- */
   function track(nombre, datos) {
     try { if (window.gtag) gtag('event', nombre, datos || {}); } catch (e) {}
-    try { if (window.fbq && nombre === 'lead') fbq('track', 'Lead'); } catch (e) {}
+    try { if (window.fbq && nombre === 'lead') fbq('track', 'Lead', {}, { eventID: (datos || {}).event_id }); } catch (e) {}
     try { if (window.dataLayer) dataLayer.push(Object.assign({ event: nombre }, datos || {})); } catch (e) {}
   }
 
@@ -581,7 +581,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       : (console.warn('[home] sin webhook configurado; lead:', lead), Promise.resolve());
 
     envio.then(function () {
-      track('lead', { landing: LANDING, variant: VARIANT });
+      // Un id por envío: eventID de Meta y transaction_id de Google Ads, para que
+      // las dos plataformas descarten una repetición del mismo lead.
+      var idEnvio = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+        : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+      track('lead', { landing: LANDING, variant: VARIANT, event_id: idEnvio });
       document.getElementById('cajaForm').innerHTML =
         '<div class="sd-enviado">' + ((EN ? CFG.thanksEn : CFG.thanks) ||
         (EN ? 'Thank you. The list of lots and the payment plan will reach you within minutes.'

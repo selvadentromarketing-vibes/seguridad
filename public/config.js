@@ -235,7 +235,9 @@ window.LP_CONFIG = {
         var args = arguments;
         gtagOriginal.apply(null, args);
         if (args[0] === 'event' && args[1] === 'lead') {
-          gtagOriginal('event', 'conversion', { send_to: A.googleAds + '/' + A.googleAdsLabel });
+          // transaction_id: el id único del envío que manda la página, para que
+          // Google Ads descarte una repetición del mismo lead.
+          gtagOriginal('event', 'conversion', { send_to: A.googleAds + '/' + A.googleAdsLabel, transaction_id: (args[2] || {}).event_id });
         }
       };
     }
