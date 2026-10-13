@@ -236,6 +236,8 @@ window.LP_CONFIG = {
         gtagOriginal.apply(null, args);
         if (args[0] === 'event' && args[1] === 'lead') {
           gtagOriginal('event', 'conversion', { send_to: A.googleAds + '/' + A.googleAdsLabel });
+          // Píxel de OpenAI Ads (va en el <head> de cada página): el mismo lead
+          try { if (window.oaiq) window.oaiq('measure', 'lead_created', { type: 'customer_action' }); } catch (e) {}
         }
       };
     }
