@@ -309,7 +309,9 @@ window.LP_CONFIG = {
         var args = arguments;
         gtagOriginal.apply(null, args);
         if (args[0] === 'event' && args[1] === 'lead') {
-          gtagOriginal('event', 'conversion', { send_to: A.googleAds + '/' + A.googleAdsLabel });
+          // transaction_id: el id único del envío que manda la página, para que
+          // Google Ads descarte una repetición del mismo lead.
+          gtagOriginal('event', 'conversion', { send_to: A.googleAds + '/' + A.googleAdsLabel, transaction_id: (args[2] || {}).event_id });
         }
       };
     }
@@ -924,7 +926,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* ---------- Tracking ---------- */
   function track(name, params) {
     try { if (window.gtag) gtag('event', name, params || {}); } catch (e) {}
-    try { if (window.fbq && name === 'lead') fbq('track', 'Lead'); } catch (e) {}
+    try { if (window.fbq && name === 'lead') fbq('track', 'Lead', {}, { eventID: (params || {}).event_id }); } catch (e) {}
     try { if (window.dataLayer) dataLayer.push(Object.assign({ event: name }, params || {})); } catch (e) {}
   }
 
@@ -988,7 +990,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     t.textContent = msg; t.classList.add('on'); setTimeout(function () { t.classList.remove('on'); }, 4000);
   }
   function afterSend(p) {
-    track('lead', { landing: LANDING, variant: VARIANT });
+    // Un id por envío: eventID de Meta y transaction_id de Google Ads, para que
+    // las dos plataformas descarten una repetición del mismo lead.
+    var idEnvio = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+      : Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+    track('lead', { landing: LANDING, variant: VARIANT, event_id: idEnvio });
     // Página de gracias. La dirección es absoluta en config.js porque esta misma
     // página también se pega como fragmento dentro del CRM, donde una ruta
     // relativa apuntaría al dominio del CRM y no al del sitio.
