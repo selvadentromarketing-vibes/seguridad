@@ -25,6 +25,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=Poppins:wght@400;500;600&amp;family=Lora:ital,wght@0,500;0,600;1,500;1,600&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <script src="/config.js"></script>
+<script src="/perfil.js"></script>
 <style>
 :root{--lp-bg:#14180F}
 html,body{margin:0;padding:0}
@@ -667,12 +668,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   function collect(scope) {
     var data = {};
-    scope.querySelectorAll('input[name]').forEach(function (i) { data[i.name] = i.value.trim(); });
+    scope.querySelectorAll('input[name], select[name]').forEach(function (i) { data[i.name] = i.value.trim(); });
     return data;
   }
   function validate(scope) {
     var ok = true;
-    scope.querySelectorAll('input[name]').forEach(function (i) {
+    scope.querySelectorAll('input[name], select[name]').forEach(function (i) {
       var v = i.value.trim(), bad = false;
       if (i.required && !v) bad = true;
       if (i.name === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) bad = true;
@@ -696,6 +697,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // el campo Tags del CRM sabe leer (una lista no la interpreta)
       tag_list: ['landing-seguridad', 'landing-' + LANDING, 'variante-' + VARIANT].join(', ')
     };
+    // Presupuesto y plazo (perfil.js): mismos valores que las opciones del CRM
+    if (data.budget_range) p.budget_range = data.budget_range;
+    if (data.timeline) p.timeline = data.timeline;
     UTM_KEYS.concat(['referrer', 'landing_first_url', 'landing_page']).forEach(function (k) { if (c[k]) p[k] = c[k]; });
     if (v) { p.calc_precio_lote = state.price; p.calc_enganche_pct = state.down; p.calc_plazo_meses = state.term; p.calc_horizonte = state.horizon; p.calc_valor_proyectado = v.valueLabel; }
     return p;

@@ -106,3 +106,11 @@
 
   [headers.values]
     Cache-Control = "no-cache"
+
+# perfil.js (presupuesto y plazo en los formularios) igual que config.js: sus
+# opciones tienen que coincidir con las del CRM, y un cambio debe verse al instante.
+[[headers]]
+  for = "/perfil.js"
+
+  [headers.values]
+    Cache-Control = "no-cache"

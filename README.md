@@ -12,6 +12,7 @@ public/
   index.html               índice interno (noindex) con las 7 variantes
   404.html                 página de error, con la marca
   config.js                webhook del CRM, WhatsApp, textos y videos
+  perfil.js                campos de presupuesto y plazo en todos los formularios
   robots.txt               Disallow: / (ver "Indexación")
   .htaccess                solo para Apache; Netlify lo ignora
   assets/                  21 fotos y los dos logos
@@ -44,6 +45,22 @@ páginas para cambiarlos:
 
 `config.js` se sirve con `Cache-Control: no-cache`, así que los cambios se
 ven al instante sin esperar caché.
+
+## Presupuesto y plazo: `perfil.js`
+
+Todos los formularios (los de la página y el del modal) piden además dos campos
+obligatorios, que `perfil.js` agrega con el mismo estilo que el campo de al lado:
+
+| Campo en el webhook | Campo del CRM | Opciones (el valor que se manda) |
+|---|---|---|
+| `budget_range` | Budget Range | Español (MXN): `$1M - $2M` · `$2M - $3M` · `$3M - $5M` · `+$5M` — Inglés (USD): `$75K - $100K` · `$100K – $150K` · `$150K – $200K` · `$200K +` |
+| `timeline` | Horizonte de inversión | `Immediately` · `0-3 meses` · `3-6 meses` · `6-12 meses` · `12+ meses` |
+
+Los valores son idénticos a las opciones del CRM y a los del formulario squeeze de
+lotes.selvadentrotulum.com: si cambia uno, hay que cambiar los tres. `$100K – $150K` y
+`$150K – $200K` llevan guion largo (–); todos los demás, guion corto (-). En el plazo
+solo se traduce lo que se ve de "Immediately". Cada página lee `input` y `select` en
+`collect`/`validate`, y `payload()` añade `budget_range` y `timeline` al lead.
 
 Cada lead llega al CRM con el nombre de la variante en `landing_name` y
 `landing_variant`, más los UTMs, `gclid`, `fbclid` y `ttclid` que se
